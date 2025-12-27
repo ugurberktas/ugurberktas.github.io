@@ -12,78 +12,11 @@
     <style>
         * {
             font-family: 'Inter', sans-serif;
-            cursor: none;
         }
         
         body {
             background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Custom Cursor */
-        #cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #8b5cf6;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.1s ease;
-            transform: translate(-50%, -50%);
-        }
-
-        #cursor-trail {
-            width: 8px;
-            height: 8px;
-            background: #8b5cf6;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.15s ease;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 20px #8b5cf6;
-        }
-
-        /* Progress Bar */
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            background: linear-gradient(90deg, #8b5cf6, #3b82f6);
-            z-index: 9999;
-            transition: width 0.1s ease;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
-        }
-
-        /* Language Switcher */
-        .lang-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-        }
-
-        .lang-btn {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            color: white;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .lang-btn:hover, .lang-btn.active {
-            background: rgba(139, 92, 246, 0.3);
-            border-color: #8b5cf6;
         }
 
         .glass-card {
@@ -95,14 +28,8 @@
 
         .glass-card:hover {
             background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-8px) rotateX(2deg);
+            transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-        }
-
-        /* 3D Tilt Effect */
-        .tilt-card {
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease;
         }
 
         .glow-button {
@@ -140,34 +67,6 @@
             }
         }
 
-        @keyframes countUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Parallax Background */
-        .parallax-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .parallax-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
-            filter: blur(60px);
-        }
-
         .timeline-line {
             position: absolute;
             left: 0;
@@ -200,23 +99,6 @@
             box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
         }
 
-        /* Progress Bar for Skills */
-        .progress-bar {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #8b5cf6, #3b82f6);
-            border-radius: 10px;
-            transition: width 1s ease;
-            box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-        }
-
         nav a {
             transition: all 0.3s ease;
         }
@@ -236,84 +118,29 @@
         .scroll-smooth {
             scroll-behavior: smooth;
         }
-
-        /* Stats Animation */
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Testimonial Card */
-        .testimonial-card {
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            font-size: 80px;
-            color: rgba(139, 92, 246, 0.3);
-            font-family: Georgia, serif;
-        }
-
-        .hidden-lang {
-            display: none;
-        }
     </style>
 </head>
 <body class="text-gray-100 scroll-smooth">
     
-    <!-- Custom Cursor -->
-    <div id="cursor"></div>
-    <div id="cursor-trail"></div>
-
-    <!-- Scroll Progress Bar -->
-    <div id="scroll-progress"></div>
-
-    <!-- Language Switcher -->
-    <div class="lang-switcher">
-        <button class="lang-btn active" data-lang="tr">🇹🇷 TR</button>
-        <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-    </div>
-
-    <!-- Parallax Background -->
-    <div class="parallax-bg">
-        <div class="parallax-circle" style="width: 400px; height: 400px; top: 10%; left: 10%;"></div>
-        <div class="parallax-circle" style="width: 500px; height: 500px; top: 50%; right: 10%;"></div>
-        <div class="parallax-circle" style="width: 300px; height: 300px; bottom: 10%; left: 50%;"></div>
-    </div>
-    
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 h-full w-64 p-8 z-50 hidden lg:flex flex-col justify-center space-y-6">
         <div class="glass-card p-6 rounded-2xl">
-            <a href="#home" class="block text-lg font-medium mb-4 nav-link"><i class="fas fa-home mr-3"></i><span class="lang-tr">Ana Sayfa</span><span class="lang-en hidden-lang">Home</span></a>
-            <a href="#about" class="block text-lg font-medium mb-4 nav-link"><i class="fas fa-user mr-3"></i><span class="lang-tr">Hakkımda</span><span class="lang-en hidden-lang">About</span></a>
-            <a href="#stats" class="block text-lg font-medium mb-4 nav-link"><i class="fas fa-chart-line mr-3"></i><span class="lang-tr">İstatistikler</span><span class="lang-en hidden-lang">Stats</span></a>
-            <a href="#experience" class="block text-lg font-medium mb-4 nav-link"><i class="fas fa-briefcase mr-3"></i><span class="lang-tr">Deneyim</span><span class="lang-en hidden-lang">Experience</span></a>
-            <a href="#skills" class="block text-lg font-medium mb-4 nav-link"><i class="fas fa-code mr-3"></i><span class="lang-tr">Yetenekler</span><span class="lang-en hidden-lang">Skills</span></a>
-            <a href="#certificates" class="block text-lg font-medium mb-4 nav-link"><i class="fas fa-certificate mr-3"></i><span class="lang-tr">Sertifikalar</span><span class="lang-en hidden-lang">Certificates</span></a>
-            <a href="#testimonials" class="block text-lg font-medium mb-4 nav-link"><i class="fas fa-quote-left mr-3"></i><span class="lang-tr">Referanslar</span><span class="lang-en hidden-lang">References</span></a>
-            <a href="#contact" class="block text-lg font-medium nav-link"><i class="fas fa-envelope mr-3"></i><span class="lang-tr">İletişim</span><span class="lang-en hidden-lang">Contact</span></a>
+            <a href="#home" class="block text-lg font-medium mb-4"><i class="fas fa-home mr-3"></i>Ana Sayfa</a>
+            <a href="#about" class="block text-lg font-medium mb-4"><i class="fas fa-user mr-3"></i>Hakkımda</a>
+            <a href="#experience" class="block text-lg font-medium mb-4"><i class="fas fa-briefcase mr-3"></i>Deneyim</a>
+            <a href="#skills" class="block text-lg font-medium mb-4"><i class="fas fa-code mr-3"></i>Yetenekler</a>
+            <a href="#contact" class="block text-lg font-medium"><i class="fas fa-envelope mr-3"></i>İletişim</a>
         </div>
     </nav>
 
     <!-- Mobile Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 lg:hidden">
-        <div class="glass-card m-4 p-4 rounded-2xl flex justify-around text-sm">
-            <a href="#home"><i class="fas fa-home"></i></a>
-            <a href="#about"><i class="fas fa-user"></i></a>
-            <a href="#stats"><i class="fas fa-chart-line"></i></a>
-            <a href="#experience"><i class="fas fa-briefcase"></i></a>
-            <a href="#skills"><i class="fas fa-code"></i></a>
-            <a href="#certificates"><i class="fas fa-certificate"></i></a>
-            <a href="#testimonials"><i class="fas fa-quote-left"></i></a>
-            <a href="#contact"><i class="fas fa-envelope"></i></a>
+        <div class="glass-card m-4 p-4 rounded-2xl flex justify-around">
+            <a href="#home" class="text-lg"><i class="fas fa-home"></i></a>
+            <a href="#about" class="text-lg"><i class="fas fa-user"></i></a>
+            <a href="#experience" class="text-lg"><i class="fas fa-briefcase"></i></a>
+            <a href="#skills" class="text-lg"><i class="fas fa-code"></i></a>
+            <a href="#contact" class="text-lg"><i class="fas fa-envelope"></i></a>
         </div>
     </nav>
 
@@ -326,11 +153,10 @@
                 <h1 class="text-5xl lg:text-7xl font-bold mb-6 hero-gradient">Uğur Berktaş</h1>
                 <p class="text-2xl lg:text-3xl text-gray-300 mb-4">Software Engineer</p>
                 <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
-                    <span class="lang-tr">Yapay zeka ve veri mühendisliğine odaklanan tutkulu bir öğrenci. Güçlü iletişim ve teknik becerilerle etkili çözümler üretmeyi hedefliyorum.</span>
-                    <span class="lang-en hidden-lang">A passionate learner focusing on Artificial Intelligence and Data Engineering. Aiming to deliver impactful solutions through strong communication and technical skills.</span>
+                    Yapay zeka ve veri mühendisliğine odaklanan tutkulu bir öğrenci. Güçlü iletişim ve teknik becerilerle etkili çözümler üretmeyi hedefliyorum.
                 </p>
                 <a href="#contact" class="glow-button inline-block bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-full text-lg font-semibold">
-                    <span class="lang-tr">İletişime Geç</span><span class="lang-en hidden-lang">Get in Touch</span> <i class="fas fa-arrow-right ml-2"></i>
+                    İletişime Geç <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
         </section>
@@ -338,90 +164,30 @@
         <!-- About Section -->
         <section id="about" class="min-h-screen flex items-center justify-center py-20">
             <div class="max-w-4xl slide-up" style="animation-delay: 0.2s">
-                <h2 class="text-4xl font-bold mb-8 hero-gradient">
-                    <span class="lang-tr">Hakkımda</span>
-                    <span class="lang-en hidden-lang">About Me</span>
-                </h2>
-                <div class="glass-card p-8 rounded-3xl tilt-card">
+                <h2 class="text-4xl font-bold mb-8 hero-gradient">Hakkımda</h2>
+                <div class="glass-card p-8 rounded-3xl">
                     <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                        <span class="lang-tr">Fırat Üniversitesi Yazılım Mühendisliği öğrencisiyim. N11, DenizBank ve Intertech gibi sektör lideri kurumlarda edindiğim test, altyapı ve yapay zeka deneyimleriyle güçlü bir teknik zemin oluşturdum.</span>
-                        <span class="lang-en hidden-lang">I'm a Software Engineering student at Fırat University. I've built a strong technical foundation through my experience in testing, infrastructure, and artificial intelligence at industry-leading institutions like N11, DenizBank, and Intertech.</span>
+                        Fırat Üniversitesi Yazılım Mühendisliği öğrencisiyim. N11, DenizBank ve Intertech gibi sektör lideri kurumlarda edindiğim test, altyapı ve yapay zeka deneyimleriyle güçlü bir teknik zemin oluşturdum.
                     </p>
                     <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                        <span class="lang-tr">Bu birikimi Fintech odaklı kariyer hedefimle birleştirerek; teorik bilgiyi pratiğe döken, yenilikçi finansal teknolojiler geliştirmeye ve takımınıza değer katmaya odaklıyım.</span>
-                        <span class="lang-en hidden-lang">By combining this experience with my Fintech-focused career goals, I'm focused on turning theoretical knowledge into practice, developing innovative financial technologies, and adding value to your team.</span>
+                        Bu birikimi Fintech odaklı kariyer hedefimle birleştirerek; teorik bilgiyi pratiğe döken, yenilikçi finansal teknolojiler geliştirmeye ve takımınıza değer katmaya odaklıyım.
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                        <div class="glass-card p-4 rounded-xl text-center tilt-card">
+                        <div class="glass-card p-4 rounded-xl text-center">
                             <i class="fas fa-graduation-cap text-3xl text-purple-400 mb-2"></i>
-                            <p class="text-sm text-gray-400">
-                                <span class="lang-tr">Eğitim</span>
-                                <span class="lang-en hidden-lang">Education</span>
-                            </p>
-                            <p class="font-semibold">
-                                <span class="lang-tr">Fırat Üniversitesi</span>
-                                <span class="lang-en hidden-lang">Fırat University</span>
-                            </p>
+                            <p class="text-sm text-gray-400">Eğitim</p>
+                            <p class="font-semibold">Fırat Üniversitesi</p>
                         </div>
-                        <div class="glass-card p-4 rounded-xl text-center tilt-card">
+                        <div class="glass-card p-4 rounded-xl text-center">
                             <i class="fas fa-map-marker-alt text-3xl text-blue-400 mb-2"></i>
-                            <p class="text-sm text-gray-400">
-                                <span class="lang-tr">Konum</span>
-                                <span class="lang-en hidden-lang">Location</span>
-                            </p>
-                            <p class="font-semibold">
-                                <span class="lang-tr">İstanbul, Türkiye</span>
-                                <span class="lang-en hidden-lang">Istanbul, Turkey</span>
-                            </p>
+                            <p class="text-sm text-gray-400">Konum</p>
+                            <p class="font-semibold">İstanbul, Türkiye</p>
                         </div>
-                        <div class="glass-card p-4 rounded-xl text-center tilt-card">
+                        <div class="glass-card p-4 rounded-xl text-center">
                             <i class="fas fa-laptop-code text-3xl text-purple-400 mb-2"></i>
-                            <p class="text-sm text-gray-400">
-                                <span class="lang-tr">Odak</span>
-                                <span class="lang-en hidden-lang">Focus</span>
-                            </p>
+                            <p class="text-sm text-gray-400">Odak</p>
                             <p class="font-semibold">AI & Fintech</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section id="stats" class="py-20">
-            <div class="max-w-5xl mx-auto slide-up" style="animation-delay: 0.3s">
-                <h2 class="text-4xl font-bold mb-12 text-center hero-gradient">
-                    <span class="lang-tr">İstatistikler</span>
-                    <span class="lang-en hidden-lang">Statistics</span>
-                </h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="glass-card p-8 rounded-3xl text-center tilt-card">
-                        <div class="stat-number" data-target="6">0</div>
-                        <p class="text-gray-400 mt-2">
-                            <span class="lang-tr">İş Deneyimi</span>
-                            <span class="lang-en hidden-lang">Work Experience</span>
-                        </p>
-                    </div>
-                    <div class="glass-card p-8 rounded-3xl text-center tilt-card">
-                        <div class="stat-number" data-target="10">0</div>
-                        <p class="text-gray-400 mt-2">
-                            <span class="lang-tr">Sertifika</span>
-                            <span class="lang-en hidden-lang">Certificates</span>
-                        </p>
-                    </div>
-                    <div class="glass-card p-8 rounded-3xl text-center tilt-card">
-                        <div class="stat-number" data-target="15">0</div>
-                        <p class="text-gray-400 mt-2">
-                            <span class="lang-tr">Teknoloji</span>
-                            <span class="lang-en hidden-lang">Technologies</span>
-                        </p>
-                    </div>
-                    <div class="glass-card p-8 rounded-3xl text-center tilt-card">
-                        <div class="stat-number" data-target="2">0</div>
-                        <p class="text-gray-400 mt-2">
-                            <span class="lang-tr">Yıl Tecrübe</span>
-                            <span class="lang-en hidden-lang">Years Experience</span>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -430,50 +196,26 @@
         <!-- Experience Section -->
         <section id="experience" class="min-h-screen py-20">
             <div class="max-w-5xl mx-auto slide-up" style="animation-delay: 0.4s">
-                <h2 class="text-4xl font-bold mb-12 hero-gradient">
-                    <span class="lang-tr">Deneyim</span>
-                    <span class="lang-en hidden-lang">Experience</span>
-                </h2>
+                <h2 class="text-4xl font-bold mb-12 hero-gradient">Deneyim</h2>
                 <div class="relative pl-8">
                     <div class="timeline-line"></div>
                     
                     <!-- Habitat Derneği -->
                     <div class="mb-12 relative">
                         <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-2xl tilt-card">
+                        <div class="glass-card p-6 rounded-2xl">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
                                 <div>
-                                    <h3 class="text-2xl font-bold text-purple-400">
-                                        <span class="lang-tr">Gönüllü Eğitmen</span>
-                                        <span class="lang-en hidden-lang">Volunteer Trainer</span>
-                                    </h3>
-                                    <p class="text-lg text-gray-300">
-                                        <span class="lang-tr">Habitat Derneği</span>
-                                        <span class="lang-en hidden-lang">Habitat Association</span>
-                                    </p>
+                                    <h3 class="text-2xl font-bold text-purple-400">Gönüllü Eğitmen</h3>
+                                    <p class="text-lg text-gray-300">Habitat Derneği</p>
                                 </div>
-                                <span class="text-sm text-gray-400 mt-2 md:mt-0">
-                                    <span class="lang-tr">Aralık 2025 - Devam Ediyor</span>
-                                    <span class="lang-en hidden-lang">Dec 2025 - Present</span>
-                                </span>
+                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Aralık 2025 - Devam Ediyor</span>
                             </div>
-                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>
-                                <span class="lang-tr">Türkiye</span>
-                                <span class="lang-en hidden-lang">Turkey</span>
-                            </p>
+                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Türkiye</p>
                             <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>
-                                    <span class="lang-tr">Finansal okuryazarlık eğitimlerinin sahada uygulanması</span>
-                                    <span class="lang-en hidden-lang">Field implementation of financial literacy trainings</span>
-                                </li>
-                                <li>
-                                    <span class="lang-tr">Eğitim organizasyonlarının ve lojistik süreçlerin yönetimi</span>
-                                    <span class="lang-en hidden-lang">Management of training organizations and logistics processes</span>
-                                </li>
-                                <li>
-                                    <span class="lang-tr">Topluluk önünde etkili sunum ve interaktif bilgi aktarımı</span>
-                                    <span class="lang-en hidden-lang">Effective presentation and interactive knowledge transfer to communities</span>
-                                </li>
+                                <li>Finansal okuryazarlık eğitimlerinin sahada uygulanması</li>
+                                <li>Eğitim organizasyonlarının ve lojistik süreçlerin yönetimi</li>
+                                <li>Topluluk önünde etkili sunum ve interaktif bilgi aktarımı</li>
                             </ul>
                         </div>
                     </div>
@@ -481,64 +223,34 @@
                     <!-- FÜBET -->
                     <div class="mb-12 relative">
                         <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-2xl tilt-card">
+                        <div class="glass-card p-6 rounded-2xl">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
                                 <div>
-                                    <h3 class="text-2xl font-bold text-purple-400">
-                                        <span class="lang-tr">Genel Sekreter</span>
-                                        <span class="lang-en hidden-lang">General Secretary</span>
-                                    </h3>
-                                    <p class="text-lg text-gray-300">
-                                        <span class="lang-tr">Fırat Üniversitesi Bilişim Ve Eğitim Topluluğu</span>
-                                        <span class="lang-en hidden-lang">Fırat University IT & Education Community</span>
-                                    </p>
+                                    <h3 class="text-2xl font-bold text-purple-400">Genel Sekreter</h3>
+                                    <p class="text-lg text-gray-300">Fırat Üniversitesi Bilişim Ve Eğitim Topluluğu</p>
                                 </div>
-                                <span class="text-sm text-gray-400 mt-2 md:mt-0">
-                                    <span class="lang-tr">Mayıs 2025 - Devam Ediyor</span>
-                                    <span class="lang-en hidden-lang">May 2025 - Present</span>
-                                </span>
+                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Mayıs 2025 - Devam Ediyor</span>
                             </div>
-                            <p class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i>
-                                <span class="lang-tr">Elazığ, Türkiye</span>
-                                <span class="lang-en hidden-lang">Elazığ, Turkey</span>
-                            </p>
+                            <p class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i>Elazığ, Türkiye</p>
                         </div>
                     </div>
 
                     <!-- Intertech -->
                     <div class="mb-12 relative">
                         <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-2xl tilt-card">
+                        <div class="glass-card p-6 rounded-2xl">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
                                 <div>
-                                    <h3 class="text-2xl font-bold text-purple-400">
-                                        <span class="lang-tr">Sistem Mühendisi (Stajyer)</span>
-                                        <span class="lang-en hidden-lang">System Engineer (Intern)</span>
-                                    </h3>
+                                    <h3 class="text-2xl font-bold text-purple-400">Sistem Mühendisi (Stajyer)</h3>
                                     <p class="text-lg text-gray-300">Intertech</p>
                                 </div>
-                                <span class="text-sm text-gray-400 mt-2 md:mt-0">
-                                    <span class="lang-tr">Ağustos 2025 - Eylül 2025</span>
-                                    <span class="lang-en hidden-lang">Aug 2025 - Sep 2025</span>
-                                </span>
+                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Ağustos 2025 - Eylül 2025</span>
                             </div>
-                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>
-                                <span class="lang-tr">İstanbul, Türkiye</span>
-                                <span class="lang-en hidden-lang">Istanbul, Turkey</span>
-                            </p>
+                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>İstanbul, Türkiye</p>
                             <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>
-                                    <span class="lang-tr">Yazılım ve sistem mühendisliği süreçlerini öğrenme ve uygulama</span>
-                                    <span class="lang-en hidden-lang">Learning and applying software and system engineering processes</span>
-                                </li>
-                                <li>
-                                    <span class="lang-tr">Chatbot geliştirme projesinde tasarım, entegrasyon ve test süreçlerine katkı</span>
-                                    <span class="lang-en hidden-lang">Contributing to design, integration and testing processes in chatbot development project</span>
-                                </li>
-                                <li>
-                                    <span class="lang-tr">Takım içi koordinasyon ve dokümantasyon süreçlerinde aktif rol</span>
-                                    <span class="lang-en hidden-lang">Active role in team coordination and documentation processes</span>
-                                </li>
+                                <li>Yazılım ve sistem mühendisliği süreçlerini öğrenme ve uygulama</li>
+                                <li>Chatbot geliştirme projesinde tasarım, entegrasyon ve test süreçlerine katkı</li>
+                                <li>Takım içi koordinasyon ve dokümantasyon süreçlerinde aktif rol</li>
                             </ul>
                         </div>
                     </div>
@@ -546,32 +258,216 @@
                     <!-- DenizBank -->
                     <div class="mb-12 relative">
                         <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-2xl tilt-card">
+                        <div class="glass-card p-6 rounded-2xl">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
                                 <div>
-                                    <h3 class="text-2xl font-bold text-purple-400">
-                                        <span class="lang-tr">Veri Bilimi ve Yapay Zeka Fakültesi</span>
-                                        <span class="lang-en hidden-lang">Data Science & AI Faculty</span>
-                                    </h3>
+                                    <h3 class="text-2xl font-bold text-purple-400">Veri Bilimi ve Yapay Zeka Fakültesi</h3>
                                     <p class="text-lg text-gray-300">DenizBank</p>
                                 </div>
-                                <span class="text-sm text-gray-400 mt-2 md:mt-0">
-                                    <span class="lang-tr">Ağustos 2025</span>
-                                    <span class="lang-en hidden-lang">Aug 2025</span>
-                                </span>
+                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Ağustos 2025</span>
                             </div>
-                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>
-                                <span class="lang-tr">İstanbul, Türkiye</span>
-                                <span class="lang-en hidden-lang">Istanbul, Turkey</span>
-                            </p>
+                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>İstanbul, Türkiye</p>
                             <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>
-                                    <span class="lang-tr">Yapay zeka ve makine öğrenimi temelleri üzerine uygulamalı eğitim</span>
-                                    <span class="lang-en hidden-lang">Practical training on AI and machine learning fundamentals</span>
-                                </li>
-                                <li>
-                                    <span class="lang-tr">Veri analizi, modelleme ve problem çözme teknikleri</span>
-                                    <span class="lang-en hidden-lang">Data analysis, modeling and problem solving techniques</span>
-                                </li>
-                                <li>
-                                    <span class="lang-tr">Pr
+                                <li>Yapay zeka ve makine öğrenimi temelleri üzerine uygulamalı eğitim</li>
+                                <li>Veri analizi, modelleme ve problem çözme teknikleri</li>
+                                <li>Proje tabanlı çalışmalarla teorik bilgileri pratikle pekiştirme</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- N11 -->
+                    <div class="mb-12 relative">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-purple-400">Test Mühendisi (Stajyer)</h3>
+                                    <p class="text-lg text-gray-300">N11</p>
+                                </div>
+                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Temmuz 2025 - Ağustos 2025</span>
+                            </div>
+                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>İstanbul, Türkiye</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                <li>Fonksiyonel ve kullanıcı deneyimi testleri gerçekleştirme</li>
+                                <li>Postman ile API testleri ve Jenkins ile otomasyon testleri</li>
+                                <li>Ekip içi koordinasyon ve dokümantasyon süreçlerinde aktif rol</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Elmar Yazılım -->
+                    <div class="mb-12 relative">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-purple-400">Yazılım Geliştirici (Part-time)</h3>
+                                    <p class="text-lg text-gray-300">Elmar Yazılım</p>
+                                </div>
+                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Eylül 2024 - Ocak 2025</span>
+                            </div>
+                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Elazığ, Türkiye</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                <li>C# ve DevExpress kullanarak kullanıcı dostu masaüstü uygulamalar geliştirme</li>
+                                <li>Veritabanı işlemlerini tasarlama ve yönetme</li>
+                                <li>İş akışının verimliliğini artırma</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="min-h-screen py-20">
+            <div class="max-w-5xl mx-auto slide-up" style="animation-delay: 0.6s">
+                <h2 class="text-4xl font-bold mb-12 hero-gradient">Yetenekler</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-2xl font-bold mb-6 text-purple-400"><i class="fas fa-code mr-3"></i>Programlama Dilleri</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="skill-badge px-4 py-2 rounded-full">Python</span>
+                            <span class="skill-badge px-4 py-2 rounded-full">C</span>
+                            <span class="skill-badge px-4 py-2 rounded-full">C#</span>
+                            <span class="skill-badge px-4 py-2 rounded-full">Java</span>
+                            <span class="skill-badge px-4 py-2 rounded-full">SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-2xl font-bold mb-6 text-blue-400"><i class="fas fa-tools mr-3"></i>Araçlar & Teknolojiler</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="skill-badge px-4 py-2 rounded-full">Docker</span>
+                            <span class="skill-badge px-4 py-2 rounded-full">Kubernetes</span>
+                            <span class="skill-badge px-4 py-2 rounded-full">Jenkins</span>
+                            <span class="skill-badge px-4 py-2 rounded-full">AWS</span>
+                            <span class="skill-badge px-4 py-2 rounded-full">Git/GitHub</span>
+                            <span class="skill-badge px-4 py-2 rounded-full">DevExpress</span>
+                            <span class="skill-badge px-4 py-2 rounded-full">CI/CD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-6 text-purple-400"><i class="fas fa-brain mr-3"></i>Teknik Beceriler</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge px-4 py-2 rounded-full">Data Structures & Algorithms</span>
+                        <span class="skill-badge px-4 py-2 rounded-full">Test Automation</span>
+                        <span class="skill-badge px-4 py-2 rounded-full">API Testing</span>
+                        <span class="skill-badge px-4 py-2 rounded-full">SDLC</span>
+                        <span class="skill-badge px-4 py-2 rounded-full">Version Control</span>
+                        <span class="skill-badge px-4 py-2 rounded-full">UI/UX Principles</span>
+                        <span class="skill-badge px-4 py-2 rounded-full">Problem Solving</span>
+                        <span class="skill-badge px-4 py-2 rounded-full">Analytical Thinking</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="min-h-screen flex items-center justify-center py-20">
+            <div class="max-w-4xl w-full slide-up" style="animation-delay: 0.8s">
+                <h2 class="text-4xl font-bold mb-12 text-center hero-gradient">İletişim</h2>
+                <div class="glass-card p-12 rounded-3xl text-center">
+                    <p class="text-xl text-gray-300 mb-8">
+                        Benimle iletişime geçmek için aşağıdaki kanalları kullanabilirsiniz.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                        <a href="mailto:ugur_berktas@icloud.com" class="glass-card p-6 rounded-2xl hover:scale-105 transition-transform">
+                            <i class="fas fa-envelope text-4xl text-purple-400 mb-3"></i>
+                            <p class="text-sm text-gray-400">Email</p>
+                            <p class="font-semibold">ugur_berktas@icloud.com</p>
+                        </a>
+                        
+                        <a href="tel:+905443203441" class="glass-card p-6 rounded-2xl hover:scale-105 transition-transform">
+                            <i class="fas fa-phone text-4xl text-blue-400 mb-3"></i>
+                            <p class="text-sm text-gray-400">Telefon</p>
+                            <p class="font-semibold">+90 544 320 34 41</p>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/in/ugurberktas" target="_blank" class="glass-card p-6 rounded-2xl hover:scale-105 transition-transform">
+                            <i class="fab fa-linkedin text-4xl text-purple-400 mb-3"></i>
+                            <p class="text-sm text-gray-400">LinkedIn</p>
+                            <p class="font-semibold">ugurberktas</p>
+                        </a>
+                    </div>
+
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://github.com/ugurberktas" target="_blank" class="text-3xl hover:text-purple-400 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linktr.ee/UgurBerktas" target="_blank" class="text-3xl hover:text-purple-400 transition-colors">
+                            <i class="fas fa-link"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 text-gray-400">
+            <p>&copy; 2025 Uğur Berktaş. Tüm hakları saklıdır.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.slide-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add active state to nav links on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-purple-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-purple-400');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

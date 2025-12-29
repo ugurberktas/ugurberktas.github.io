@@ -1,446 +1,762 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B8T7FT2RDC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-B8T7FT2RDC');
-
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uğur Berktaş - Software Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Inter', sans-serif;
         }
-        
+
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --secondary: #0ea5e9;
+            --accent: #3b82f6;
+            --bg-dark: #0f172a;
+            --bg-darker: #020617;
+            --text-light: #f8fafc;
+            --text-gray: #cbd5e1;
+            --border: rgba(59, 130, 246, 0.2);
+        }
+
         body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 50%, var(--bg-darker) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
             min-height: 100vh;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-        }
-
-        .glow-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
 
-        .glow-button:hover {
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
-            transform: scale(1.05);
-        }
-
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        .slide-up {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideUp 0.8s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .timeline-line {
+        .hero::before {
+            content: '';
             position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #8b5cf6, #3b82f6);
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -6px;
-            top: 8px;
-            width: 14px;
-            height: 14px;
-            background: #8b5cf6;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
             border-radius: 50%;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+            top: -250px;
+            right: -250px;
+            animation: float 8s ease-in-out infinite;
         }
 
-        .skill-badge {
-            background: rgba(139, 92, 246, 0.2);
-            border: 1px solid rgba(139, 92, 246, 0.4);
-            transition: all 0.3s ease;
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -200px;
+            animation: float 10s ease-in-out infinite reverse;
         }
 
-        .skill-badge:hover {
-            background: rgba(139, 92, 246, 0.3);
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 30px); }
         }
 
-        nav a {
-            transition: all 0.3s ease;
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
-        nav a:hover {
-            color: #8b5cf6;
-            transform: translateX(5px);
+        .hero-image {
+            position: relative;
         }
 
-        .hero-gradient {
-            background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+        .image-wrapper {
+            width: 320px;
+            height: 320px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            animation: rotate 8s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-dark);
+            background: linear-gradient(135deg, #1e40af 0%, #0ea5e9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .scroll-smooth {
-            scroll-behavior: smooth;
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-text .intro {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--secondary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: var(--secondary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-category {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(59, 130, 246, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .experience-card:hover {
+            transform: translateX(8px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            flex: 1;
+        }
+
+        .experience-title h3 {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+        }
+
+        .company {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .experience-date {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .experience-description {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .experience-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-list li {
+            color: var(--text-gray);
+            margin-bottom: 0.7rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 1rem 2rem;
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .contact-link i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .cv-download {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .cv-download a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .cv-download a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-gray);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .image-wrapper {
+                width: 250px;
+                height: 250px;
+            }
+
+            .profile-image {
+                font-size: 90px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                padding: 2rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
-<body class="text-gray-100 scroll-smooth">
-    
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 h-full w-64 p-8 z-50 hidden lg:flex flex-col justify-center space-y-6">
-        <div class="glass-card p-6 rounded-2xl">
-            <a href="#home" class="block text-lg font-medium mb-4"><i class="fas fa-home mr-3"></i>Ana Sayfa</a>
-            <a href="#about" class="block text-lg font-medium mb-4"><i class="fas fa-user mr-3"></i>Hakkımda</a>
-            <a href="#experience" class="block text-lg font-medium mb-4"><i class="fas fa-briefcase mr-3"></i>Deneyim</a>
-            <a href="#skills" class="block text-lg font-medium mb-4"><i class="fas fa-code mr-3"></i>Yetenekler</a>
-            <a href="#contact" class="block text-lg font-medium"><i class="fas fa-envelope mr-3"></i>İletişim</a>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <div class="profile-image">
+                            UB
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-text">
+                    <h1>Uğur Berktaş</h1>
+                    <p class="subtitle">Yazılım Mühendisliği Öğrencisi | Sistem & DevOps Meraklısı</p>
+                    <p class="intro">
+                        N11, DenizBank ve Intertech gibi sektör liderlerinde edindiğim <strong class="highlight">test otomasyonu, sistem altyapısı ve yapay zeka</strong> deneyimlerini Fintech sektöründeki dijital dönüşümün merkezine taşımak istiyorum. DevOps prensiplerini benimseyen, uzaktan çalışma disiplinine sahip ve <strong class="highlight">kurumsal projelerde değer yaratmaya</strong> odaklı bir mühendis adayıyım. Hedefim: Finans teknolojilerinin geleceğini şekillendiren ekiplerin bir parçası olmak.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> İletişime Geç
+                        </a>
+                        <a href="https://linkedin.com/in/ugurberktas" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
+    </section>
 
-    <!-- Mobile Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 lg:hidden">
-        <div class="glass-card m-4 p-4 rounded-2xl flex justify-around">
-            <a href="#home" class="text-lg"><i class="fas fa-home"></i></a>
-            <a href="#about" class="text-lg"><i class="fas fa-user"></i></a>
-            <a href="#experience" class="text-lg"><i class="fas fa-briefcase"></i></a>
-            <a href="#skills" class="text-lg"><i class="fas fa-code"></i></a>
-            <a href="#contact" class="text-lg"><i class="fas fa-envelope"></i></a>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="lg:ml-64 px-6 lg:px-12 py-20 lg:py-12">
-        
-        <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex items-center justify-center">
-            <div class="text-center fade-in">
-                <h1 class="text-5xl lg:text-7xl font-bold mb-6 hero-gradient">Uğur Berktaş</h1>
-                <p class="text-2xl lg:text-3xl text-gray-300 mb-4">Software Engineer</p>
-                <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
-                    Yapay zeka ve veri mühendisliğine odaklanan tutkulu bir öğrenci. Güçlü iletişim ve teknik becerilerle etkili çözümler üretmeyi hedefliyorum.
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Hakkımda</h2>
+            <div class="about-content">
+                <p>
+                    <span class="highlight">Fırat Üniversitesi Yazılım Mühendisliği</span> öğrencisi olarak, teorik bilgiyi pratik projelere dönüştürme konusunda tutkulu bir yaklaşım sergiliyorum. Uzaktan çalışma ortamlarında disiplinli ve özverili bir şekilde görev alabilme yetkinliğim, pandemi sonrası iş dünyasının dinamiklerine uyum sağlamamı kolaylaştırıyor.
                 </p>
-                <a href="#contact" class="glow-button inline-block bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-full text-lg font-semibold">
-                    İletişime Geç <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+                <p>
+                    <span class="highlight">Fintech</span> alanındaki ilgim, finansal sistemlerin teknoloji ile entegrasyonundan doğuyor. Özellikle <span class="highlight">sistem altyapısı, CI/CD süreçleri ve test otomasyonu</span> konularında edindiğim deneyimler, bankacılık ve sigorta sektörlerindeki dijital dönüşüm projelerinde değer katmamı sağlıyor.
+                </p>
+                <p>
+                    Takım çalışmasına yatkın, sürekli öğrenmeye açık ve <span class="highlight">iş süreçlerini optimize etmeye</span> odaklı bir yaklaşımla, yenilikçi çözümler üretmeyi hedefliyorum.
+                </p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about" class="min-h-screen flex items-center justify-center py-20">
-            <div class="max-w-4xl slide-up" style="animation-delay: 0.2s">
-                <h2 class="text-4xl font-bold mb-8 hero-gradient">Hakkımda</h2>
-                <div class="glass-card p-8 rounded-3xl">
-                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                        Fırat Üniversitesi Yazılım Mühendisliği öğrencisiyim. N11, DenizBank ve Intertech gibi sektör lideri kurumlarda edindiğim test, altyapı ve yapay zeka deneyimleriyle güçlü bir teknik zemin oluşturdum.
-                    </p>
-                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                        Bu birikimi Fintech odaklı kariyer hedefimle birleştirerek; teorik bilgiyi pratiğe döken, yenilikçi finansal teknolojiler geliştirmeye ve takımınıza değer katmaya odaklıyım.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                        <div class="glass-card p-4 rounded-xl text-center">
-                            <i class="fas fa-graduation-cap text-3xl text-purple-400 mb-2"></i>
-                            <p class="text-sm text-gray-400">Eğitim</p>
-                            <p class="font-semibold">Fırat Üniversitesi</p>
-                        </div>
-                        <div class="glass-card p-4 rounded-xl text-center">
-                            <i class="fas fa-map-marker-alt text-3xl text-blue-400 mb-2"></i>
-                            <p class="text-sm text-gray-400">Konum</p>
-                            <p class="font-semibold">İstanbul, Türkiye</p>
-                        </div>
-                        <div class="glass-card p-4 rounded-xl text-center">
-                            <i class="fas fa-laptop-code text-3xl text-purple-400 mb-2"></i>
-                            <p class="text-sm text-gray-400">Odak</p>
-                            <p class="font-semibold">AI & Fintech</p>
-                        </div>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Teknik Yetkinlikler</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> DevOps & Altyapı</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programlama & Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">OOP</span>
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">Algorithms</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-vial"></i> Test & Quality Assurance</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Test Automation</span>
+                        <span class="skill-tag">API Testing</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">SDLC</span>
+                        <span class="skill-tag">Unit Testing</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Database & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL Server</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">DevExpress</span>
+                        <span class="skill-tag">Database Design</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="min-h-screen py-20">
-            <div class="max-w-5xl mx-auto slide-up" style="animation-delay: 0.4s">
-                <h2 class="text-4xl font-bold mb-12 hero-gradient">Deneyim</h2>
-                <div class="relative pl-8">
-                    <div class="timeline-line"></div>
-                    
-                    <!-- Habitat Derneği -->
-                    <div class="mb-12 relative">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-2xl">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-purple-400">Gönüllü Eğitmen</h3>
-                                    <p class="text-lg text-gray-300">Habitat Derneği</p>
-                                </div>
-                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Aralık 2025 - Devam Ediyor</span>
-                            </div>
-                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Türkiye</p>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>Finansal okuryazarlık eğitimlerinin sahada uygulanması</li>
-                                <li>Eğitim organizasyonlarının ve lojistik süreçlerin yönetimi</li>
-                                <li>Topluluk önünde etkili sunum ve interaktif bilgi aktarımı</li>
-                            </ul>
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Deneyim & Projeler</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Sistem Mühendisi (Stajyer)</h3>
+                            <p class="company">Intertech</p>
                         </div>
+                        <span class="experience-date">Ağustos 2025 - Eylül 2025</span>
                     </div>
+                    <p class="experience-description">
+                        Sistem mühendisliği ve yazılım geliştirme süreçlerini uygulamalı olarak deneyimledim.
+                    </p>
+                    <ul class="experience-list">
+                        <li>Chatbot geliştirme projesinde tasarım, entegrasyon ve test süreçlerine katkı</li>
+                        <li>CI/CD pipeline kurulumu ve sistem altyapısı optimizasyonu</li>
+                        <li>Takım içi koordinasyon ve teknik dokümantasyon yönetimi</li>
+                    </ul>
+                </div>
 
-                    <!-- FÜBET -->
-                    <div class="mb-12 relative">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-2xl">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-purple-400">Genel Sekreter</h3>
-                                    <p class="text-lg text-gray-300">Fırat Üniversitesi Bilişim Ve Eğitim Topluluğu</p>
-                                </div>
-                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Mayıs 2025 - Devam Ediyor</span>
-                            </div>
-                            <p class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i>Elazığ, Türkiye</p>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Test Mühendisi (Stajyer)</h3>
+                            <p class="company">N11</p>
                         </div>
+                        <span class="experience-date">Temmuz 2025 - Ağustos 2025</span>
                     </div>
+                    <p class="experience-description">
+                        Türkiye'nin önde gelen e-ticaret platformunda test otomasyonu ve kalite güvence süreçlerinde görev aldım.
+                    </p>
+                    <ul class="experience-list">
+                        <li>Postman ile API testleri ve Jenkins ile otomasyon testleri geliştirme</li>
+                        <li>Fonksiyonel ve kullanıcı deneyimi testlerini gerçekleştirme</li>
+                        <li>Yazılım kalitesinin artırılmasına yönelik süreç iyileştirmeleri</li>
+                    </ul>
+                </div>
 
-                    <!-- Intertech -->
-                    <div class="mb-12 relative">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-2xl">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-purple-400">Sistem Mühendisi (Stajyer)</h3>
-                                    <p class="text-lg text-gray-300">Intertech</p>
-                                </div>
-                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Ağustos 2025 - Eylül 2025</span>
-                            </div>
-                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>İstanbul, Türkiye</p>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>Yazılım ve sistem mühendisliği süreçlerini öğrenme ve uygulama</li>
-                                <li>Chatbot geliştirme projesinde tasarım, entegrasyon ve test süreçlerine katkı</li>
-                                <li>Takım içi koordinasyon ve dokümantasyon süreçlerinde aktif rol</li>
-                            </ul>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Yapay Zeka & Veri Bilimi Fakültesi</h3>
+                            <p class="company">DenizBank</p>
                         </div>
+                        <span class="experience-date">Ağustos 2025</span>
                     </div>
+                    <p class="experience-description">
+                        Finans sektöründe yapay zeka uygulamaları üzerine yoğun eğitim programı.
+                    </p>
+                    <ul class="experience-list">
+                        <li>Yapay zeka ve makine öğrenimi temelleri üzerine uygulamalı eğitim</li>
+                        <li>Veri analizi, modelleme ve problem çözme teknikleri</li>
+                        <li>Proje tabanlı çalışmalarla teorik bilgileri Fintech'e entegre etme</li>
+                    </ul>
+                </div>
 
-                    <!-- DenizBank -->
-                    <div class="mb-12 relative">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-2xl">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-purple-400">Veri Bilimi ve Yapay Zeka Fakültesi</h3>
-                                    <p class="text-lg text-gray-300">DenizBank</p>
-                                </div>
-                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Ağustos 2025</span>
-                            </div>
-                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>İstanbul, Türkiye</p>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>Yapay zeka ve makine öğrenimi temelleri üzerine uygulamalı eğitim</li>
-                                <li>Veri analizi, modelleme ve problem çözme teknikleri</li>
-                                <li>Proje tabanlı çalışmalarla teorik bilgileri pratikle pekiştirme</li>
-                            </ul>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Yazılım Geliştirici (Part-time)</h3>
+                            <p class="company">Elmar Yazılım</p>
                         </div>
+                        <span class="experience-date">Eylül 2024 - Ocak 2025</span>
                     </div>
-
-                    <!-- N11 -->
-                    <div class="mb-12 relative">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-2xl">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-purple-400">Test Mühendisi (Stajyer)</h3>
-                                    <p class="text-lg text-gray-300">N11</p>
-                                </div>
-                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Temmuz 2025 - Ağustos 2025</span>
-                            </div>
-                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>İstanbul, Türkiye</p>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>Fonksiyonel ve kullanıcı deneyimi testleri gerçekleştirme</li>
-                                <li>Postman ile API testleri ve Jenkins ile otomasyon testleri</li>
-                                <li>Ekip içi koordinasyon ve dokümantasyon süreçlerinde aktif rol</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Elmar Yazılım -->
-                    <div class="mb-12 relative">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-2xl">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-purple-400">Yazılım Geliştirici (Part-time)</h3>
-                                    <p class="text-lg text-gray-300">Elmar Yazılım</p>
-                                </div>
-                                <span class="text-sm text-gray-400 mt-2 md:mt-0">Eylül 2024 - Ocak 2025</span>
-                            </div>
-                            <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Elazığ, Türkiye</p>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2">
-                                <li>C# ve DevExpress kullanarak kullanıcı dostu masaüstü uygulamalar geliştirme</li>
-                                <li>Veritabanı işlemlerini tasarlama ve yönetme</li>
-                                <li>İş akışının verimliliğini artırma</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <ul class="experience-list">
+                        <li>C# ve DevExpress ile kullanıcı dostu masaüstü uygulamalar geliştirme</li>
+                        <li>Veritabanı tasarımı ve SQL optimizasyonu</li>
+                        <li>İş akışı verimliliğini artıran özel yazılım çözümleri</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="min-h-screen py-20">
-            <div class="max-w-5xl mx-auto slide-up" style="animation-delay: 0.6s">
-                <h2 class="text-4xl font-bold mb-12 hero-gradient">Yetenekler</h2>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">İletişim</h2>
+            <div class="contact-content">
+                <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 2rem;">
+                    Fintech ve DevOps alanlarındaki projelerinizde birlikte çalışmak için benimle iletişime geçebilirsiniz.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:ugur.berktas@outlook.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>ugur.berktas@outlook.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/ugurberktas" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/ugurberktas" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="tel:+905443203441" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        <span>+90 544 320 34 41</span>
+                    </a>
+                </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div class="glass-card p-8 rounded-3xl">
-                        <h3 class="text-2xl font-bold mb-6 text-purple-400"><i class="fas fa-code mr-3"></i>Programlama Dilleri</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="skill-badge px-4 py-2 rounded-full">Python</span>
-                            <span class="skill-badge px-4 py-2 rounded-full">C</span>
-                            <span class="skill-badge px-4 py-2 rounded-full">C#</span>
-                            <span class="skill-badge px-4 py-2 rounded-full">Java</span>
-                            <span class="skill-badge px-4 py-2 rounded-full">SQL</span>
-                        </div>
-                    </div>
-
-                    <div class="glass-card p-8 rounded-3xl">
-                        <h3 class="text-2xl font-bold mb-6 text-blue-400"><i class="fas fa-tools mr-3"></i>Araçlar & Teknolojiler</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="skill-badge px-4 py-2 rounded-full">Docker</span>
-                            <span class="skill-badge px-4 py-2 rounded-full">Kubernetes</span>
-                            <span class="skill-badge px-4 py-2 rounded-full">Jenkins</span>
-                            <span class="skill-badge px-4 py-2 rounded-full">AWS</span>
-                            <span class="skill-badge px-4 py-2 rounded-full">Git/GitHub</span>
-                            <span class="skill-badge px-4 py-2 rounded-full">DevExpress</span>
-                            <span class="skill-badge px-4 py-2 rounded-full">CI/CD</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card p-8 rounded-3xl">
-                    <h3 class="text-2xl font-bold mb-6 text-purple-400"><i class="fas fa-brain mr-3"></i>Teknik Beceriler</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-badge px-4 py-2 rounded-full">Data Structures & Algorithms</span>
-                        <span class="skill-badge px-4 py-2 rounded-full">Test Automation</span>
-                        <span class="skill-badge px-4 py-2 rounded-full">API Testing</span>
-                        <span class="skill-badge px-4 py-2 rounded-full">SDLC</span>
-                        <span class="skill-badge px-4 py-2 rounded-full">Version Control</span>
-                        <span class="skill-badge px-4 py-2 rounded-full">UI/UX Principles</span>
-                        <span class="skill-badge px-4 py-2 rounded-full">Problem Solving</span>
-                        <span class="skill-badge px-4 py-2 rounded-full">Analytical Thinking</span>
-                    </div>
+                <div class="cv-download">
+                    <a href="/CV_UgurBerktas.pdf" download>
+                        <i class="fas fa-download"></i>
+                        CV'mi İndir (PDF)
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="min-h-screen flex items-center justify-center py-20">
-            <div class="max-w-4xl w-full slide-up" style="animation-delay: 0.8s">
-                <h2 class="text-4xl font-bold mb-12 text-center hero-gradient">İletişim</h2>
-                <div class="glass-card p-12 rounded-3xl text-center">
-                    <p class="text-xl text-gray-300 mb-8">
-                        Benimle iletişime geçmek için aşağıdaki kanalları kullanabilirsiniz.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                        <a href="mailto:ugur_berktas@icloud.com" class="glass-card p-6 rounded-2xl hover:scale-105 transition-transform">
-                            <i class="fas fa-envelope text-4xl text-purple-400 mb-3"></i>
-                            <p class="text-sm text-gray-400">Email</p>
-                            <p class="font-semibold">ugur_berktas@icloud.com</p>
-                        </a>
-                        
-                        <a href="tel:+905443203441" class="glass-card p-6 rounded-2xl hover:scale-105 transition-transform">
-                            <i class="fas fa-phone text-4xl text-blue-400 mb-3"></i>
-                            <p class="text-sm text-gray-400">Telefon</p>
-                            <p class="font-semibold">+90 544 320 34 41</p>
-                        </a>
-                        
-                        <a href="https://www.linkedin.com/in/ugurberktas" target="_blank" class="glass-card p-6 rounded-2xl hover:scale-105 transition-transform">
-                            <i class="fab fa-linkedin text-4xl text-purple-400 mb-3"></i>
-                            <p class="text-sm text-gray-400">LinkedIn</p>
-                            <p class="font-semibold">ugurberktas</p>
-                        </a>
-                    </div>
-
-                    <div class="flex justify-center space-x-6">
-                        <a href="https://github.com/ugurberktas" target="_blank" class="text-3xl hover:text-purple-400 transition-colors">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linktr.ee/UgurBerktas" target="_blank" class="text-3xl hover:text-purple-400 transition-colors">
-                            <i class="fas fa-link"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center py-8 text-gray-400">
-            <p>&copy; 2025 Uğur Berktaş. Tüm hakları saklıdır.</p>
-        </footer>
-    </main>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Uğur Berktaş. Tüm hakları saklıdır.</p>
+    </footer>
 
     <script>
-        // Smooth scroll for navigation links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Intersection Observer for scroll animations
+        // Scroll reveal animation
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -452,31 +768,11 @@
             });
         }, observerOptions);
 
-        // Observe all animated elements
-        document.querySelectorAll('.slide-up').forEach(el => {
+        document.querySelectorAll('.skill-category, .experience-card, .about-content').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
             observer.observe(el);
-        });
-
-        // Add active state to nav links on scroll
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('nav a[href^="#"]');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('text-purple-400');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('text-purple-400');
-                }
-            });
         });
     </script>
 </body>

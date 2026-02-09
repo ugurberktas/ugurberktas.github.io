@@ -1,66 +1,191 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uğur Berktaş - Software Engineer</title>
+    <title>Uğur Berktaş — DevOps Engineer</title>
+
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        /* ========================================
+           CSS RESET & ROOT VARIABLES
+        ======================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
         }
 
         :root {
-            --primary: #1e40af;
-            --primary-dark: #1e3a8a;
-            --secondary: #0ea5e9;
-            --accent: #3b82f6;
-            --bg-dark: #0f172a;
-            --bg-darker: #020617;
-            --text-light: #f8fafc;
-            --text-gray: #cbd5e1;
-            --border: rgba(59, 130, 246, 0.2);
+            /* Ana Renk Paleti */
+            --color-white: #ffffff;
+            --color-cream: #f8fafc;
+            --color-gray-light: #e2e8f0;
+            --color-gray-mid: #94a3b8;
+            --color-gray-dark: #334155;
+            --color-black: #0f172a;
+            --color-orange: #ea580c;
+            --color-orange-light: #fb923c;
+            --color-orange-dark: #c2410c;
+
+            /* Tipografi */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            /* Animasyon Timing */
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         body {
-            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 50%, var(--bg-darker) 100%);
-            color: var(--text-light);
-            line-height: 1.6;
+            font-family: var(--font-primary);
+            background-color: var(--color-white);
+            color: var(--color-gray-dark);
+            line-height: 1.7;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
+        /* ========================================
+           UTILITY CLASSES
+        ======================================== */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 6%;
         }
 
-        /* Hero Section */
+        .container-narrow {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 6%;
+        }
+
+        /* ========================================
+           STICKY NAVBAR (GLASSMORPHISM)
+        ======================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            transition: var(--transition-smooth);
+            opacity: 0;
+            animation: navSlideDown 0.8s ease forwards 0.2s;
+        }
+
+        @keyframes navSlideDown {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .navbar.scrolled {
+            padding: 1rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-black);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--color-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-gray-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-orange);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-black);
+            cursor: pointer;
+        }
+
+        /* ========================================
+           HERO SECTION (ASIMETRIK LAYOUT)
+        ======================================== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            padding-top: 100px;
+            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-cream) 100%);
             position: relative;
             overflow: hidden;
         }
 
+        /* Dekoratif Background Şekiller */
         .hero::before {
             content: '';
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, transparent 70%);
             border-radius: 50%;
-            top: -250px;
-            right: -250px;
-            animation: float 8s ease-in-out infinite;
+            top: -200px;
+            right: -100px;
+            z-index: 0;
         }
 
         .hero::after {
@@ -68,174 +193,569 @@
             position: absolute;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(234, 88, 12, 0.05) 0%, transparent 70%);
             border-radius: 50%;
-            bottom: -200px;
-            left: -200px;
-            animation: float 10s ease-in-out infinite reverse;
+            bottom: -100px;
+            left: -150px;
+            z-index: 0;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(30px, 30px); }
-        }
-
-        .hero-content {
+        .hero-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
             align-items: center;
             position: relative;
             z-index: 1;
         }
 
-        .hero-image {
-            position: relative;
+        /* Sol Taraf: Metin İçeriği */
+        .hero-text {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
         }
 
-        .image-wrapper {
-            width: 320px;
-            height: 320px;
-            position: relative;
-            margin: 0 auto;
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            from {
+                transform: translateY(30px);
+            }
         }
 
-        .image-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: -10px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            animation: rotate 8s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--bg-dark);
-            background: linear-gradient(135deg, #1e40af 0%, #0ea5e9 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 120px;
-            color: white;
+        .hero-text .eyebrow {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-orange);
+            margin-bottom: 1.5rem;
+            display: inline-block;
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--color-black);
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--color-orange);
+            position: relative;
+            display: inline-block;
         }
 
         .hero-text .subtitle {
-            font-size: 1.3rem;
-            color: var(--secondary);
-            font-weight: 600;
+            font-size: 1.4rem;
+            color: var(--color-gray-mid);
             margin-bottom: 1.5rem;
-            letter-spacing: 0.5px;
+            line-height: 1.6;
+            max-width: 90%;
         }
 
-        .hero-text .intro {
-            font-size: 1.1rem;
-            color: var(--text-gray);
+        .hero-text .about-text {
+            font-size: 1.05rem;
+            color: var(--color-gray-dark);
+            margin-bottom: 2.5rem;
             line-height: 1.8;
-            margin-bottom: 2rem;
+            max-width: 95%;
+            text-align: justify;
         }
 
-        .cta-buttons {
+        .hero-cta {
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
         }
 
         .btn {
-            padding: 0.9rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: var(--transition-spring);
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 1rem;
+            gap: 0.7rem;
+            border: none;
+            font-family: inherit;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            background: var(--color-orange);
+            color: var(--color-white);
+            box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.5);
+            background: var(--color-orange-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(234, 88, 12, 0.4);
         }
 
         .btn-secondary {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--secondary);
-            border: 2px solid var(--border);
+            background: transparent;
+            color: var(--color-gray-dark);
+            border: 2px solid var(--color-gray-light);
         }
 
         .btn-secondary:hover {
-            background: rgba(59, 130, 246, 0.2);
-            border-color: var(--secondary);
+            border-color: var(--color-orange);
+            color: var(--color-orange);
+            transform: translateY(-3px);
         }
 
-        /* Section Styles */
-        section {
-            padding: 6rem 0;
+        /* Sağ Taraf: Profil Fotoğrafı (Blob Shape) */
+        .hero-image {
             position: relative;
+            opacity: 0;
+            animation: fadeInRight 1s ease forwards 0.5s;
+        }
+
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            from {
+                transform: translateX(50px);
+            }
+        }
+
+        .image-blob {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .image-blob::before {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            background: linear-gradient(135deg, var(--color-orange), var(--color-orange-light));
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: blobMorph 8s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes blobMorph {
+
+            0%,
+            100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+
+            50% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+            }
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            border: 8px solid var(--color-white);
+            /* Eğer fotoğraf yoksa placeholder */
+            background: linear-gradient(135deg, var(--color-orange), var(--color-orange-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            font-weight: 900;
+            color: white;
+        }
+
+        /* ========================================
+           EXPERIENCE SECTION (VERTICAL TIMELINE)
+        ======================================== */
+        .experience {
+            padding: 8rem 0;
+            background: var(--color-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-orange);
+            margin-bottom: 1rem;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--color-black);
+            letter-spacing: -1px;
         }
 
-        /* About Section */
-        .about-content {
-            max-width: 800px;
+        /* Timeline Container */
+        .timeline {
+            max-width: 1000px;
             margin: 0 auto;
-            background: rgba(15, 23, 42, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 3rem;
+            position: relative;
         }
 
-        .about-content p {
+        /* Vertical Line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--color-orange) 0%, var(--color-orange-light) 100%);
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .timeline-item.reveal {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Alternatif Yerleşim (Sol/Sağ) */
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: var(--color-cream);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 2px solid var(--color-gray-light);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 3rem;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 3rem;
+            text-align: left;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--color-orange);
+            background: var(--color-white);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(234, 88, 12, 0.1);
+        }
+
+        /* Timeline Dot */
+        .timeline-dot {
+            width: 60px;
+            height: 60px;
+            background: var(--color-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 8px rgba(234, 88, 12, 0.1);
+            z-index: 2;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-orange);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
             font-size: 1.1rem;
-            color: var(--text-gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .highlight {
-            color: var(--secondary);
+            color: var(--color-orange);
             font-weight: 600;
+            margin-bottom: 0.3rem;
         }
 
-        /* Skills Section */
-        .skills-grid {
+        .timeline-location {
+            font-size: 0.9rem;
+            color: var(--color-gray-mid);
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-description {
+            color: var(--color-gray-dark);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           PROJECTS SECTION (MASONRY GRID)
+        ======================================== */
+        .projects {
+            padding: 8rem 0;
+            background: var(--color-cream);
+        }
+
+        /* Masonry Grid Layout */
+        .projects-grid {
+            column-count: 2;
+            column-gap: 2rem;
+        }
+
+        .project-card {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            background: var(--color-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: var(--transition-smooth);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(234, 88, 12, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--color-orange-light), var(--color-orange));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 0.8rem;
+        }
+
+        .project-description {
+            color: var(--color-gray-mid);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: var(--color-cream);
+            color: var(--color-gray-dark);
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 20px;
+            border: 1px solid var(--color-gray-light);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--color-orange);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: var(--transition-smooth);
+        }
+
+        .project-link:hover {
+            gap: 0.7rem;
+            color: var(--color-orange-dark);
+        }
+
+        /* ========================================
+           CERTIFICATES SECTION (ACCORDION)
+        ======================================== */
+        .certificates {
+            padding: 8rem 0;
+            background: var(--color-white);
+        }
+
+        .certificates-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .cert-card {
+            background: var(--color-cream);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid var(--color-gray-light);
+            transition: var(--transition-smooth);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .cert-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cert-card:hover {
+            border-color: var(--color-orange);
+            background: var(--color-white);
+            transform: translateY(-5px);
+        }
+
+        .cert-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--color-orange);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cert-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: var(--color-orange);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-date {
+            color: var(--color-gray-mid);
+            font-size: 0.85rem;
+        }
+
+        /* Hidden Certificates Container */
+        .cert-card.hidden-cert {
+            display: none;
+        }
+
+        .cert-card.hidden-cert.show {
+            display: block;
+        }
+
+        /* Show More Button */
+        .show-more-wrapper {
+            text-align: center;
+        }
+
+        .btn-show-more {
+            padding: 1rem 3rem;
+            background: transparent;
+            color: var(--color-orange);
+            border: 2px solid var(--color-orange);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .btn-show-more:hover {
+            background: var(--color-orange);
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+
+        .btn-show-more i {
+            transition: var(--transition-smooth);
+        }
+
+        .btn-show-more.active i {
+            transform: rotate(180deg);
+        }
+
+        /* ========================================
+           EDUCATION SECTION
+        ======================================== */
+        .education {
+            padding: 8rem 0;
+            background: var(--color-cream);
+        }
+
+        .education-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
@@ -243,537 +763,1017 @@
             margin: 0 auto;
         }
 
-        .skill-category {
-            background: rgba(15, 23, 42, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
-        }
-
-        .skill-category h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem;
-        }
-
-        .skill-tag {
-            background: rgba(59, 130, 246, 0.15);
-            color: var(--text-light);
-            padding: 0.5rem 1rem;
+        .education-card {
+            background: var(--color-white);
+            padding: 3rem;
             border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            transition: all 0.3s ease;
+            border: 2px solid var(--color-gray-light);
+            transition: var(--transition-smooth);
+            opacity: 0;
+            transform: translateY(30px);
         }
 
-        .skill-tag:hover {
-            background: rgba(59, 130, 246, 0.3);
-            transform: scale(1.05);
+        .education-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* Experience Section */
-        .experience-grid {
-            display: grid;
-            gap: 2rem;
+        .education-card:hover {
+            border-color: var(--color-orange);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(234, 88, 12, 0.15);
         }
 
-        .experience-card {
-            background: rgba(15, 23, 42, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-        }
-
-        .experience-card:hover {
-            transform: translateX(8px);
-            border-color: var(--secondary);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .experience-title {
-            flex: 1;
-        }
-
-        .experience-title h3 {
-            font-size: 1.4rem;
-            color: var(--text-light);
-            margin-bottom: 0.3rem;
-        }
-
-        .company {
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .experience-date {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
-
-        .experience-description {
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-        }
-
-        .experience-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-list li {
-            color: var(--text-gray);
-            margin-bottom: 0.7rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .experience-list li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-        }
-
-        /* Contact Section */
-        .contact-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
+        .education-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-orange), var(--color-orange-light));
+            color: white;
             display: flex;
             align-items: center;
-            gap: 0.7rem;
-            padding: 1rem 2rem;
-            background: rgba(15, 23, 42, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--text-light);
-            transition: all 0.3s ease;
+            justify-content: center;
+            border-radius: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .education-degree {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 0.8rem;
+        }
+
+        .education-school {
+            font-size: 1.1rem;
+            color: var(--color-orange);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-year {
+            font-size: 0.95rem;
+            color: var(--color-gray-mid);
             font-weight: 500;
         }
 
-        .contact-link:hover {
-            border-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        /* ========================================
+           CONTACT SECTION (BIG & BOLD)
+        ======================================== */
+        .contact {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-white) 100%);
         }
 
-        .contact-link i {
-            font-size: 1.5rem;
-            color: var(--secondary);
+        .contact-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .cv-download {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
+        .contact-headline {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--color-black);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
         }
 
-        .cv-download a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
+        .contact-headline .highlight {
+            color: var(--color-orange);
+        }
+
+        .contact-subtext {
+            font-size: 1.2rem;
+            color: var(--color-gray-mid);
+            margin-bottom: 3rem;
+        }
+
+        .contact-email {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-orange);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 3rem;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-email:hover {
+            color: var(--color-orange-dark);
+            transform: scale(1.05);
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 1.2rem 2.5rem;
+            background: var(--color-white);
+            color: var(--color-gray-dark);
             text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            border: 2px solid var(--color-gray-light);
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1rem;
         }
 
-        .cv-download a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.5);
+        .contact-btn:hover {
+            border-color: var(--color-orange);
+            color: var(--color-orange);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(234, 88, 12, 0.15);
         }
 
-        /* Footer */
+        .contact-btn i {
+            font-size: 1.3rem;
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
         footer {
+            background: var(--color-black);
+            color: var(--color-gray-mid);
+            padding: 3rem 0;
             text-align: center;
-            padding: 2rem;
-            color: var(--text-gray);
-            border-top: 1px solid var(--border);
         }
 
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero-content {
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        /* ========================================
+           SCROLL REVEAL ANIMATION TRIGGER
+        ======================================== */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-reveal.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 1200px) {
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .projects-grid {
+                column-count: 2;
+            }
+
+            .certificates-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .education-list {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 2rem;
+                border-radius: 20px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                transition: right 0.4s ease;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                right: 6%;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
                 text-align: center;
-                gap: 2rem;
             }
 
             .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-text .subtitle {
+                max-width: 100%;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .image-blob {
+                width: 300px;
+                height: 300px;
+            }
+
+            /* Timeline için mobil düzenleme */
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 3rem;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .projects-grid {
+                column-count: 1;
+            }
+
+            .certificates-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-headline {
                 font-size: 2.5rem;
+            }
+
+            .contact-email {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
             }
 
             .hero-text .subtitle {
                 font-size: 1.1rem;
             }
 
-            .cta-buttons {
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .contact-headline {
+                font-size: 2rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
                 justify-content: center;
             }
 
-            .image-wrapper {
-                width: 250px;
-                height: 250px;
-            }
-
-            .profile-image {
-                font-size: 90px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 4rem 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .about-content {
-                padding: 2rem;
-            }
-
-            .experience-header {
+            .contact-buttons {
                 flex-direction: column;
             }
 
-            .contact-links {
-                flex-direction: column;
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            .timeline-title {
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- Hero Section -->
+    <!-- ========================================
+         STICKY NAVBAR
+    ======================================== -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo">Uğur <span>Berktaş</span></a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#deneyim">Deneyim</a></li>
+                    <li><a href="#projeler">Projeler</a></li>
+                    <li><a href="#sertifikalar">Sertifikalar</a></li>
+                    <li><a href="#egitim">Eğitim</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION (ASIMETRIK)
+    ======================================== -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-image">
-                    <div class="image-wrapper">
-                        <div class="profile-image">
-                            UB
-                        </div>
-                    </div>
-                </div>
+            <div class="hero-grid">
+                <!-- Sol: Metin İçeriği -->
                 <div class="hero-text">
-                    <h1>Uğur Berktaş</h1>
-                    <p class="subtitle">Yazılım Mühendisliği Öğrencisi | Sistem & DevOps Meraklısı</p>
-                    <p class="intro">
-                        N11, DenizBank ve Intertech gibi sektör liderlerinde edindiğim <strong class="highlight">test otomasyonu, sistem altyapısı ve yapay zeka</strong> deneyimlerini Fintech sektöründeki dijital dönüşümün merkezine taşımak istiyorum. DevOps prensiplerini benimseyen, uzaktan çalışma disiplinine sahip ve <strong class="highlight">kurumsal projelerde değer yaratmaya</strong> odaklı bir mühendis adayıyım. Hedefim: Finans teknolojilerinin geleceğini şekillendiren ekiplerin bir parçası olmak.
+                    <span class="eyebrow">Junior DevOps Engineer</span>
+                    <h1>
+                        Finansal Teknolojiler ve <span class="highlight">Altyapı Mimarisini</span> üzerine çalışıyorum
+                    </h1>
+                    <p class="subtitle">
+                        N11, DenizBank ve Intertech gibi sektör liderlerinde edindiğim deneyimlerle,
+                        Fintech ekosisteminin geleceğini şekillendirmek için yolculuktayım.
                     </p>
-                    <div class="cta-buttons">
-                        <a href="#contact" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i> İletişime Geç
+                    <p class="about-text">
+                        Fırat Üniversitesi Yazılım Mühendisliği öğrencisi ve Junior DevOps Engineer adayıyım.
+                        Kariyerimi; modern bulut mimarileri, CI/CD otomasyonu ve yüksek ölçekli sistem yönetimi üzerine
+                        inşa ediyorum. Özellikle Fintech ve Bankacılık sektörüne duyduğum ilgiyle; Intertech ve
+                        DenizBank bünyesinde kritik altyapıların yönetimi, sistem izleme (Monitoring) ve veri güvenliği
+                        konularında pratik deneyim kazandım. Teorik bilgiyi pratiğe dökmek adına, kendi Home-Lab
+                        ortamımda Docker Swarm, Kubernetes ve Cloudflare teknolojileriyle hibrit bulut senaryoları
+                        üzerinde çalışıyorum. Karmaşık altyapı problemlerini çözmekten keyif alan, sürekli öğrenen
+                        (Continuous Learning) ve takım çalışmasının gücüne inanan bir mühendis olarak; teknolojinin
+                        finansla buluştuğu noktada değer üretmek istiyorum.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#iletisim" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            Birlikte Çalışalım
                         </a>
                         <a href="https://linkedin.com/in/ugurberktas" target="_blank" class="btn btn-secondary">
-                            <i class="fab fa-linkedin"></i> LinkedIn
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">Hakkımda</h2>
-            <div class="about-content">
-                <p>
-                    <span class="highlight">Fırat Üniversitesi Yazılım Mühendisliği</span> öğrencisi olarak, teorik bilgiyi pratik projelere dönüştürme konusunda tutkulu bir yaklaşım sergiliyorum. Uzaktan çalışma ortamlarında disiplinli ve özverili bir şekilde görev alabilme yetkinliğim, pandemi sonrası iş dünyasının dinamiklerine uyum sağlamamı kolaylaştırıyor.
-                </p>
-                <p>
-                    <span class="highlight">Fintech</span> alanındaki ilgim, finansal sistemlerin teknoloji ile entegrasyonundan doğuyor. Özellikle <span class="highlight">sistem altyapısı, CI/CD süreçleri ve test otomasyonu</span> konularında edindiğim deneyimler, bankacılık ve sigorta sektörlerindeki dijital dönüşüm projelerinde değer katmamı sağlıyor.
-                </p>
-                <p>
-                    Takım çalışmasına yatkın, sürekli öğrenmeye açık ve <span class="highlight">iş süreçlerini optimize etmeye</span> odaklı bir yaklaşımla, yenilikçi çözümler üretmeyi hedefliyorum.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Teknik Yetkinlikler</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-server"></i> DevOps & Altyapı</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">Git/GitHub</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programlama & Development</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">OOP</span>
-                        <span class="skill-tag">Data Structures</span>
-                        <span class="skill-tag">Algorithms</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-vial"></i> Test & Quality Assurance</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Test Automation</span>
-                        <span class="skill-tag">API Testing</span>
-                        <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">SDLC</span>
-                        <span class="skill-tag">Unit Testing</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Database & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">SQL Server</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">DevExpress</span>
-                        <span class="skill-tag">Database Design</span>
+                <!-- Sağ: Profil Fotoğrafı (Blob Shape) -->
+                <div class="hero-image">
+                    <div class="image-blob">
+                        <!-- Eğer fotoğrafınız varsa src="path/to/photo.jpg" ekleyin -->
+                        <!-- Yoksa bu placeholder inisiyallerinizi gösterir -->
+                        <div class="profile-photo">UB</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title">Deneyim & Projeler</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-title">
-                            <h3>Sistem Mühendisi (Stajyer)</h3>
-                            <p class="company">Intertech</p>
-                        </div>
-                        <span class="experience-date">Ağustos 2025 - Eylül 2025</span>
+    <!-- ========================================
+         EXPERIENCE SECTION (VERTICAL TIMELINE)
+    ======================================== -->
+    <section class="experience" id="deneyim">
+        <div class="container-narrow">
+            <div class="section-header">
+                <div class="section-label">Career Journey</div>
+                <h2 class="section-title">İş Deneyimi</h2>
+            </div>
+
+            <div class="timeline">
+                <!-- Timeline Item 1: Intertech -->
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Ağustos 2025 - Eylül 2025</div>
+                        <h3 class="timeline-title">Sistem Mühendisi Stajyeri</h3>
+                        <div class="timeline-company">Intertech</div>
+                        <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> İstanbul</div>
+                        <p class="timeline-description">
+                            Bankacılık altyapısında HA (High Availability) sistemlerin izlenmesi, Linux sunucu
+                            optimizasyonu ve Chatbot API entegrasyonu.
+                        </p>
                     </div>
-                    <p class="experience-description">
-                        Sistem mühendisliği ve yazılım geliştirme süreçlerini uygulamalı olarak deneyimledim.
-                    </p>
-                    <ul class="experience-list">
-                        <li>Chatbot geliştirme projesinde tasarım, entegrasyon ve test süreçlerine katkı</li>
-                        <li>CI/CD pipeline kurulumu ve sistem altyapısı optimizasyonu</li>
-                        <li>Takım içi koordinasyon ve teknik dokümantasyon yönetimi</li>
-                    </ul>
+                    <div class="timeline-dot">
+                        <i class="fas fa-server"></i>
+                    </div>
                 </div>
 
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-title">
-                            <h3>Test Mühendisi (Stajyer)</h3>
-                            <p class="company">N11</p>
-                        </div>
-                        <span class="experience-date">Temmuz 2025 - Ağustos 2025</span>
+                <!-- Timeline Item 2: N11 -->
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Temmuz 2025 - Ağustos 2025</div>
+                        <h3 class="timeline-title">Test Mühendisi Stajyeri</h3>
+                        <div class="timeline-company">N11</div>
+                        <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> İstanbul</div>
+                        <p class="timeline-description">
+                            Postman ve Jenkins ile API test otomasyonu, CI/CD pipeline entegrasyonu ve Agile süreç
+                            yönetimi.
+                        </p>
                     </div>
-                    <p class="experience-description">
-                        Türkiye'nin önde gelen e-ticaret platformunda test otomasyonu ve kalite güvence süreçlerinde görev aldım.
-                    </p>
-                    <ul class="experience-list">
-                        <li>Postman ile API testleri ve Jenkins ile otomasyon testleri geliştirme</li>
-                        <li>Fonksiyonel ve kullanıcı deneyimi testlerini gerçekleştirme</li>
-                        <li>Yazılım kalitesinin artırılmasına yönelik süreç iyileştirmeleri</li>
-                    </ul>
+                    <div class="timeline-dot">
+                        <i class="fas fa-vial"></i>
+                    </div>
                 </div>
 
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-title">
-                            <h3>Yapay Zeka & Veri Bilimi Fakültesi</h3>
-                            <p class="company">DenizBank</p>
-                        </div>
-                        <span class="experience-date">Ağustos 2025</span>
+                <!-- Timeline Item 3: DenizBank -->
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Ağustos 2025</div>
+                        <h3 class="timeline-title">Veri Bilimi ve Yapay Zeka</h3>
+                        <div class="timeline-company">DenizBank</div>
+                        <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> İstanbul</div>
+                        <p class="timeline-description">
+                            Finansal veri analizi, Makine Öğrenmesi (ML) pipeline yönetimi ve Python ile risk modelleme
+                            eğitimi.
+                        </p>
                     </div>
-                    <p class="experience-description">
-                        Finans sektöründe yapay zeka uygulamaları üzerine yoğun eğitim programı.
-                    </p>
-                    <ul class="experience-list">
-                        <li>Yapay zeka ve makine öğrenimi temelleri üzerine uygulamalı eğitim</li>
-                        <li>Veri analizi, modelleme ve problem çözme teknikleri</li>
-                        <li>Proje tabanlı çalışmalarla teorik bilgileri Fintech'e entegre etme</li>
-                    </ul>
+                    <div class="timeline-dot">
+                        <i class="fas fa-brain"></i>
+                    </div>
                 </div>
 
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-title">
-                            <h3>Yazılım Geliştirici (Part-time)</h3>
-                            <p class="company">Elmar Yazılım</p>
-                        </div>
-                        <span class="experience-date">Eylül 2024 - Ocak 2025</span>
+                <!-- Timeline Item 4: Elmar -->
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Eylül 2024 - Ocak 2025</div>
+                        <h3 class="timeline-title">Yazılım Geliştirici (Part Time)</h3>
+                        <div class="timeline-company">Elmar Yazılım</div>
+                        <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Elazığ</div>
+                        <p class="timeline-description">
+                            C# ve SQL ile şirket içi finansal/muhasebe otomasyon araçlarının geliştirilmesi.
+                        </p>
                     </div>
-                    <ul class="experience-list">
-                        <li>C# ve DevExpress ile kullanıcı dostu masaüstü uygulamalar geliştirme</li>
-                        <li>Veritabanı tasarımı ve SQL optimizasyonu</li>
-                        <li>İş akışı verimliliğini artıran özel yazılım çözümleri</li>
-                    </ul>
+                    <div class="timeline-dot">
+                        <i class="fas fa-code"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <!-- ========================================
+         PROJECTS SECTION (MASONRY GRID)
+    ======================================== -->
+    <section class="projects" id="projeler">
         <div class="container">
-            <h2 class="section-title">İletişim</h2>
+            <div class="section-header">
+                <div class="section-label">Portfolio</div>
+                <h2 class="section-title">Seçili Projeler</h2>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Proje Kartı 1: Home-Lab -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-image">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Home-Lab & Network Altyapısı</h3>
+                        <p class="project-description">
+                            Proxmox üzerinde sanallaştırılmış Linux sunucuları ile kurduğum, Cloudflare Tunnel ile
+                            güvenli hale getirilmiş, Prometheus & Grafana ile izlenen kapalı devre (On-Prem) laboratuvar
+                            ortamı.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Proxmox</span>
+                            <span class="tag">Docker Swarm</span>
+                            <span class="tag">Cloudflare Zero Trust</span>
+                            <span class="tag">Prometheus</span>
+                            <span class="tag">Grafana</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ugurberktas" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proje Kartı 2: Dijital Ödeme Altyapısı -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-image">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Dijital Ödeme Altyapısı (Fintech)</h3>
+                        <p class="project-description">
+                            Bankacılık standartlarına uygun, ACID prensiplerini koruyan, RabbitMQ ile asenkron çalışan
+                            ve veri tutarlılığını (Data Consistency) garanti eden ödeme ağ geçidi simülasyonu.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">RabbitMQ</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">ACID</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ugurberktas" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proje Kartı 3: Reklagram -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-image">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Reklagram - Veri Platformu</h3>
+                        <p class="project-description">
+                            İlişkisel ve belge tabanlı veritabanlarının hibrit kullanıldığı (Polyglot Persistence), AWS
+                            üzerinde çalışan yüksek ölçekli veri yönetim platformu.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">AWS (EC2, S3)</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Git Flow</span>
+                            <span class="tag">CI/CD</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ugurberktas" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proje Kartı 3: DocuChat -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">DocuChat - Güvenli AI Asistanı</h3>
+                        <p class="project-description">
+                            Kurumsal dokümanları dışarı sızdırmadan analiz eden, RAG (Retrieval-Augmented Generation)
+                            mimarili güvenli yapay zeka asistanı.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">LangChain</span>
+                            <span class="tag">ChromaDB</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">RAG</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ugurberktas" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proje Kartı 4: Elmar -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-image">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Elmar Muhasebe Otomasyonu</h3>
+                        <p class="project-description">
+                            Şirket içi finansal süreçleri hızlandıran, manuel iş yükünü (toil) azaltan ve SQL tabanlı
+                            raporlama yapan masaüstü otomasyon yazılımı.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">.NET</span>
+                            <span class="tag">SQL Server</span>
+                            <span class="tag">DevExpress</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ugurberktas" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proje Kartı 5: Peak Games -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-image">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Peak Games DevOps Case Study</h3>
+                        <p class="project-description">
+                            Python tabanlı bir mikroservisin Dockerize edilmesi, Nginx ile yük dengelemesi ve
+                            multi-stage build ile optimize edilmesi çalışması.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Docker</span>
+                            <span class="tag">Nginx</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Optimization</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ugurberktas" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CERTIFICATES SECTION (SHOW MORE ACCORDION)
+    ======================================== -->
+    <section class="certificates" id="sertifikalar">
+        <div class="container-narrow">
+            <div class="section-header">
+                <div class="section-label">Achievements</div>
+                <h2 class="section-title">Sertifikalar & Başarılar</h2>
+            </div>
+
+            <div class="certificates-list">
+                <!-- İlk 6 Sertifika (Her Zaman Görünür) -->
+                <div class="cert-card scroll-reveal">
+                    <div class="cert-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="cert-title">Introduction to DevOps</h3>
+                    <p class="cert-issuer">Microsoft</p>
+                    <p class="cert-date">2026</p>
+                </div>
+
+                <div class="cert-card scroll-reveal">
+                    <div class="cert-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="cert-title">Altyapı Mühendisi</h3>
+                    <p class="cert-issuer">Intertech</p>
+                    <p class="cert-date">2025</p>
+                </div>
+
+                <div class="cert-card scroll-reveal">
+                    <div class="cert-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="cert-title">AWS Cloud Practitioner Essentials</h3>
+                    <p class="cert-issuer">Amazon Web Services</p>
+                    <p class="cert-date">2024</p>
+                </div>
+
+                <div class="cert-card scroll-reveal">
+                    <div class="cert-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3 class="cert-title">Bankacılıkta Kariyer Eğitimi</h3>
+                    <p class="cert-issuer">Türkiye Bankalar Birliği</p>
+                    <p class="cert-date">2025</p>
+                </div>
+
+                <div class="cert-card scroll-reveal">
+                    <div class="cert-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="cert-title">Veri Bilimi ve Yapay Zeka</h3>
+                    <p class="cert-issuer">DenizBank</p>
+                    <p class="cert-date">2025</p>
+                </div>
+
+                <div class="cert-card scroll-reveal">
+                    <div class="cert-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="cert-title">Finansal Okuryazarlık Eğitmeni</h3>
+                    <p class="cert-issuer">Habitat Derneği</p>
+                    <p class="cert-date">2025</p>
+                </div>
+
+                <!-- Gizli Sertifikalar (Show More ile açılacak) -->
+                <div class="cert-card hidden-cert">
+                    <div class="cert-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="cert-title">İnovasyon ve Girişimcilik Serisi</h3>
+                    <p class="cert-issuer">Garanti BBVA</p>
+                    <p class="cert-date">2025</p>
+                </div>
+
+                <div class="cert-card hidden-cert">
+                    <div class="cert-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="cert-title">Fikirden Girişime (Insurtech)</h3>
+                    <p class="cert-issuer">AgeSA</p>
+                    <p class="cert-date">2025</p>
+                </div>
+
+                <div class="cert-card hidden-cert">
+                    <div class="cert-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="cert-title">AGILE 101 Proje Yönetimi</h3>
+                    <p class="cert-issuer">Pupilica</p>
+                    <p class="cert-date">2024</p>
+                </div>
+
+                <div class="cert-card hidden-cert">
+                    <div class="cert-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3 class="cert-title">İHA-0 / Amatör İHA Pilot Lisansı</h3>
+                    <p class="cert-issuer">SHGM</p>
+                    <p class="cert-date">2024</p>
+                </div>
+
+                <div class="cert-card hidden-cert">
+                    <div class="cert-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="cert-title">Yapay Zeka Zirvesi & Eğitimi</h3>
+                    <p class="cert-issuer">BTK Akademi & UNICEF</p>
+                    <p class="cert-date">2024</p>
+                </div>
+
+                <div class="cert-card hidden-cert">
+                    <div class="cert-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="cert-title">Cinsel Sömürü ve İstismarın Önlenmesi</h3>
+                    <p class="cert-issuer">UNICEF</p>
+                    <p class="cert-date">2023</p>
+                </div>
+
+                <div class="cert-card hidden-cert">
+                    <div class="cert-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="cert-title">Ekip Kurma ve Yönetme</h3>
+                    <p class="cert-issuer">BTK Akademi</p>
+                    <p class="cert-date">2023</p>
+                </div>
+
+                <div class="cert-card hidden-cert">
+                    <div class="cert-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="cert-title">İkna Becerileri & İletişim</h3>
+                    <p class="cert-issuer">BTK Akademi</p>
+                    <p class="cert-date">2023</p>
+                </div>
+            </div>
+
+            <!-- Show More Button -->
+            <div class="show-more-wrapper">
+                <button class="btn-show-more" id="showMoreBtn">
+                    <span id="showMoreText">Daha Fazlasını Göster</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         EDUCATION SECTION
+    ======================================== -->
+    <section class="education" id="egitim">
+        <div class="container-narrow">
+            <div class="section-header">
+                <div class="section-label">Academic Background</div>
+                <h2 class="section-title">Eğitim</h2>
+            </div>
+
+            <div class="education-list">
+                <!-- Eğitim 1: Fırat Üniversitesi -->
+                <div class="education-card scroll-reveal">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="education-degree">Yazılım Mühendisliği (Lisans)</h3>
+                    <div class="education-school">Fırat Üniversitesi</div>
+                    <div class="education-year">2024 - 2027</div>
+                </div>
+
+                <!-- Eğitim 2: Gümüşhane Üniversitesi -->
+                <div class="education-card scroll-reveal">
+                    <div class="education-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3 class="education-degree">Yazılım Mühendisliği (Yatay Geçiş)</h3>
+                    <div class="education-school">Gümüşhane Üniversitesi</div>
+                    <div class="education-year">2023 - 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CONTACT SECTION (BIG & BOLD)
+    ======================================== -->
+    <section class="contact" id="iletisim">
+        <div class="container">
             <div class="contact-content">
-                <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 2rem;">
-                    Fintech ve DevOps alanlarındaki projelerinizde birlikte çalışmak için benimle iletişime geçebilirsiniz.
+                <h2 class="contact-headline">
+                    Hadi Birlikte <span class="highlight">Harika Şeyler</span> Yapalım
+                </h2>
+                <p class="contact-subtext">
+                    Fintech, DevOps veya sistem altyapısı projelerinizde işbirliği yapmak için
+                    benimle iletişime geçebilirsiniz. Uzaktan çalışmaya ve takım çalışmasına hazırım!
                 </p>
-                <div class="contact-links">
-                    <a href="mailto:ugur.berktas@outlook.com" class="contact-link">
-                        <i class="fas fa-envelope"></i>
-                        <span>ugur.berktas@outlook.com</span>
-                    </a>
-                    <a href="https://linkedin.com/in/ugurberktas" target="_blank" class="contact-link">
+
+                <a href="mailto:ugur_berktas@icloud.com" class="contact-email">
+                    ugur_berktas@icloud.com
+                </a>
+
+                <div class="contact-buttons">
+                    <a href="https://linkedin.com/in/ugurberktas" target="_blank" class="contact-btn">
                         <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
+                        LinkedIn'de Bağlanalım
                     </a>
-                    <a href="https://github.com/ugurberktas" target="_blank" class="contact-link">
+                    <a href="https://github.com/ugurberktas" target="_blank" class="contact-btn">
                         <i class="fab fa-github"></i>
-                        <span>GitHub</span>
+                        GitHub Profilim
                     </a>
-                    <a href="tel:+905443203441" class="contact-link">
+                    <a href="tel:+905443203441" class="contact-btn">
                         <i class="fas fa-phone"></i>
-                        <span>+90 544 320 34 41</span>
+                        +90 544 320 34 41
                     </a>
-                </div>
-                
-                <div class="cv-download">
-                    <a href="/UgurBerktas.pdf" download>
+                    <a href="UgurBerktasCv.pdf" target="_blank" download class="contact-btn">
                         <i class="fas fa-download"></i>
-                        CV'mi İndir (PDF)
+                        CV'mi İndir
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
     <footer>
-        <p>&copy; 2025 Uğur Berktaş. Tüm hakları saklıdır.</p>
+        <div class="container">
+            <p>&copy; 2023 Uğur Berktaş. Tüm hakları saklıdır.</p>
+        </div>
     </footer>
 
+    <!-- ========================================
+         JAVASCRIPT (INTERACTIVITY & ANIMATIONS)
+    ======================================== -->
     <script>
-        // Smooth scroll
+        // ==========================================
+        // 1. NAVBAR SCROLL EFFECT
+        // ==========================================
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ==========================================
+        // 2. MOBILE MENU TOGGLE
+        // ==========================================
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // ==========================================
+        // 3. SMOOTH SCROLL FOR ANCHOR LINKS
+        // ==========================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const offsetTop = target.offsetTop - 80; // navbar height offset
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
 
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // ==========================================
+        // 4. SCROLL REVEAL ANIMATION (INTERSECTION OBSERVER)
+        // ==========================================
+        const revealElements = document.querySelectorAll('.scroll-reveal');
 
-        const observer = new IntersectionObserver((entries) => {
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('reveal');
+                    revealObserver.unobserve(entry.target); // reveal sadece bir kez
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.skill-category, .experience-card, .about-content').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
         });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ==========================================
+        // 5. CERTIFICATES "SHOW MORE" ACCORDION
+        // ==========================================
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        const showMoreText = document.getElementById('showMoreText');
+        const hiddenCerts = document.querySelectorAll('.cert-card.hidden-cert');
+
+        showMoreBtn.addEventListener('click', () => {
+            const isActive = showMoreBtn.classList.contains('active');
+
+            if (isActive) {
+                // Gizle
+                hiddenCerts.forEach(cert => {
+                    cert.classList.remove('show');
+                });
+                showMoreText.textContent = 'Daha Fazlasını Göster';
+                showMoreBtn.classList.remove('active');
+            } else {
+                // Göster
+                hiddenCerts.forEach(cert => {
+                    cert.classList.add('show');
+                });
+                showMoreText.textContent = 'Daha Az Göster';
+                showMoreBtn.classList.add('active');
+            }
+        });
+
+        // ==========================================
+        // 6. TIMELINE, PROJECT CARDS, CERT CARDS, EDUCATION CARDS ANIMATION
+        // ==========================================
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const projectCards = document.querySelectorAll('.project-card');
+        const certCards = document.querySelectorAll('.cert-card');
+        const educationCards = document.querySelectorAll('.education-card');
+
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('reveal');
+                    }, index * 100); // Staggered animation
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        timelineItems.forEach(item => cardObserver.observe(item));
+        projectCards.forEach(card => cardObserver.observe(card));
+        certCards.forEach(card => cardObserver.observe(card));
+        educationCards.forEach(card => cardObserver.observe(card));
     </script>
 </body>
+
 </html>

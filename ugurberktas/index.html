@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Uğur Berktaş — DevOps Mühendisi kişisel portföy web sitesi. CI/CD, Kubernetes, Terraform ve Cloud altyapısı konularında deneyimli." />
+  <title>Uğur Berktaş | DevOps Engineer</title>
+
+  <!-- ── Google Fonts ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Sora:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ── Font Awesome ── -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- ── Stylesheets ── -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/navbar.css" />
+  <link rel="stylesheet" href="assets/css/hero.css" />
+  <link rel="stylesheet" href="assets/css/about.css" />
+  <link rel="stylesheet" href="assets/css/experience.css" />
+  <link rel="stylesheet" href="assets/css/projects.css" />
+  <link rel="stylesheet" href="assets/css/certificates.css" />
+  <link rel="stylesheet" href="assets/css/education.css" />
+  <link rel="stylesheet" href="assets/css/contact.css" />
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <header id="navbar" role="banner">
+    <nav class="nav-inner" aria-label="Ana navigasyon">
+
+      <!-- Logo -->
+      <a href="#" class="nav-logo" id="nav-logo">Uğur <span>Berktaş</span></a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" id="nav-links-desktop" role="list">
+        <li><a href="#" class="active" id="nav-link-home" data-lang-key="nav-home">Ana Sayfa</a></li>
+        <li><a href="#deneyim" id="nav-link-experience" data-lang-key="nav-experience">Deneyim</a></li>
+        <li><a href="#projeler" id="nav-link-projects" data-lang-key="nav-projects">Projeler</a></li>
+        <li><a href="#sertifikalar" id="nav-link-certificates" data-lang-key="nav-certificates">Sertifikalar</a></li>
+        <li><a href="#egitim" id="nav-link-education" data-lang-key="nav-education">Eğitim</a></li>
+        <li><a href="#iletisim" id="nav-link-contact" data-lang-key="nav-contact">İletişim</a></li>
+      </ul>
+
+      <!-- Right controls -->
+      <div class="nav-controls">
+        <button class="nav-lang-btn" id="nav-lang-btn" aria-label="Dil değiştir">TR</button>
+        <button class="nav-theme-btn" id="nav-theme-btn" aria-label="Karanlık mod">🌙</button>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button
+        class="nav-hamburger"
+        id="nav-hamburger"
+        aria-label="Menüyü aç/kapat"
+        aria-expanded="false"
+        aria-controls="nav-mobile"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <div class="nav-mobile" id="nav-mobile" role="navigation" aria-label="Mobil navigasyon">
+      <a href="#" class="active" id="nav-mobile-home" data-lang-key="nav-home">Ana Sayfa</a>
+      <a href="#deneyim" id="nav-mobile-experience" data-lang-key="nav-experience">Deneyim</a>
+      <a href="#projeler" id="nav-mobile-projects" data-lang-key="nav-projects">Projeler</a>
+      <a href="#sertifikalar" id="nav-mobile-certificates" data-lang-key="nav-certificates">Sertifikalar</a>
+      <a href="#egitim" id="nav-mobile-education" data-lang-key="nav-education">Eğitim</a>
+      <a href="#iletisim" id="nav-mobile-contact" data-lang-key="nav-contact">İletişim</a>
+      <div class="nav-mobile-controls">
+        <button class="nav-lang-btn" aria-label="Dil değiştir">TR</button>
+        <button class="nav-theme-btn" aria-label="Karanlık mod">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section id="hero" aria-label="Hero bölümü">
+    <div class="hero-container">
+      <div class="hero-grid">
+
+        <!-- LEFT — Photo -->
+        <div class="hero-photo-wrapper">
+          <div class="hero-photo-card" id="hero-photo-card">
+            <img
+              src="assets/images/profile.jpg"
+              alt="Uğur Berktaş profil fotoğrafı"
+              class="hero-photo-img"
+              id="hero-profile-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="hero-photo-placeholder" aria-label="Uğur Berktaş profil fotoğrafı" style="display:none;">
+              <span class="hero-photo-initials">UB</span>
+              <span class="hero-photo-label">DevOps Engineer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENTER — Content -->
+        <div class="hero-content">
+          <span class="hero-badge" id="hero-badge" data-lang-key="hero-badge" style="border:1px solid rgba(249,115,22,0.3);background:rgba(249,115,22,0.08);border-radius:20px;padding:6px 14px;font-size:0.85rem;font-weight:500;">Junior DevOps Engineer</span>
+
+          <h1 class="hero-name" id="hero-name">
+            Uğur <span class="name-highlight">Berktaş</span>
+          </h1>
+
+          <p class="hero-desc" id="hero-desc" data-lang-key="hero-desc">
+            Fırat Üniversitesi Yazılım Mühendisliği öğrencisi ve Junior DevOps Engineer adayıyım.
+            Intertech, DenizBank ve N11 gibi sektör liderlerinde edindiğim deneyimlerle fintech
+            ekosisteminin altyapısını şekillendirmek için yolculuktayım.
+          </p>
+
+          <div class="hero-buttons" id="hero-buttons">
+            <a href="#projeler" class="btn-primary" id="btn-projects" data-lang-key="btn-projects">Projeleri Keşfet →</a>
+            <a href="mailto:ugur_berktas@icloud.com" class="btn-secondary" id="btn-contact" data-lang-key="btn-contact">Benimle İletişime Geç ↓</a>
+          </div>
+
+          <div class="hero-socials" id="hero-socials" role="list" aria-label="Sosyal bağlantılar">
+            <a href="https://linkedin.com/in/ugurberktas" class="social-pill" id="social-linkedin" role="listitem" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profili" data-lang-key="social-linkedin">💼 LinkedIn</a>
+            <a href="https://github.com/ugurberktas" class="social-pill" id="social-github" role="listitem" target="_blank" rel="noopener noreferrer" aria-label="GitHub profili" data-lang-key="social-github">🐙 GitHub</a>
+          </div>
+        </div>
+
+        <!-- RIGHT — Skills card -->
+        <div class="hero-skills-wrapper">
+          <div class="hero-skills-card" id="hero-skills-card">
+            <h2 class="skills-card-title" data-lang-key="skills-card-title">Öne Çıkan Uzmanlıklar</h2>
+
+            <div class="skill-row" id="skill-devops">
+              <span class="skill-row-label" data-lang-key="skill-row-devops">DEVOPS &amp; ALTYAPI</span>
+              <div class="skill-row-tags">
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">CI/CD</span>
+                <span class="skill-tag">Proxmox</span>
+                <span class="skill-tag">Nginx</span>
+              </div>
+            </div>
+
+            <div class="skill-row" id="skill-cloud">
+              <span class="skill-row-label" data-lang-key="skill-row-cloud">CLOUD &amp; NETWORK</span>
+              <div class="skill-row-tags">
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Cloudflare</span>
+                <span class="skill-tag">Prometheus</span>
+                <span class="skill-tag">Grafana</span>
+              </div>
+            </div>
+
+            <div class="skill-row" id="skill-backend">
+              <span class="skill-row-label" data-lang-key="skill-row-backend">BACKEND &amp; DATA</span>
+              <div class="skill-row-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">FastAPI</span>
+                <span class="skill-tag">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Hakkımda ── -->
+  <section id="hakkimda" aria-label="Hakkımda bölümü">
+    <div class="about-container">
+
+      <div class="section-header reveal">
+        <span class="section-label" data-lang-key="about-label">Hakkımda</span>
+        <h2 class="section-heading" data-lang-key="about-heading">Ben <span class="hl">Kimim?</span></h2>
+      </div>
+
+      <div class="about-card reveal reveal-delay-1">
+
+        <!-- Left: paragraphs -->
+        <div class="about-text-col">
+          <p class="about-paragraph" data-lang-key="about-p1"></p>
+          <p class="about-paragraph" data-lang-key="about-p2"></p>
+          <p class="about-paragraph" data-lang-key="about-p3"></p>
+        </div>
+
+        <!-- Right: quick facts -->
+        <div class="about-facts-col">
+          <div class="about-fact" id="fact-university">
+            <span class="about-fact-icon">🎓</span>
+            <div class="about-fact-body">
+              <span class="about-fact-key" data-lang-key="fact-key-university">Üniversite</span>
+              <span class="about-fact-val" data-lang-key="fact-val-university">Fırat Üniversitesi — Yazılım Mühendisliği</span>
+            </div>
+          </div>
+          <div class="about-fact" id="fact-location">
+            <span class="about-fact-icon">📍</span>
+            <div class="about-fact-body">
+              <span class="about-fact-key" data-lang-key="fact-key-location">Konum</span>
+              <span class="about-fact-val" data-lang-key="fact-val-location">Türkiye</span>
+            </div>
+          </div>
+          <div class="about-fact" id="fact-role">
+            <span class="about-fact-icon">⚙️</span>
+            <div class="about-fact-body">
+              <span class="about-fact-key" data-lang-key="fact-key-role">Rol</span>
+              <span class="about-fact-val" data-lang-key="fact-val-role">Junior DevOps Engineer</span>
+            </div>
+          </div>
+          <div class="about-fact" id="fact-focus">
+            <span class="about-fact-icon">🎯</span>
+            <div class="about-fact-body">
+              <span class="about-fact-key" data-lang-key="fact-key-focus">Odak</span>
+              <span class="about-fact-val" data-lang-key="fact-val-focus">Cloud, CI/CD, Kubernetes, Fintech Altyapısı</span>
+            </div>
+          </div>
+          <div class="about-fact" id="fact-lab">
+            <span class="about-fact-icon">🖥️</span>
+            <div class="about-fact-body">
+              <span class="about-fact-key" data-lang-key="fact-key-lab">Home Lab</span>
+              <span class="about-fact-val" data-lang-key="fact-val-lab">Docker Swarm · Kubernetes · Cloudflare</span>
+            </div>
+          </div>
+          <div class="about-fact" id="fact-language">
+            <span class="about-fact-icon">🌐</span>
+            <div class="about-fact-body">
+              <span class="about-fact-key" data-lang-key="fact-key-language">Dil</span>
+              <span class="about-fact-val" data-lang-key="fact-val-language">Türkçe (Anadil) · İngilizce (İş düzeyi)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Teknik Yetenekler ── -->
+  <section id="yetenekler" aria-label="Teknik yetenekler bölümü">
+    <div class="skills-container">
+
+      <div class="section-header reveal">
+        <span class="section-label" data-lang-key="skills-label">Uzmanlıklar</span>
+        <h2 class="section-heading" data-lang-key="skills-heading">Teknik <span class="hl">Yetenekler</span></h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <!-- Card 1: DevOps & Altyapı -->
+        <div class="skill-card reveal reveal-delay-1" id="skill-card-devops">
+          <div class="skill-card-icon" aria-hidden="true">🐳</div>
+          <span class="skill-card-title" data-lang-key="skill-card-title-devops">DevOps &amp; Altyapı</span>
+          <div class="skill-card-tags">
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">Kubernetes</span>
+            <span class="skill-pill">Docker Swarm</span>
+            <span class="skill-pill">Proxmox</span>
+            <span class="skill-pill">Linux</span>
+            <span class="skill-pill">Nginx</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Cloud & Monitoring -->
+        <div class="skill-card reveal reveal-delay-2" id="skill-card-cloud">
+          <div class="skill-card-icon" aria-hidden="true">☁️</div>
+          <span class="skill-card-title" data-lang-key="skill-card-title-cloud">Cloud &amp; Monitoring</span>
+          <div class="skill-card-tags">
+            <span class="skill-pill">AWS (EC2, S3)</span>
+            <span class="skill-pill">Cloudflare Zero Trust</span>
+            <span class="skill-pill">Prometheus</span>
+            <span class="skill-pill">Grafana</span>
+            <span class="skill-pill">CI/CD</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Backend & Scripting -->
+        <div class="skill-card reveal reveal-delay-3" id="skill-card-backend">
+          <div class="skill-card-icon" aria-hidden="true">🐍</div>
+          <span class="skill-card-title" data-lang-key="skill-card-title-backend">Backend &amp; Scripting</span>
+          <div class="skill-card-tags">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">C#</span>
+            <span class="skill-pill">.NET</span>
+            <span class="skill-pill">SQL Server</span>
+            <span class="skill-pill">RabbitMQ</span>
+            <span class="skill-pill">PostgreSQL</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Experience / Deneyim ── -->
+  <section id="deneyim" aria-label="Deneyim bölümü">
+    <div class="experience-container">
+
+      <div class="section-header reveal">
+        <span class="section-label" data-lang-key="exp-label">İş Deneyimi</span>
+        <h2 class="section-heading" data-lang-key="section-experience">Deneyim</h2>
+      </div>
+
+      <div class="timeline">
+
+        <!-- Intertech -->
+        <div class="timeline-item reveal" id="exp-intertech">
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title-group">
+                <span class="timeline-company">Intertech</span>
+                <span class="timeline-role" data-lang-key="intertech-role">Sistem Mühendisi (Stajyer)</span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date" data-lang-key="intertech-date">Ağustos 2025 – Eylül 2025</span>
+                <span class="timeline-location">📍 İstanbul</span>
+              </div>
+            </div>
+            <ul class="timeline-list">
+              <li data-lang-key="intertech-li1">Kritik Core Banking ve High Availability (HA) sistemlerinin izlenmesi süreçlerinde aktif rol aldım.</li>
+              <li data-lang-key="intertech-li2">Regülasyonlara uygun ortamda Linux sunucu optimizasyonu ve servis konfigürasyonlarını yönettim.</li>
+              <li data-lang-key="intertech-li3">Bankacılık chatbot projesi kapsamında güvenli sistem mimarisi tasarımı ve API entegrasyonlarını gerçekleştirdim.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Linux</span>
+              <span class="timeline-tag">HA Systems</span>
+              <span class="timeline-tag">API Integration</span>
+              <span class="timeline-tag">Core Banking</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- N11 -->
+        <div class="timeline-item reveal reveal-delay-1" id="exp-n11">
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title-group">
+                <span class="timeline-company">N11</span>
+                <span class="timeline-role" data-lang-key="n11-role">Test Otomasyon Mühendisi (Stajyer)</span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date" data-lang-key="n11-date">Temmuz 2025 – Ağustos 2025</span>
+                <span class="timeline-location">📍 İstanbul</span>
+              </div>
+            </div>
+            <ul class="timeline-list">
+              <li data-lang-key="n11-li1">Postman ile API test senaryoları oluşturup Jenkins pipeline'larına entegre ederek işlem güvenilirliğini garanti altına aldım.</li>
+              <li data-lang-key="n11-li2">Otomasyon testlerini CI/CD hattına bağlayarak Pre-Prod ortamda kritik hataların erken tespitini sağladım.</li>
+              <li data-lang-key="n11-li3">Agile metodolojisiyle sprint hedeflerine uygun yüksek kalitede yazılım teslimatına destek oldum.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Postman</span>
+              <span class="timeline-tag">Jenkins</span>
+              <span class="timeline-tag">CI/CD</span>
+              <span class="timeline-tag">Agile</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DenizBank -->
+        <div class="timeline-item reveal reveal-delay-2" id="exp-denizbank">
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title-group">
+                <span class="timeline-company">DenizBank</span>
+                <span class="timeline-role" data-lang-key="denizbank-role">Veri Bilimi ve Yapay Zeka (Trainee)</span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date" data-lang-key="denizbank-date">Ağustos 2025</span>
+                <span class="timeline-location">📍 İstanbul</span>
+              </div>
+            </div>
+            <ul class="timeline-list">
+              <li data-lang-key="denizbank-li1">Finans sektörü için uçtan uca AI ve ML pipeline yönetimi üzerine yoğun eğitim aldım.</li>
+              <li data-lang-key="denizbank-li2">Python (Pandas, Scikit-learn) kullanarak finansal veri analizi ve risk modelleme projeleri geliştirdim.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Python</span>
+              <span class="timeline-tag">Pandas</span>
+              <span class="timeline-tag">Scikit-learn</span>
+              <span class="timeline-tag">ML Pipeline</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Elmar Yazılım -->
+        <div class="timeline-item reveal reveal-delay-3" id="exp-elmar">
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title-group">
+                <span class="timeline-company">Elmar Yazılım</span>
+                <span class="timeline-role" data-lang-key="elmar-role">Yazılım Geliştirici (Part-Time)</span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date" data-lang-key="elmar-date">Eylül 2024 – Ocak 2025</span>
+                <span class="timeline-location">📍 Elazığ</span>
+              </div>
+            </div>
+            <ul class="timeline-list">
+              <li data-lang-key="elmar-li1">Şirket içi manuel süreçleri analiz ederek C# ile geliştirdiğim otomasyon araçlarıyla finansal iş akışlarında operasyonel yükü minimize ettim.</li>
+              <li data-lang-key="elmar-li2">SQL veritabanında bakım prosedürleri yazarak Data Consistency ve sistem performansını optimize ettim.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">C#</span>
+              <span class="timeline-tag">.NET</span>
+              <span class="timeline-tag">SQL Server</span>
+              <span class="timeline-tag">DevExpress</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Liderlik & Gönüllülük ── -->
+  <section id="gonullu" aria-label="Liderlik ve Gönüllülük bölümü">
+    <div class="experience-container">
+
+      <div class="section-header reveal">
+        <span class="section-label" data-lang-key="vol-label">Topluluk</span>
+        <h2 class="section-heading" data-lang-key="section-volunteering">Liderlik &amp; Gönüllülük</h2>
+      </div>
+
+      <div class="timeline">
+
+        <!-- Fırat Üniversitesi Eğitim ve Bilişim Topluluğu -->
+        <div class="timeline-item reveal" id="vol-fueb">
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title-group">
+                <span class="timeline-company">Fırat Üniversitesi Eğitim ve Bilişim Topluluğu</span>
+                <span class="timeline-role" data-lang-key="fueb-role">Genel Sekreter</span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date" data-lang-key="fueb-date">2024 – Devam Ediyor</span>
+                <span class="timeline-location">📍 Elazığ</span>
+              </div>
+            </div>
+            <ul class="timeline-list">
+              <li data-lang-key="fueb-li1">Yönetim kurulu kararları doğrultusunda etkinlik planlaması ve ekip koordinasyonu sağladım.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Habitat Derneği -->
+        <div class="timeline-item reveal reveal-delay-1" id="vol-habitat">
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title-group">
+                <span class="timeline-company">Habitat Derneği</span>
+                <span class="timeline-role" data-lang-key="habitat-role">Gönüllü Eğitmen</span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date" data-lang-key="habitat-date">2025 – Devam Ediyor</span>
+                <span class="timeline-location">📍 Türkiye</span>
+              </div>
+            </div>
+            <ul class="timeline-list">
+              <li data-lang-key="habitat-li1">Gençlere finansal okuryazarlık ve dijital eğitimler vererek toplumsal farkındalık sağladım.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TEKNOFEST -->
+        <div class="timeline-item reveal reveal-delay-2" id="vol-teknofest">
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title-group">
+                <span class="timeline-company">TEKNOFEST</span>
+                <span class="timeline-role" data-lang-key="teknofest-role">Gönüllü (Görevli)</span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date" data-lang-key="teknofest-date">Eylül 2025</span>
+                <span class="timeline-location">📍 İstanbul</span>
+              </div>
+            </div>
+            <ul class="timeline-list">
+              <li data-lang-key="teknofest-li1">Festival alanında saha operasyonları ve ziyaretçi koordinasyonunu destekledim.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Projects / Projeler ── -->
+  <section id="projeler" aria-label="Projeler bölümü">
+    <div class="projects-container">
+
+      <div class="section-header reveal">
+        <span class="section-label" data-lang-key="proj-label">Projeler</span>
+        <h2 class="section-heading" data-lang-key="section-projects">Projeler</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- 1. Orbit-Scheduler -->
+        <div class="project-card reveal" id="proj-orbit-scheduler">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-satellite"></i>
+            <span class="project-badge">IAC 2026</span>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Orbit-Scheduler</span>
+            <p class="project-desc" data-lang-key="proj-desc-orbit-scheduler">Uydu ve yer istasyonları arasındaki veri trafiğini otonom yöneten, çakışmaları önleyen ve görev önceliklendirmesine dayalı dinamik planlama mimarisi. IAC 2026 İnteraktif Sunum Kabulü.</p>
+            <div class="project-tags">
+              <span class="project-tag">System Architecture</span>
+              <span class="project-tag">Data Routing</span>
+              <span class="project-tag">Optimization</span>
+              <span class="project-tag">Algorithm Design</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Orbital Sense -->
+        <div class="project-card reveal reveal-delay-1" id="proj-orbital-sense">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-globe"></i>
+            <span class="project-badge">TUA Hackathon</span>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Orbital Sense</span>
+            <p class="project-desc" data-lang-key="proj-desc-orbital-sense">Uzay havası olaylarını anlık izleyen ve kritik altyapılar için NASA telemetri verileriyle potansiyel tehditleri öngören erken uyarı sistemi.</p>
+            <div class="project-tags">
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">PostgreSQL</span>
+              <span class="project-tag">scikit-learn</span>
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">React Native</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. OptikOku -->
+        <div class="project-card reveal reveal-delay-2" id="proj-optikoku">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-camera"></i>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">OptikOku</span>
+            <p class="project-desc" data-lang-key="proj-desc-optikoku">OpenCV ile mutlak koordinat analizi yaparak %0 hata payıyla optik form okuyan, anında Excel raporlaması sunan uçtan uca OMR sistemi.</p>
+            <div class="project-tags">
+              <span class="project-tag">React Native</span>
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">OpenCV</span>
+              <span class="project-tag">Pillow</span>
+              <span class="project-tag">openpyxl</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Home-Lab -->
+        <div class="project-card reveal reveal-delay-1" id="proj-homelab">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-server"></i>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Home-Lab &amp; Network Altyapısı</span>
+            <p class="project-desc" data-lang-key="proj-desc-homelab">Proxmox üzerinde sanallaştırılmış Linux sunucuları ile kurulan, Cloudflare Tunnel ile güvenli hale getirilen ve Prometheus &amp; Grafana ile anlık izlenen On-Prem laboratuvar ortamı.</p>
+            <div class="project-tags">
+              <span class="project-tag">Proxmox</span>
+              <span class="project-tag">Docker Swarm</span>
+              <span class="project-tag">Cloudflare Zero Trust</span>
+              <span class="project-tag">Prometheus</span>
+              <span class="project-tag">Grafana</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. SKS Kampüs -->
+        <div class="project-card reveal reveal-delay-2" id="proj-sks">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">SKS Kampüs Topluluk Platformu</span>
+            <p class="project-desc" data-lang-key="proj-desc-sks">Üniversite bünyesindeki tüm öğrenci topluluklarını tek dijital merkezde toplayan, .edu.tr mail doğrulamasıyla güvenli giriş sağlayan etkinlik ve üye yönetim platformu.</p>
+            <div class="project-tags">
+              <span class="project-tag">Web Framework</span>
+              <span class="project-tag">Database Management</span>
+              <span class="project-tag">SSO/Auth</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Endüstriyel Hata Tespit -->
+        <div class="project-card reveal reveal-delay-3" id="proj-hata-tespit">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Endüstriyel Hata Tespit Sistemi</span>
+            <p class="project-desc" data-lang-key="proj-desc-hata-tespit">Üretim bandındaki ürünlerde oluşan fiziksel kusurları görüntü işleme algoritmaları ile erkenden tespit ederek fire oranını düşüren Computer Vision otomasyon projesi.</p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Computer Vision</span>
+              <span class="project-tag">Image Processing</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 7. Dijital Ödeme Altyapısı -->
+        <div class="project-card reveal" id="proj-odeme">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-coins"></i>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Dijital Ödeme Altyapısı</span>
+            <p class="project-desc" data-lang-key="proj-desc-odeme">Bankacılık standartlarına uygun, ACID prensiplerini koruyan, RabbitMQ ile asenkron çalışan mikroservis mimarisinde veri tutarlılığını garanti eden ödeme ağ geçidi simülasyonu.</p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">RabbitMQ</span>
+              <span class="project-tag">PostgreSQL</span>
+              <span class="project-tag">Docker</span>
+              <span class="project-tag">ACID</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 8. Reklagram -->
+        <div class="project-card reveal reveal-delay-1" id="proj-reklagram">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Reklagram — Veri Platformu</span>
+            <p class="project-desc" data-lang-key="proj-desc-reklagram">İlişkisel ve belge tabanlı veritabanlarının hibrit kullanıldığı Polyglot Persistence mimarisiyle AWS üzerinde çalışan yüksek ölçekli veri yönetim platformu.</p>
+            <div class="project-tags">
+              <span class="project-tag">AWS (EC2, S3)</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">PostgreSQL</span>
+              <span class="project-tag">CI/CD</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 9. DocuChat -->
+        <div class="project-card reveal reveal-delay-2" id="proj-docuchat">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">DocuChat — Güvenli AI Asistanı</span>
+            <p class="project-desc" data-lang-key="proj-desc-docuchat">Kurumsal dokümanları dışarı sızdırmadan analiz eden, RAG (Retrieval-Augmented Generation) mimarisi üzerine kurulu güvenli yapay zeka asistanı.</p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">LangChain</span>
+              <span class="project-tag">ChromaDB</span>
+              <span class="project-tag">RAG</span>
+              <span class="project-tag">Docker</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 10. Peak Games DevOps -->
+        <div class="project-card reveal reveal-delay-3" id="proj-peak-games">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-code-branch"></i>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Peak Games DevOps Case Study</span>
+            <p class="project-desc" data-lang-key="proj-desc-peak-games">Python tabanlı mikroservisin Dockerize edilmesi, Nginx ile Load Balancing sağlanması ve multi-stage build ile optimize edilmesi çalışması.</p>
+            <div class="project-tags">
+              <span class="project-tag">Docker</span>
+              <span class="project-tag">Nginx</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Optimization</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 11. Elmar Muhasebe -->
+        <div class="project-card reveal" id="proj-elmar-muhasebe">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-calculator"></i>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Elmar Muhasebe Otomasyonu</span>
+            <p class="project-desc" data-lang-key="proj-desc-elmar-muhasebe">Şirket içi finansal süreçleri hızlandıran, manuel iş yükünü minimize eden ve SQL tabanlı dinamik raporlama yapan masaüstü otomasyon yazılımı.</p>
+            <div class="project-tags">
+              <span class="project-tag">C#</span>
+              <span class="project-tag">.NET</span>
+              <span class="project-tag">SQL Server</span>
+              <span class="project-tag">DevExpress</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 12. RailGuard -->
+        <div class="project-card reveal reveal-delay-1" id="proj-railguard">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-train"></i>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">RailGuard — Demiryolu Risk İzleme</span>
+            <p class="project-desc" data-lang-key="proj-desc-railguard">Demiryolu makas sensörlerinden gelen SCADA verilerini anlık işleyerek YHT hatlarındaki aşınma ve arıza risklerini önceden tespit eden simülasyon ve merkezi izleme paneli. Ulaştırma Bakanlığı fikir yarışması projesi.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Vite</span>
+              <span class="project-tag">SCADA Simulation</span>
+              <span class="project-tag">Real-Time Monitoring</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Certificates / Sertifikalar ── -->
+  <section id="sertifikalar" aria-label="Sertifikalar bölümü">
+    <div class="certificates-container">
+
+      <div class="section-header reveal">
+        <span class="section-label" data-lang-key="cert-label">Başarılar</span>
+        <h2 class="section-heading" data-lang-key="section-certificates">Sertifikalar &amp; <span class="hl">Başarılar</span></h2>
+      </div>
+
+      <div class="certificates-grid">
+
+        <!-- 1. Altyapı Mühendisi — Intertech — 2025 -->
+        <div class="cert-card reveal" id="cert-altyapi-intertech">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Altyapı Mühendisi</span>
+              <span class="cert-issuer">Intertech</span>
+              <span class="cert-year">2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Introduction to DevOps — Microsoft — 2026 -->
+        <div class="cert-card reveal reveal-delay-1" id="cert-devops-microsoft">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Introduction to DevOps</span>
+              <span class="cert-issuer">Microsoft</span>
+              <span class="cert-year">2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. AWS Cloud Practitioner Essentials — AWS — 2024 -->
+        <div class="cert-card reveal reveal-delay-2" id="cert-aws-cloud">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">AWS Cloud Practitioner Essentials</span>
+              <span class="cert-issuer">Amazon Web Services</span>
+              <span class="cert-year">2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Vodafone'da 1 Gün: Network — Coderspace — 2026 -->
+        <div class="cert-card reveal reveal-delay-1" id="cert-vodafone-network">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Vodafone'da 1 Gün: Network</span>
+              <span class="cert-issuer">Coderspace</span>
+              <span class="cert-year">2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Veri Bilimi ve Yapay Zeka — DenizBank — 2025 -->
+        <div class="cert-card reveal reveal-delay-2" id="cert-veri-denizbank">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Veri Bilimi ve Yapay Zeka Fakültesi</span>
+              <span class="cert-issuer">DenizBank</span>
+              <span class="cert-year">2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. TUA Hackathon Katılımcısı — Türkiye Uzay Ajansı — 2025 -->
+        <div class="cert-card reveal reveal-delay-3" id="cert-tua-hackathon">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">TUA Hackathon Katılımcısı</span>
+              <span class="cert-issuer">Türkiye Uzay Ajansı</span>
+              <span class="cert-year">2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Hidden cards (show more) ── -->
+
+        <!-- 7. AGİLE 101 — Pupilica — 2025 -->
+        <div class="cert-card cert-hidden" id="cert-agile-pupilica">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-tasks"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">AGİLE 101</span>
+              <span class="cert-issuer">Pupilica</span>
+              <span class="cert-year">2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Amatör İHA Pilotu (İHA-0) — SHGM — 2024 -->
+        <div class="cert-card cert-hidden" id="cert-iha-shgm">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-plane"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Amatör İHA Pilotu (İHA-0)</span>
+              <span class="cert-issuer">SHGM</span>
+              <span class="cert-year">2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Yapay Zeka Zirvesi 2024 — BTK Akademi — 2024 -->
+        <div class="cert-card cert-hidden" id="cert-ai-zirvesi-btk">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Yapay Zeka Zirvesi 2024</span>
+              <span class="cert-issuer">BTK Akademi</span>
+              <span class="cert-year">2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. İletişim ve Network Yönetimi — BTK Akademi — 2024 -->
+        <div class="cert-card cert-hidden" id="cert-network-btk">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-project-diagram"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">İletişim ve Network Yönetimi</span>
+              <span class="cert-issuer">BTK Akademi</span>
+              <span class="cert-year">2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Bankacılıkta Kariyer Günleri — TBB — 2025 -->
+        <div class="cert-card cert-hidden" id="cert-kariyer-tbb">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-university"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Bankacılıkta Kariyer Günleri</span>
+              <span class="cert-issuer">Türkiye Bankalar Birliği</span>
+              <span class="cert-year">2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Finansal Okuryazarlık Eğitmeni — Habitat — 2025 -->
+        <div class="cert-card cert-hidden" id="cert-finansal-habitat">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Finansal Okuryazarlık Eğitmeni</span>
+              <span class="cert-issuer">Habitat Derneği</span>
+              <span class="cert-year">2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. Ekip Kurma ve Yönetme — BTK Akademi — 2024 -->
+        <div class="cert-card cert-hidden" id="cert-ekip-btk">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Ekip Kurma ve Yönetme</span>
+              <span class="cert-issuer">BTK Akademi</span>
+              <span class="cert-year">2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. Fikirden Girişime (Insurtech) — AgeSA — 2025 -->
+        <div class="cert-card cert-hidden" id="cert-insurtech-agesa">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Fikirden Girişime (Insurtech)</span>
+              <span class="cert-issuer">AgeSA</span>
+              <span class="cert-year">2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15. Kariyer ve Yetkinlik Buluşması — SSA — 2026 -->
+        <div class="cert-card cert-hidden" id="cert-kariyer-ssa">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-shield-alt"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Kariyer ve Yetkinlik Buluşması</span>
+              <span class="cert-issuer">Savunma Sanayii Akademi</span>
+              <span class="cert-year">2026</span>
+            </div>
+          </div>
+        </div>
+      </div><!-- /certificates-grid -->
+
+      <!-- Show More / Less Button -->
+      <div class="cert-show-more-wrapper">
+        <button
+          id="cert-show-more-btn"
+          class="cert-show-more-btn"
+          aria-expanded="false"
+        >
+          <span class="cert-btn-text">Daha Fazla Göster</span>
+          <i class="fa-solid fa-chevron-down cert-chevron" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Education / Eğitim ── -->
+  <section id="egitim" aria-label="Eğitim bölümü">
+    <div class="education-container">
+
+      <div class="section-header reveal">
+        <span class="section-label" data-lang-key="edu-label">Eğitim</span>
+        <h2 class="section-heading" data-lang-key="section-education">Eğitim<span class="hl"> Hayatım</span></h2>
+      </div>
+
+      <div class="education-grid">
+
+        <!-- ── PRIMARY CARD — Fırat Üniversitesi ── -->
+        <div class="edu-card edu-card-primary reveal" id="edu-firat">
+          <div class="edu-icon-box-primary" aria-hidden="true">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+
+          <p class="edu-degree-primary" data-lang-key="edu-firat-degree">Lisans — Yazılım Mühendisliği</p>
+          <p class="edu-university-primary">Fırat Üniversitesi</p>
+
+          <div class="edu-meta-primary">
+            <span class="edu-meta-item">
+              <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+              <span data-lang-key="edu-firat-years">2024 — Devam Ediyor</span>
+            </span>
+            <span class="edu-meta-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <span>Elazığ, Türkiye</span>
+            </span>
+          </div>
+
+          <span class="edu-active-badge" data-lang-key="active-student">Aktif Öğrenci</span>
+        </div>
+
+        <!-- ── SECONDARY CARD — Gümüşhane Üniversitesi ── -->
+        <div class="edu-card edu-card-secondary reveal reveal-delay-1" id="edu-gumushane">
+          <div class="edu-icon-box-secondary" aria-hidden="true">
+            <i class="fa-solid fa-university"></i>
+          </div>
+
+          <p class="edu-degree-secondary" data-lang-key="edu-gumushane-degree">Yazılım Mühendisliği — Yatay Geçiş</p>
+          <p class="edu-university-secondary">Gümüşhane Üniversitesi</p>
+
+          <div class="edu-meta-secondary">
+            <span class="edu-meta-item">
+              <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+              <span>2023 — 2024</span>
+            </span>
+            <span class="edu-meta-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <span>Gümüşhane, Türkiye</span>
+            </span>
+          </div>
+
+          <span class="edu-transfer-badge" data-lang-key="lateral-transfer">
+            <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
+            Yatay Geçiş
+          </span>
+        </div>
+
+      </div><!-- /education-grid -->
+
+    </div>
+  </section>
+
+  <!-- ── Contact / İletişim ── -->
+  <section id="iletisim" aria-label="İletişim bölümü">
+    <div class="contact-container">
+
+      <div class="section-header reveal">
+        <span class="section-label" data-lang-key="contact-label">İletişim</span>
+        <h2 class="section-heading" data-lang-key="section-contact">İletişim<span class="hl"> &amp; Bağlantı</span></h2>
+      </div>
+
+      <p class="contact-headline reveal" data-lang-key="contact-headline">
+        Hadi Birlikte Harika Şeyler Yapalım
+      </p>
+
+      <p class="contact-subtext reveal reveal-delay-1" data-lang-key="contact-subtext">
+        DevOps, Cloud veya sistem altyapısı projelerinizde işbirliği için benimle iletişime geçin.
+      </p>
+
+      <a
+        href="mailto:ugur_berktas@icloud.com"
+        class="contact-email-link reveal reveal-delay-1"
+        id="contact-email"
+        aria-label="ugur_berktas@icloud.com adresine e-posta gönder"
+      >
+        ugur_berktas@icloud.com
+      </a>
+
+      <div class="contact-links reveal reveal-delay-2">
+        <a
+          href="https://linkedin.com/in/ugurberktas"
+          class="contact-link-btn"
+          id="contact-linkedin"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profilini ziyaret et"
+        >
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+          LinkedIn
+        </a>
+        <a
+          href="https://github.com/ugurberktas"
+          class="contact-link-btn"
+          id="contact-github"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub profilini ziyaret et"
+        >
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          GitHub
+        </a>
+        <a
+          href="mailto:ugur_berktas@icloud.com"
+          class="contact-link-btn"
+          id="contact-email-btn"
+          aria-label="E-posta gönder"
+        >
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          Email
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer id="footer" role="contentinfo">
+    <div class="footer-inner">
+      <span class="footer-copy" id="footer-copy" data-lang-key="footer-copy">
+        © 2025 Uğur Berktaş. Tüm hakları saklıdır.
+      </span>
+      <div class="footer-socials" aria-label="Sosyal bağlantılar">
+        <a
+          href="https://linkedin.com/in/ugurberktas"
+          class="footer-social-link"
+          id="footer-linkedin"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a
+          href="https://github.com/ugurberktas"
+          class="footer-social-link"
+          id="footer-github"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Scripts ── -->
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/lang.js"></script>
+  <script src="assets/js/certificates.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

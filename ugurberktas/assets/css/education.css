@@ -1,0 +1,319 @@
+/* =============================================
+   EDUCATION.CSS — Education Section Styles
+   ============================================= */
+
+/* ── Section base ── */
+#egitim {
+  background: var(--page-bg, #fdf8f6);
+  padding-block: 80px;
+}
+
+html.dark #egitim {
+  background: #111111;
+}
+
+/* ── Container ── */
+.education-container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.education-container .section-header {
+  margin-bottom: 52px;
+}
+
+/* ── Asymmetric grid: 2fr 1fr ── */
+.education-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ── Shared card base ── */
+.edu-card {
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--surface-border, rgba(0, 0, 0, 0.07));
+  border-radius: 16px;
+  transition:
+    transform var(--transition-slow),
+    border-color var(--transition-base),
+    box-shadow var(--transition-slow);
+  overflow: hidden;
+}
+
+.edu-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange);
+  box-shadow:
+    0 12px 40px rgba(249, 115, 22, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ──────────────────────────────────────────
+   BIG CARD — Fırat Üniversitesi
+────────────────────────────────────────── */
+.edu-card-primary {
+  padding: 40px;
+}
+
+/* Top accent bar */
+.edu-card-primary::before {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--orange) 0%, #fb923c 100%);
+  border-radius: var(--radius-full);
+  margin-bottom: 28px;
+}
+
+/* Icon box — 64px, orange gradient */
+.edu-icon-box-primary {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--orange) 0%, #fb923c 50%, #fdba74 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.32);
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+
+.edu-icon-box-primary i {
+  font-size: 1.75rem;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+/* Degree */
+.edu-degree-primary {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--heading-color, #1a1a2e);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+/* University name */
+.edu-university-primary {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+
+/* Meta row (years + city) */
+.edu-meta-primary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.edu-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-muted, #6b7280);
+}
+
+.edu-meta-item i {
+  font-size: 0.8rem;
+  color: var(--orange);
+  opacity: 0.8;
+}
+
+/* Active Student badge */
+.edu-active-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  background: rgba(249, 115, 22, 0.10);
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  border-radius: var(--radius-full);
+}
+
+.edu-active-badge::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  animation: eduPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes eduPulse {
+  0%, 100% { opacity: 1;   transform: scale(1);    }
+  50%       { opacity: 0.5; transform: scale(0.75); }
+}
+
+/* ──────────────────────────────────────────
+   SMALL CARD — Gümüşhane Üniversitesi
+────────────────────────────────────────── */
+.edu-card-secondary {
+  padding: 24px;
+  opacity: 0.88;
+}
+
+.edu-card-secondary:hover {
+  opacity: 1;
+}
+
+/* Icon box — 44px, muted grey */
+.edu-icon-box-secondary {
+  width: 44px;
+  height: 44px;
+  background: var(--surface-raised, #f3f4f6);
+  border: 1px solid var(--surface-border, rgba(0, 0, 0, 0.07));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.edu-icon-box-secondary i {
+  font-size: 1.2rem;
+  color: var(--text-muted, #6b7280);
+}
+
+/* Degree */
+.edu-degree-secondary {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--heading-color, #1a1a2e);
+  line-height: 1.3;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+/* University name */
+.edu-university-secondary {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary, #4b5563);
+  margin-bottom: 10px;
+}
+
+/* Meta row (small card) */
+.edu-meta-secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edu-meta-secondary .edu-meta-item {
+  font-size: var(--text-xs);
+}
+
+/* Transfer badge */
+.edu-transfer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-muted, #6b7280);
+  background: var(--surface-raised, #f3f4f6);
+  border: 1px solid var(--surface-border, rgba(0, 0, 0, 0.07));
+  border-radius: var(--radius-full);
+}
+
+/* ──────────────────────────────────────────
+   DARK MODE
+────────────────────────────────────────── */
+html.dark .edu-card {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .edu-card:hover {
+  border-color: var(--orange);
+  box-shadow:
+    0 12px 36px rgba(249, 115, 22, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+html.dark .edu-degree-primary {
+  color: #f5f5f4;
+}
+
+html.dark .edu-degree-secondary {
+  color: #c4c4c0;
+}
+
+html.dark .edu-university-secondary {
+  color: #a8a29e;
+}
+
+html.dark .edu-icon-box-secondary {
+  background: #212121;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .edu-icon-box-secondary i {
+  color: #a8a29e;
+}
+
+html.dark .edu-active-badge {
+  background: rgba(249, 115, 22, 0.12);
+  border-color: rgba(249, 115, 22, 0.28);
+  color: var(--orange-light);
+}
+
+html.dark .edu-transfer-badge {
+  background: #212121;
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #a8a29e;
+}
+
+html.dark .edu-meta-item {
+  color: #a8a29e;
+}
+
+/* ──────────────────────────────────────────
+   LIGHT MODE
+────────────────────────────────────────── */
+html:not(.dark) #egitim {
+  background: #f9fafb;
+}
+
+html:not(.dark) .edu-degree-primary {
+  color: #1a1a2e;
+}
+
+html:not(.dark) .edu-degree-secondary {
+  color: #374151;
+}

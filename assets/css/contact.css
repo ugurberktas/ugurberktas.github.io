@@ -188,10 +188,11 @@ html.dark #footer {
   margin-inline: auto;
   padding-inline: var(--space-6);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
 }
 
 /* Copyright text */
@@ -230,10 +231,3 @@ html.dark #footer {
   transform: translateY(-2px);
 }
 
-@media (max-width: 480px) {
-  .footer-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 14px;
-  }
-}

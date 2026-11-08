@@ -27,10 +27,11 @@
   <!-- ── Stylesheets ── -->
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/navbar.css" />
+  <link rel="stylesheet" href="assets/css/terminal-overlay.css" />
   <link rel="stylesheet" href="assets/css/hero.css" />
   <link rel="stylesheet" href="assets/css/about.css" />
   <link rel="stylesheet" href="assets/css/experience.css" />
-  <link rel="stylesheet" href="assets/css/projects.css" />
+  <link rel="stylesheet" href="assets/css/projects.css?v=20261108-2" />
   <link rel="stylesheet" href="assets/css/certificates.css" />
   <link rel="stylesheet" href="assets/css/education.css" />
   <link rel="stylesheet" href="assets/css/contact.css" />
@@ -56,6 +57,25 @@
 
       <!-- Right controls -->
       <div class="nav-controls">
+        <button
+          type="button"
+          class="nav-terminal-btn nav-terminal-trigger terminal-overlay-trigger"
+          id="nav-terminal-btn"
+          aria-controls="terminal-overlay"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+        >
+          <svg class="nav-terminal-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2.5" y="4" width="19" height="16" rx="2.5"></rect>
+            <path d="m7 9 3 3-3 3"></path>
+            <path d="M13 15h4"></path>
+          </svg>
+          <span class="nav-terminal-copy" aria-hidden="true">
+            <span class="nav-terminal-text" id="nav-terminal-text">Terminal</span>
+            <span class="nav-terminal-cursor"></span>
+          </span>
+          <span class="sr-only" data-lang-key="nav-terminal-action">Tam ekran terminali aç</span>
+        </button>
         <button class="nav-lang-btn" id="nav-lang-btn" aria-label="Dil değiştir">TR</button>
         <button class="nav-theme-btn" id="nav-theme-btn" aria-label="Karanlık mod">🌙</button>
       </div>
@@ -82,12 +102,83 @@
       <a href="#sertifikalar" id="nav-mobile-certificates" data-lang-key="nav-certificates">Sertifikalar</a>
       <a href="#egitim" id="nav-mobile-education" data-lang-key="nav-education">Eğitim</a>
       <a href="#iletisim" id="nav-mobile-contact" data-lang-key="nav-contact">İletişim</a>
+      <button
+        type="button"
+        class="nav-mobile-terminal nav-terminal-trigger terminal-overlay-trigger"
+        aria-controls="terminal-overlay"
+        aria-haspopup="dialog"
+        aria-expanded="false"
+      >
+        <svg class="nav-terminal-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2.5" y="4" width="19" height="16" rx="2.5"></rect>
+          <path d="m7 9 3 3-3 3"></path>
+          <path d="M13 15h4"></path>
+        </svg>
+        <span data-lang-key="nav-terminal">Terminal</span>
+      </button>
       <div class="nav-mobile-controls">
         <button class="nav-lang-btn" aria-label="Dil değiştir">TR</button>
         <button class="nav-theme-btn" aria-label="Karanlık mod">🌙</button>
       </div>
     </div>
   </header>
+
+  <!-- ── Fullscreen terminal overlay ── -->
+  <div
+    class="terminal-overlay"
+    id="terminal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="terminal-overlay-title"
+    aria-describedby="terminal-sequence-accessible"
+    aria-hidden="true"
+    hidden
+  >
+    <span class="sr-only" id="terminal-overlay-title" data-lang-key="terminal-overlay-title">Tam ekran terminal</span>
+
+    <div class="terminal-overlay-shell">
+      <div class="terminal-overlay-header">
+        <div class="terminal-overlay-identity" aria-hidden="true">
+          <svg class="terminal-overlay-icon" viewBox="0 0 24 24">
+            <rect x="2.5" y="4" width="19" height="16" rx="2.5"></rect>
+            <path d="m7 9 3 3-3 3"></path>
+            <path d="M13 15h4"></path>
+          </svg>
+          <span>ugur@portfolio:~</span>
+        </div>
+
+        <div class="terminal-overlay-controls">
+          <button
+            type="button"
+            class="terminal-sound-toggle"
+            id="terminal-sound-toggle"
+            aria-pressed="true"
+          >
+            <svg class="terminal-sound-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M11 5 6.5 9H3v6h3.5l4.5 4z"></path>
+              <path d="M15 9.5a4 4 0 0 1 0 5"></path>
+              <path d="M17.5 7a7.5 7.5 0 0 1 0 10"></path>
+            </svg>
+            <span id="terminal-sound-label">Ses: Açık</span>
+          </button>
+
+          <button
+            type="button"
+            class="terminal-overlay-close"
+            id="terminal-overlay-close"
+            data-lang-key="terminal-overlay-close"
+          >[ESC / Kapat]</button>
+        </div>
+      </div>
+
+      <div class="terminal-overlay-body" aria-live="off">
+        <div class="terminal-sequence-stage" aria-hidden="true">
+          <div class="terminal-sequence-editor" id="terminal-sequence-editor"></div>
+        </div>
+        <p class="sr-only" id="terminal-sequence-accessible">const identity = { name: "Uğur Berktaş", role: "Platform Mühendisi", focus: "Altyapı", status: "İnşa ediliyor..." };</p>
+      </div>
+    </div>
+  </div>
 
   <!-- ── Hero ── -->
   <section id="hero" aria-label="Hero bölümü">
@@ -175,6 +266,46 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="hero-terminal-group">
+          <!-- Static terminal preview -->
+          <div
+            class="hero-terminal-preview terminal-overlay-trigger"
+            id="hero-terminal-preview"
+            role="button"
+            tabindex="0"
+            aria-labelledby="hero-terminal-action"
+            aria-controls="terminal-overlay"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <span class="sr-only" id="hero-terminal-action" data-lang-key="hero-terminal-action">Tam ekran terminali aç</span>
+            <div class="terminal-titlebar">
+              <div class="terminal-window-dots" aria-hidden="true">
+                <span class="terminal-dot terminal-dot-red"></span>
+                <span class="terminal-dot terminal-dot-yellow"></span>
+                <span class="terminal-dot terminal-dot-green"></span>
+              </div>
+              <span class="terminal-title" id="terminal-title">ugur@portfolio:~</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line terminal-command-line">
+                <span class="terminal-prompt">ugur@portfolio</span><span class="terminal-path">:~</span><span class="terminal-symbol">$</span>
+                <span class="terminal-command">whoami</span>
+              </div>
+              <div class="terminal-line terminal-output">
+                <span class="terminal-output-visual" id="terminal-output-visual" aria-hidden="true">Ben kimim...?</span>
+                <span class="terminal-cursor" aria-hidden="true"></span>
+                <span class="sr-only" id="terminal-output-accessible" data-lang-key="terminal-whoami-output">Ben kimim...?</span>
+              </div>
+            </div>
+          </div>
+
+          <a class="hero-scroll-cue" href="#hakkimda">
+            <span data-lang-key="hero-scroll-cue">Daha Fazlasını Keşfet</span>
+            <span class="hero-scroll-cue-arrow" aria-hidden="true">↓</span>
+          </a>
         </div>
 
       </div>
@@ -539,10 +670,162 @@
         <h2 class="section-heading" data-lang-key="section-projects">Projeler</h2>
       </div>
 
-      <div class="projects-grid">
+      <div class="projects-stage" id="projects-stage">
+        <div class="projects-grid" id="projects-grid">
 
-        <!-- 1. Orbit-Scheduler -->
-        <div class="project-card reveal" id="proj-orbit-scheduler">
+        <!-- 1. UstaSanayicim -->
+        <div class="project-card reveal" id="proj-ustasanayicim">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-industry"></i>
+            <span class="project-badge">Production SaaS</span>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">UstaSanayicim</span>
+            <p class="project-desc" data-lang-key="proj-desc-ustasanayicim">Oto sanayi işletmelerinin servis, iş emri, araç, müşteri, parça ve finans süreçlerini dijitalleştiren çok kiracılı SaaS platformu. Rol tabanlı paneller, güvenli API yetkilendirmesi ve PostgreSQL RLS politikalarıyla işletmeler arası veri izolasyonu sağlar.</p>
+            <div class="project-tags">
+              <span class="project-tag">React &amp; TypeScript</span>
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">PostgreSQL &amp; RLS</span>
+              <span class="project-tag">Supabase</span>
+              <span class="project-tag">Multi-Tenant SaaS</span>
+              <span class="project-tag">Sentry</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <span class="project-status" data-lang-key="proj-status-private-production">Private · Production</span>
+          </div>
+        </div>
+
+        <!-- 2. OpsRadar -->
+        <div class="project-card reveal reveal-delay-1" id="proj-opsradar">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-chart-line"></i>
+            <span class="project-badge">SRE</span>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">OpsRadar — SRE Incident Intelligence</span>
+            <p class="project-desc" data-lang-key="proj-desc-opsradar">JSONL uygulama loglarını yerel olarak işleyen, hassas verileri kayıt öncesinde maskeleyen ve kural tabanlı analizle ilişkili olayları incident'lara dönüştüren SRE gözlemleme paneli. Olay korelasyonu, servis sağlığı takibi ve incident yönetimi sunar.</p>
+            <div class="project-tags">
+              <span class="project-tag">React &amp; TypeScript</span>
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">SQLAlchemy</span>
+              <span class="project-tag">Log Redaction</span>
+              <span class="project-tag">Incident Correlation</span>
+              <span class="project-tag">Docker &amp; CI</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas/OpsRadar" class="project-github-link" target="_blank" rel="noopener noreferrer" aria-label="OpsRadar GitHub repository">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Home-Lab -->
+        <div class="project-card reveal reveal-delay-2" id="proj-homelab">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-server"></i>
+            <span class="project-badge">Infrastructure</span>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Home-Lab &amp; Network Altyapısı</span>
+            <p class="project-desc" data-lang-key="proj-desc-homelab">Proxmox üzerinde sanallaştırılmış Linux sunucuları ile kurulan, Cloudflare Tunnel ile güvenli hale getirilen ve Prometheus &amp; Grafana ile anlık izlenen On-Prem laboratuvar ortamı.</p>
+            <div class="project-tags">
+              <span class="project-tag">Proxmox</span>
+              <span class="project-tag">Docker Swarm</span>
+              <span class="project-tag">Cloudflare Zero Trust</span>
+              <span class="project-tag">Prometheus</span>
+              <span class="project-tag">Grafana</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. FraudCell -->
+        <div class="project-card reveal" id="proj-fraudcell">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span class="project-badge">Demo MVP</span>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">FraudCell — Fraud İnceleme Platformu</span>
+            <p class="project-desc" data-lang-key="proj-desc-fraudcell">Finansal işlemleri gerçek bir scikit-learn modeliyle skorlayan ve yüksek riskli vakaları uzman analistlere yönlendiren dört servisli fraud inceleme MVP'si. Vaka kararlarını transactional outbox ve RabbitMQ üzerinden işleyerek puan, rozet ve leaderboard akışını üretir.</p>
+            <div class="project-tags">
+              <span class="project-tag">Python &amp; FastAPI</span>
+              <span class="project-tag">scikit-learn</span>
+              <span class="project-tag">PostgreSQL</span>
+              <span class="project-tag">RabbitMQ</span>
+              <span class="project-tag">Transactional Outbox</span>
+              <span class="project-tag">Kong &amp; Docker</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ugurberktas/FraudCell" class="project-github-link" target="_blank" rel="noopener noreferrer" aria-label="FraudCell GitHub repository">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Şantiye Takip -->
+        <div class="project-card reveal reveal-delay-1" id="proj-santiye-mobile">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-helmet-safety"></i>
+            <span class="project-badge">Mobile SaaS</span>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Şantiye Takip — Mobil SaaS</span>
+            <p class="project-desc" data-lang-key="proj-desc-santiye-mobile">İnşaat işletmelerinin şantiye, personel, günlük çalışma, ödeme ve gider süreçlerini tek mobil platformda yöneten, iOS ve Android hedefli çok kiracılı SaaS uygulaması. Rol tabanlı erişim, PostgreSQL RLS ile işletme izolasyonu, başvuru yönetimi ve abonelik kontrol altyapısı sunar.</p>
+            <div class="project-tags">
+              <span class="project-tag">React Native</span>
+              <span class="project-tag">Expo &amp; TypeScript</span>
+              <span class="project-tag">Supabase Auth</span>
+              <span class="project-tag">PostgreSQL &amp; RLS</span>
+              <span class="project-tag">Multi-Tenant SaaS</span>
+              <span class="project-tag">iOS &amp; Android</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <span class="project-status" data-lang-key="proj-status-private-development">Private · Aktif Geliştirme</span>
+          </div>
+        </div>
+
+        <!-- 6. Reklagram -->
+        <div class="project-card reveal reveal-delay-2" id="proj-reklagram">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <span class="project-badge">Cloud</span>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Reklagram — Veri Platformu</span>
+            <p class="project-desc" data-lang-key="proj-desc-reklagram">İlişkisel ve belge tabanlı veritabanlarının hibrit kullanıldığı Polyglot Persistence mimarisiyle AWS üzerinde çalışan yüksek ölçekli veri yönetim platformu.</p>
+            <div class="project-tags">
+              <span class="project-tag">AWS (EC2, S3)</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">PostgreSQL</span>
+              <span class="project-tag">CI/CD</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Peak Games DevOps -->
+        <div class="project-card reveal" id="proj-peak-games">
+          <div class="project-card-banner">
+            <i class="fa-solid fa-code-branch"></i>
+            <span class="project-badge">DevOps</span>
+          </div>
+          <div class="project-card-body">
+            <span class="project-name">Peak Games DevOps Case Study</span>
+            <p class="project-desc" data-lang-key="proj-desc-peak-games">Python tabanlı mikroservisin Dockerize edilmesi, Nginx ile Load Balancing sağlanması ve multi-stage build ile optimize edilmesi çalışması.</p>
+            <div class="project-tags">
+              <span class="project-tag">Docker</span>
+              <span class="project-tag">Nginx</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Optimization</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Orbit-Scheduler -->
+        <div class="project-card reveal reveal-delay-1" id="proj-orbit-scheduler">
           <div class="project-card-banner">
             <i class="fa-solid fa-satellite"></i>
             <span class="project-badge">IAC 2026</span>
@@ -557,259 +840,52 @@
               <span class="project-tag">Algorithm Design</span>
             </div>
           </div>
-          <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-          </div>
         </div>
 
-        <!-- 2. Orbital Sense -->
-        <div class="project-card reveal reveal-delay-1" id="proj-orbital-sense">
+        <!-- 9. SpeedGPS -->
+        <div class="project-card reveal reveal-delay-2" id="proj-speedgps">
           <div class="project-card-banner">
-            <i class="fa-solid fa-globe"></i>
-            <span class="project-badge">TUA Hackathon</span>
+            <i class="fa-solid fa-gauge-high"></i>
+            <span class="project-badge">Live PWA</span>
           </div>
           <div class="project-card-body">
-            <span class="project-name">Orbital Sense</span>
-            <p class="project-desc" data-lang-key="proj-desc-orbital-sense">Uzay havası olaylarını anlık izleyen ve kritik altyapılar için NASA telemetri verileriyle potansiyel tehditleri öngören erken uyarı sistemi.</p>
-            <div class="project-tags">
-              <span class="project-tag">FastAPI</span>
-              <span class="project-tag">PostgreSQL</span>
-              <span class="project-tag">scikit-learn</span>
-              <span class="project-tag">Next.js</span>
-              <span class="project-tag">React Native</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-
-        <!-- 3. OptikOku -->
-        <div class="project-card reveal reveal-delay-2" id="proj-optikoku">
-          <div class="project-card-banner">
-            <i class="fa-solid fa-camera"></i>
-          </div>
-          <div class="project-card-body">
-            <span class="project-name">OptikOku</span>
-            <p class="project-desc" data-lang-key="proj-desc-optikoku">OpenCV ile mutlak koordinat analizi yaparak %0 hata payıyla optik form okuyan, anında Excel raporlaması sunan uçtan uca OMR sistemi.</p>
-            <div class="project-tags">
-              <span class="project-tag">React Native</span>
-              <span class="project-tag">FastAPI</span>
-              <span class="project-tag">OpenCV</span>
-              <span class="project-tag">Pillow</span>
-              <span class="project-tag">openpyxl</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-
-        <!-- 4. Home-Lab -->
-        <div class="project-card reveal reveal-delay-1" id="proj-homelab">
-          <div class="project-card-banner">
-            <i class="fa-solid fa-server"></i>
-          </div>
-          <div class="project-card-body">
-            <span class="project-name">Home-Lab &amp; Network Altyapısı</span>
-            <p class="project-desc" data-lang-key="proj-desc-homelab">Proxmox üzerinde sanallaştırılmış Linux sunucuları ile kurulan, Cloudflare Tunnel ile güvenli hale getirilen ve Prometheus &amp; Grafana ile anlık izlenen On-Prem laboratuvar ortamı.</p>
-            <div class="project-tags">
-              <span class="project-tag">Proxmox</span>
-              <span class="project-tag">Docker Swarm</span>
-              <span class="project-tag">Cloudflare Zero Trust</span>
-              <span class="project-tag">Prometheus</span>
-              <span class="project-tag">Grafana</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-
-        <!-- 5. SKS Kampüs -->
-        <div class="project-card reveal reveal-delay-2" id="proj-sks">
-          <div class="project-card-banner">
-            <i class="fa-solid fa-users"></i>
-          </div>
-          <div class="project-card-body">
-            <span class="project-name">SKS Kampüs Topluluk Platformu</span>
-            <p class="project-desc" data-lang-key="proj-desc-sks">Üniversite bünyesindeki tüm öğrenci topluluklarını tek dijital merkezde toplayan, .edu.tr mail doğrulamasıyla güvenli giriş sağlayan etkinlik ve üye yönetim platformu.</p>
-            <div class="project-tags">
-              <span class="project-tag">Web Framework</span>
-              <span class="project-tag">Database Management</span>
-              <span class="project-tag">SSO/Auth</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-
-        <!-- 6. Endüstriyel Hata Tespit -->
-        <div class="project-card reveal reveal-delay-3" id="proj-hata-tespit">
-          <div class="project-card-banner">
-            <i class="fa-solid fa-eye"></i>
-          </div>
-          <div class="project-card-body">
-            <span class="project-name">Endüstriyel Hata Tespit Sistemi</span>
-            <p class="project-desc" data-lang-key="proj-desc-hata-tespit">Üretim bandındaki ürünlerde oluşan fiziksel kusurları görüntü işleme algoritmaları ile erkenden tespit ederek fire oranını düşüren Computer Vision otomasyon projesi.</p>
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">Computer Vision</span>
-              <span class="project-tag">Image Processing</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-
-        <!-- 7. Dijital Ödeme Altyapısı -->
-        <div class="project-card reveal" id="proj-odeme">
-          <div class="project-card-banner">
-            <i class="fa-solid fa-coins"></i>
-          </div>
-          <div class="project-card-body">
-            <span class="project-name">Dijital Ödeme Altyapısı</span>
-            <p class="project-desc" data-lang-key="proj-desc-odeme">Bankacılık standartlarına uygun, ACID prensiplerini koruyan, RabbitMQ ile asenkron çalışan mikroservis mimarisinde veri tutarlılığını garanti eden ödeme ağ geçidi simülasyonu.</p>
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">RabbitMQ</span>
-              <span class="project-tag">PostgreSQL</span>
-              <span class="project-tag">Docker</span>
-              <span class="project-tag">ACID</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-
-        <!-- 8. Reklagram -->
-        <div class="project-card reveal reveal-delay-1" id="proj-reklagram">
-          <div class="project-card-banner">
-            <i class="fa-solid fa-cloud-arrow-up"></i>
-          </div>
-          <div class="project-card-body">
-            <span class="project-name">Reklagram — Veri Platformu</span>
-            <p class="project-desc" data-lang-key="proj-desc-reklagram">İlişkisel ve belge tabanlı veritabanlarının hibrit kullanıldığı Polyglot Persistence mimarisiyle AWS üzerinde çalışan yüksek ölçekli veri yönetim platformu.</p>
-            <div class="project-tags">
-              <span class="project-tag">AWS (EC2, S3)</span>
-              <span class="project-tag">MongoDB</span>
-              <span class="project-tag">PostgreSQL</span>
-              <span class="project-tag">CI/CD</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-
-        <!-- 9. DocuChat -->
-        <div class="project-card reveal reveal-delay-2" id="proj-docuchat">
-          <div class="project-card-banner">
-            <i class="fa-solid fa-robot"></i>
-          </div>
-          <div class="project-card-body">
-            <span class="project-name">DocuChat — Güvenli AI Asistanı</span>
-            <p class="project-desc" data-lang-key="proj-desc-docuchat">Kurumsal dokümanları dışarı sızdırmadan analiz eden, RAG (Retrieval-Augmented Generation) mimarisi üzerine kurulu güvenli yapay zeka asistanı.</p>
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">LangChain</span>
-              <span class="project-tag">ChromaDB</span>
-              <span class="project-tag">RAG</span>
-              <span class="project-tag">Docker</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-
-        <!-- 10. Peak Games DevOps -->
-        <div class="project-card reveal reveal-delay-3" id="proj-peak-games">
-          <div class="project-card-banner">
-            <i class="fa-solid fa-code-branch"></i>
-          </div>
-          <div class="project-card-body">
-            <span class="project-name">Peak Games DevOps Case Study</span>
-            <p class="project-desc" data-lang-key="proj-desc-peak-games">Python tabanlı mikroservisin Dockerize edilmesi, Nginx ile Load Balancing sağlanması ve multi-stage build ile optimize edilmesi çalışması.</p>
-            <div class="project-tags">
-              <span class="project-tag">Docker</span>
-              <span class="project-tag">Nginx</span>
-              <span class="project-tag">Python</span>
-              <span class="project-tag">Optimization</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-
-        <!-- 11. Elmar Muhasebe -->
-        <div class="project-card reveal" id="proj-elmar-muhasebe">
-          <div class="project-card-banner">
-            <i class="fa-solid fa-calculator"></i>
-          </div>
-          <div class="project-card-body">
-            <span class="project-name">Elmar Muhasebe Otomasyonu</span>
-            <p class="project-desc" data-lang-key="proj-desc-elmar-muhasebe">Şirket içi finansal süreçleri hızlandıran, manuel iş yükünü minimize eden ve SQL tabanlı dinamik raporlama yapan masaüstü otomasyon yazılımı.</p>
-            <div class="project-tags">
-              <span class="project-tag">C#</span>
-              <span class="project-tag">.NET</span>
-              <span class="project-tag">SQL Server</span>
-              <span class="project-tag">DevExpress</span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-
-        <!-- 12. RailGuard -->
-        <div class="project-card reveal reveal-delay-1" id="proj-railguard">
-          <div class="project-card-banner">
-            <i class="fa-solid fa-train"></i>
-          </div>
-          <div class="project-card-body">
-            <span class="project-name">RailGuard — Demiryolu Risk İzleme</span>
-            <p class="project-desc" data-lang-key="proj-desc-railguard">Demiryolu makas sensörlerinden gelen SCADA verilerini anlık işleyerek YHT hatlarındaki aşınma ve arıza risklerini önceden tespit eden simülasyon ve merkezi izleme paneli. Ulaştırma Bakanlığı fikir yarışması projesi.</p>
+            <span class="project-name">SpeedGPS — Akıllı Hız Göstergesi</span>
+            <p class="project-desc" data-lang-key="proj-desc-speedgps">GPS verisini hibrit ölçüm yaklaşımıyla işleyerek anlık, ortalama ve maksimum hızı gösteren reklamsız PWA hız göstergesi. Sinyal dalgalanmalarını filtreler, bağlantı kesintilerinden sonra güvenli biçimde toparlanır ve mobil kullanımda ekranın açık kalmasını destekler.</p>
             <div class="project-tags">
               <span class="project-tag">React</span>
-              <span class="project-tag">Vite</span>
-              <span class="project-tag">SCADA Simulation</span>
-              <span class="project-tag">Real-Time Monitoring</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">Vite &amp; PWA</span>
+              <span class="project-tag">Geolocation API</span>
+              <span class="project-tag">Haversine</span>
+              <span class="project-tag">Wake Lock</span>
             </div>
           </div>
           <div class="project-footer">
-            <a href="https://github.com/ugurberktas" class="project-github-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/ugurberktas/speedgps" class="project-github-link" target="_blank" rel="noopener noreferrer" aria-label="SpeedGPS GitHub repository">
               <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://speedgps.netlify.app/" class="project-github-link" target="_blank" rel="noopener noreferrer" aria-label="SpeedGPS live application">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-lang-key="proj-link-live">Canlı</span>
             </a>
           </div>
         </div>
 
+        </div>
+
+        <div class="projects-fade" aria-hidden="true"></div>
+      </div>
+
+      <div class="projects-toggle-wrapper" hidden>
+        <button
+          id="projects-toggle-btn"
+          class="projects-toggle-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="projects-grid"
+        >
+          <span class="projects-toggle-text">Daha Fazla Proje Göster</span>
+          <i class="fa-solid fa-chevron-down projects-toggle-chevron" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   </section>
@@ -1272,6 +1348,9 @@
   <script src="assets/js/navbar.js"></script>
   <script src="assets/js/animations.js"></script>
   <script src="assets/js/lang.js"></script>
+  <script src="assets/js/nav-terminal.js"></script>
+  <script src="assets/js/terminal-sequence.js"></script>
+  <script src="assets/js/projects.js"></script>
   <script src="assets/js/certificates.js"></script>
   <script src="assets/js/main.js"></script>
 

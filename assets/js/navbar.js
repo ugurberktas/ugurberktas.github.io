@@ -14,6 +14,19 @@
   var themeBtn    = document.getElementById('nav-theme-btn');
   var isDark      = localStorage.getItem('ub-theme') === 'dark';
 
+  function getThemeLabel(dark) {
+    var lang = localStorage.getItem('ub-lang') === 'en' ? 'en' : 'tr';
+    if (lang === 'en') return dark ? 'Switch to light mode' : 'Switch to dark mode';
+    return dark ? 'Açık moda geç' : 'Karanlık moda geç';
+  }
+
+  function updateThemeButtons(dark) {
+    document.querySelectorAll('.nav-theme-btn').forEach(function (btn) {
+      btn.textContent = dark ? '☀️' : '🌙';
+      btn.setAttribute('aria-label', getThemeLabel(dark));
+    });
+  }
+
   function applyTheme(dark) {
     if (dark) {
       html.classList.add('dark');
@@ -21,10 +34,7 @@
       html.classList.remove('dark');
     }
     /* Update all theme buttons (desktop + mobile) */
-    document.querySelectorAll('.nav-theme-btn').forEach(function (btn) {
-      btn.textContent = dark ? '☀️' : '🌙';
-      btn.setAttribute('aria-label', dark ? 'Açık moda geç' : 'Karanlık moda geç');
-    });
+    updateThemeButtons(dark);
     isDark = dark;
     localStorage.setItem('ub-theme', dark ? 'dark' : 'light');
   }
@@ -37,6 +47,10 @@
     btn.addEventListener('click', function () {
       applyTheme(!isDark);
     });
+  });
+
+  document.addEventListener('ub:langchange', function () {
+    updateThemeButtons(isDark);
   });
 
   /* ════════════════════════════════════════════

@@ -1,0 +1,14 @@
+Mechanical keyboard samples
+===========================
+
+Source: Keyboard Soundpack #1 [Typing and Single Keystrokes]
+Author: unicaegames
+Source page: https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes
+Original files: Single Keys/keypress-001.wav through keypress-005.wav,
+keypress-012.wav, keypress-020.wav and keypress-028.wav
+
+The source page publishes the pack under CC0 1.0 Universal:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+The source readme describes these as recordings of a Cherry KC 1000 keyboard,
+recorded with a Shure SM7B and post-processed with Izotope Neutron 2.

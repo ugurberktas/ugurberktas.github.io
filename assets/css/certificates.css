@@ -122,22 +122,43 @@ html.dark #sertifikalar {
   gap: 14px;
 }
 
-/* ── Orange icon box ── */
-.cert-icon-box {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  background: linear-gradient(135deg, var(--orange) 0%, #fb923c 100%);
-  border-radius: 10px;
+/* ── Certificate issuer logo ── */
+.cert-logo-box {
+  width: 74px;
+  height: 52px;
+  flex: 0 0 74px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.28);
+  padding: 7px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  border-radius: 11px;
+  box-shadow:
+    0 5px 14px rgba(15, 23, 42, 0.07),
+    0 2px 7px rgba(249, 115, 22, 0.06);
 }
 
-.cert-icon-box i {
-  font-size: 1rem;
-  color: #ffffff;
+.cert-logo-box-dark {
+  padding: 0;
+  background: #232f3e;
+}
+
+.cert-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cert-logo-square {
+  width: 32px;
+  height: 32px;
+}
+
+.cert-logo-aws {
+  border-radius: 9px;
 }
 
 /* ── Card text block ── */
@@ -268,6 +289,18 @@ html.dark .cert-card:hover {
   box-shadow:
     0 12px 36px rgba(249, 115, 22, 0.18),
     0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+html.dark .cert-logo-box {
+  background: rgba(255, 255, 255, 0.97);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 7px 18px rgba(0, 0, 0, 0.24),
+    0 2px 7px rgba(249, 115, 22, 0.07);
+}
+
+html.dark .cert-logo-box-dark {
+  background: #232f3e;
 }
 
 html.dark .cert-name {

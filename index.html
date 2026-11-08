@@ -31,9 +31,9 @@
   <link rel="stylesheet" href="assets/css/hero.css" />
   <link rel="stylesheet" href="assets/css/about.css" />
   <link rel="stylesheet" href="assets/css/experience.css" />
-  <link rel="stylesheet" href="assets/css/projects.css?v=20261108-2" />
-  <link rel="stylesheet" href="assets/css/certificates.css" />
-  <link rel="stylesheet" href="assets/css/education.css" />
+  <link rel="stylesheet" href="assets/css/projects.css?v=20261108-3" />
+  <link rel="stylesheet" href="assets/css/certificates.css?v=20261108-1" />
+  <link rel="stylesheet" href="assets/css/education.css?v=20261108-1" />
   <link rel="stylesheet" href="assets/css/contact.css" />
 </head>
 <body>
@@ -899,7 +899,8 @@
         <h2 class="section-heading" data-lang-key="section-certificates">Sertifikalar &amp; <span class="hl">Başarılar</span></h2>
       </div>
 
-      <div class="certificates-grid">
+      <div class="certificates-stage" id="certificates-stage">
+        <div class="certificates-grid" id="certificates-grid">
 
         <!-- 1. Altyapı Mühendisi — Intertech — 2025 -->
         <div class="cert-card reveal" id="cert-altyapi-intertech">
@@ -915,22 +916,8 @@
           </div>
         </div>
 
-        <!-- 2. Introduction to DevOps — Microsoft — 2026 -->
-        <div class="cert-card reveal reveal-delay-1" id="cert-devops-microsoft">
-          <div class="cert-card-header">
-            <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-award"></i>
-            </div>
-            <div class="cert-text">
-              <span class="cert-name">Introduction to DevOps</span>
-              <span class="cert-issuer">Microsoft</span>
-              <span class="cert-year">2026</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. CI/CD Fundamentals with GitHub Actions — Microsoft — 2025 -->
-        <div class="cert-card reveal reveal-delay-2" id="cert-cicd-github">
+        <!-- 2. CI/CD Fundamentals with GitHub Actions — Microsoft — 2025 -->
+        <div class="cert-card reveal reveal-delay-1" id="cert-cicd-github">
           <div class="cert-card-header">
             <div class="cert-icon-box" aria-hidden="true">
               <i class="fa-solid fa-infinity"></i>
@@ -943,21 +930,7 @@
           </div>
         </div>
 
-        <!-- 4. AWS Cloud Practitioner Essentials — AWS — 2024 -->
-        <div class="cert-card reveal reveal-delay-1" id="cert-aws-cloud">
-          <div class="cert-card-header">
-            <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-cloud"></i>
-            </div>
-            <div class="cert-text">
-              <span class="cert-name">AWS Cloud Practitioner Essentials</span>
-              <span class="cert-issuer">Amazon Web Services</span>
-              <span class="cert-year">2024</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. AWS Observability — AWS — 2025 -->
+        <!-- 3. AWS Observability — AWS — 2025 -->
         <div class="cert-card reveal reveal-delay-2" id="cert-aws-observability">
           <div class="cert-card-header">
             <div class="cert-icon-box" aria-hidden="true">
@@ -971,8 +944,8 @@
           </div>
         </div>
 
-        <!-- 6. Uygulama Sürekliliğini ve Dayanıklılığını Ölçeklendirme — IBM — 2025 -->
-        <div class="cert-card reveal reveal-delay-3" id="cert-ibm-scaling">
+        <!-- 4. Uygulama Sürekliliğini ve Dayanıklılığını Ölçeklendirme — IBM — 2025 -->
+        <div class="cert-card reveal" id="cert-ibm-scaling">
           <div class="cert-card-header">
             <div class="cert-icon-box" aria-hidden="true">
               <i class="fa-solid fa-arrows-up-down-left-right"></i>
@@ -985,8 +958,36 @@
           </div>
         </div>
 
+        <!-- 5. AWS Cloud Practitioner Essentials — AWS — 2024 -->
+        <div class="cert-card reveal reveal-delay-1" id="cert-aws-cloud">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">AWS Cloud Practitioner Essentials</span>
+              <span class="cert-issuer">Amazon Web Services</span>
+              <span class="cert-year">2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Introduction to DevOps — Microsoft — 2026 -->
+        <div class="cert-card reveal reveal-delay-2" id="cert-devops-microsoft">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Introduction to DevOps</span>
+              <span class="cert-issuer">Microsoft</span>
+              <span class="cert-year">2026</span>
+            </div>
+          </div>
+        </div>
+
         <!-- 7. Vodafone'da 1 Gün: Network — Coderspace — 2026 -->
-        <div class="cert-card reveal reveal-delay-2" id="cert-vodafone-network">
+        <div class="cert-card reveal" id="cert-vodafone-network">
           <div class="cert-card-header">
             <div class="cert-icon-box" aria-hidden="true">
               <i class="fa-solid fa-network-wired"></i>
@@ -999,22 +1000,8 @@
           </div>
         </div>
 
-        <!-- 8. Ağ Mimarisi ve Ağ Cihazları Yöneticiliği — Code 23 Yazılım Atölyesi — 2025 -->
-        <div class="cert-card reveal reveal-delay-3" id="cert-network-code23">
-          <div class="cert-card-header">
-            <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-network-wired"></i>
-            </div>
-            <div class="cert-text">
-              <span class="cert-name">Ağ Mimarisi ve Ağ Cihazları Yöneticiliği</span>
-              <span class="cert-issuer">Code 23 Yazılım Atölyesi</span>
-              <span class="cert-year">2025</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 9. Veri Bilimi ve Yapay Zeka — DenizBank — 2025 -->
-        <div class="cert-card reveal reveal-delay-4" id="cert-veri-denizbank">
+        <!-- 8. Veri Bilimi ve Yapay Zeka — DenizBank — 2025 -->
+        <div class="cert-card reveal reveal-delay-1" id="cert-veri-denizbank">
           <div class="cert-card-header">
             <div class="cert-icon-box" aria-hidden="true">
               <i class="fa-solid fa-brain"></i>
@@ -1027,122 +1014,22 @@
           </div>
         </div>
 
-        <!-- ── Hidden cards (show more) ── -->
-
-        <!-- 10. TUA Hackathon Katılımcısı — Türkiye Uzay Ajansı — 2025 -->
-        <div class="cert-card cert-hidden" id="cert-tua-hackathon">
+        <!-- 9. QNB 101 Online Staj Programı — QNB Türkiye — 2026 -->
+        <div class="cert-card reveal reveal-delay-2" id="cert-qnb-101">
           <div class="cert-card-header">
             <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-rocket"></i>
+              <i class="fa-solid fa-building-columns"></i>
             </div>
             <div class="cert-text">
-              <span class="cert-name">TUA Hackathon Katılımcısı</span>
-              <span class="cert-issuer">Türkiye Uzay Ajansı</span>
-              <span class="cert-year">2025</span>
+              <span class="cert-name">QNB 101 Online Staj Programı</span>
+              <span class="cert-issuer">QNB Türkiye</span>
+              <span class="cert-year">2026</span>
             </div>
           </div>
         </div>
 
-        <!-- 7. AGİLE 101 — Pupilica — 2025 -->
-        <div class="cert-card cert-hidden" id="cert-agile-pupilica">
-          <div class="cert-card-header">
-            <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-tasks"></i>
-            </div>
-            <div class="cert-text">
-              <span class="cert-name">AGİLE 101</span>
-              <span class="cert-issuer">Pupilica</span>
-              <span class="cert-year">2025</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8. Amatör İHA Pilotu (İHA-0) — SHGM — 2024 -->
-        <div class="cert-card cert-hidden" id="cert-iha-shgm">
-          <div class="cert-card-header">
-            <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-plane"></i>
-            </div>
-            <div class="cert-text">
-              <span class="cert-name">Amatör İHA Pilotu (İHA-0)</span>
-              <span class="cert-issuer">SHGM</span>
-              <span class="cert-year">2024</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 9. Yapay Zeka Zirvesi 2024 — BTK Akademi — 2024 -->
-        <div class="cert-card cert-hidden" id="cert-ai-zirvesi-btk">
-          <div class="cert-card-header">
-            <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-robot"></i>
-            </div>
-            <div class="cert-text">
-              <span class="cert-name">Yapay Zeka Zirvesi 2024</span>
-              <span class="cert-issuer">BTK Akademi</span>
-              <span class="cert-year">2024</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 10. İletişim ve Network Yönetimi — BTK Akademi — 2024 -->
-        <div class="cert-card cert-hidden" id="cert-network-btk">
-          <div class="cert-card-header">
-            <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-project-diagram"></i>
-            </div>
-            <div class="cert-text">
-              <span class="cert-name">İletişim ve Network Yönetimi</span>
-              <span class="cert-issuer">BTK Akademi</span>
-              <span class="cert-year">2024</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 11. Bankacılıkta Kariyer Günleri — TBB — 2025 -->
-        <div class="cert-card cert-hidden" id="cert-kariyer-tbb">
-          <div class="cert-card-header">
-            <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-university"></i>
-            </div>
-            <div class="cert-text">
-              <span class="cert-name">Bankacılıkta Kariyer Günleri</span>
-              <span class="cert-issuer">Türkiye Bankalar Birliği</span>
-              <span class="cert-year">2025</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 12. Finansal Okuryazarlık Eğitmeni — Habitat — 2025 -->
-        <div class="cert-card cert-hidden" id="cert-finansal-habitat">
-          <div class="cert-card-header">
-            <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-            <div class="cert-text">
-              <span class="cert-name">Finansal Okuryazarlık Eğitmeni</span>
-              <span class="cert-issuer">Habitat Derneği</span>
-              <span class="cert-year">2025</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 13. Ekip Kurma ve Yönetme — BTK Akademi — 2024 -->
-        <div class="cert-card cert-hidden" id="cert-ekip-btk">
-          <div class="cert-card-header">
-            <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-users"></i>
-            </div>
-            <div class="cert-text">
-              <span class="cert-name">Ekip Kurma ve Yönetme</span>
-              <span class="cert-issuer">BTK Akademi</span>
-              <span class="cert-year">2024</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 14. Fikirden Girişime (Insurtech) — AgeSA — 2025 -->
-        <div class="cert-card cert-hidden" id="cert-insurtech-agesa">
+        <!-- 10. Fikirden Girişime (Insurtech) — AgeSA — 2025 -->
+        <div class="cert-card reveal" id="cert-insurtech-agesa">
           <div class="cert-card-header">
             <div class="cert-icon-box" aria-hidden="true">
               <i class="fa-solid fa-lightbulb"></i>
@@ -1155,29 +1042,49 @@
           </div>
         </div>
 
-        <!-- 15. Kariyer ve Yetkinlik Buluşması — SSA — 2026 -->
-        <div class="cert-card cert-hidden" id="cert-kariyer-ssa">
+        <!-- 11. TSKB ile Geleceğin Finansı — TSKB — 2026 -->
+        <div class="cert-card reveal reveal-delay-1" id="cert-tskb-finance">
           <div class="cert-card-header">
             <div class="cert-icon-box" aria-hidden="true">
-              <i class="fa-solid fa-shield-alt"></i>
+              <i class="fa-solid fa-chart-pie"></i>
             </div>
             <div class="cert-text">
-              <span class="cert-name">Kariyer ve Yetkinlik Buluşması</span>
-              <span class="cert-issuer">Savunma Sanayii Akademi</span>
+              <span class="cert-name">TSKB ile Geleceğin Finansı</span>
+              <span class="cert-issuer">TSKB</span>
               <span class="cert-year">2026</span>
             </div>
           </div>
         </div>
-      </div><!-- /certificates-grid -->
+
+        <!-- 12. Yapay Zeka Zirvesi 2024 — BTK Akademi — 2024 -->
+        <div class="cert-card reveal reveal-delay-2" id="cert-ai-zirvesi-btk">
+          <div class="cert-card-header">
+            <div class="cert-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <div class="cert-text">
+              <span class="cert-name">Yapay Zeka Zirvesi 2024</span>
+              <span class="cert-issuer">BTK Akademi</span>
+              <span class="cert-year">2024</span>
+            </div>
+          </div>
+        </div>
+
+        </div><!-- /certificates-grid -->
+
+        <div class="certificates-fade" aria-hidden="true"></div>
+      </div><!-- /certificates-stage -->
 
       <!-- Show More / Less Button -->
-      <div class="cert-show-more-wrapper">
+      <div class="cert-show-more-wrapper" hidden>
         <button
           id="cert-show-more-btn"
           class="cert-show-more-btn"
+          type="button"
           aria-expanded="false"
+          aria-controls="certificates-grid"
         >
-          <span class="cert-btn-text">Daha Fazla Göster</span>
+          <span class="cert-btn-text">Daha Fazla Sertifika Göster</span>
           <i class="fa-solid fa-chevron-down cert-chevron" aria-hidden="true"></i>
         </button>
       </div>
@@ -1199,7 +1106,15 @@
         <!-- ── PRIMARY CARD — Fırat Üniversitesi ── -->
         <div class="edu-card edu-card-primary reveal" id="edu-firat">
           <div class="edu-icon-box-primary" aria-hidden="true">
-            <i class="fa-solid fa-graduation-cap"></i>
+            <img
+              class="edu-logo edu-logo-firat"
+              src="assets/images/firat-university-logo.png"
+              alt=""
+              width="50"
+              height="50"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
           <p class="edu-degree-primary" data-lang-key="edu-firat-degree">Lisans — Yazılım Mühendisliği</p>
@@ -1222,7 +1137,15 @@
         <!-- ── SECONDARY CARD — Gümüşhane Üniversitesi ── -->
         <div class="edu-card edu-card-secondary reveal reveal-delay-1" id="edu-gumushane">
           <div class="edu-icon-box-secondary" aria-hidden="true">
-            <i class="fa-solid fa-university"></i>
+            <img
+              class="edu-logo edu-logo-gumushane"
+              src="assets/images/gumushane-university-logo.png"
+              alt=""
+              width="34"
+              height="34"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
           <p class="edu-degree-secondary" data-lang-key="edu-gumushane-degree">Yazılım Mühendisliği — Yatay Geçiş</p>
@@ -1350,8 +1273,8 @@
   <script src="assets/js/lang.js"></script>
   <script src="assets/js/nav-terminal.js"></script>
   <script src="assets/js/terminal-sequence.js"></script>
-  <script src="assets/js/projects.js"></script>
-  <script src="assets/js/certificates.js"></script>
+  <script src="assets/js/projects.js?v=20261108-1"></script>
+  <script src="assets/js/certificates.js?v=20261108-1"></script>
   <script src="assets/js/main.js"></script>
 
 </body>

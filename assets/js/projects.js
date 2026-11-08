@@ -66,19 +66,31 @@
       var visibleCount = getVisibleCardCount();
       var nextCard = cards[visibleCount];
       var gridRect = grid.getBoundingClientRect();
+      var nextCardRect;
+      var nextCardName;
+      var nameBottom;
+      var fadeHeight;
       var teaserHeight;
       var collapsedHeight;
 
       if (!nextCard) return;
 
-      teaserHeight = window.innerWidth <= 640
-        ? Math.min(170, nextCard.getBoundingClientRect().height * 0.32)
-        : Math.min(210, nextCard.getBoundingClientRect().height * 0.46);
+      nextCardRect = nextCard.getBoundingClientRect();
+      nextCardName = nextCard.querySelector('.project-name');
+      nameBottom = nextCardName
+        ? nextCardName.getBoundingClientRect().bottom - nextCardRect.top
+        : nextCardRect.height * 0.38;
+      fadeHeight = window.innerWidth <= 640 ? 150 : 170;
+      teaserHeight = Math.min(
+        nextCardRect.height * 0.72,
+        nameBottom + (window.innerWidth <= 640 ? 110 : 130)
+      );
 
-      collapsedHeight = Math.round(nextCard.getBoundingClientRect().top - gridRect.top + teaserHeight);
+      collapsedHeight = Math.round(nextCardRect.top - gridRect.top + teaserHeight);
 
       stage.style.setProperty('--projects-collapsed-height', collapsedHeight + 'px');
       stage.style.setProperty('--projects-expanded-height', Math.ceil(grid.scrollHeight) + 'px');
+      stage.style.setProperty('--projects-fade-height', fadeHeight + 'px');
       updateCardAccessibility();
     }
 

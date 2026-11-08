@@ -288,7 +288,11 @@
     if (!trigger.classList.contains('nav-mobile-terminal')) return;
     var mobileMenu = document.getElementById('nav-mobile');
     var hamburger = document.getElementById('nav-hamburger');
-    if (mobileMenu) mobileMenu.classList.remove('open');
+    if (mobileMenu) {
+      mobileMenu.classList.remove('open');
+      mobileMenu.inert = true;
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }
     if (hamburger) {
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');

@@ -3,9 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Uğur Berktaş — DevOps Mühendisi kişisel portföy web sitesi. CI/CD, Kubernetes, Terraform ve Cloud altyapısı konularında deneyimli." />
-  <title>Uğur Berktaş | DevOps Engineer</title>
+  <meta name="description" content="Uğur Berktaş — Platform Engineering ve DevOps odaklı Yazılım Mühendisliği öğrencisi. CI/CD, Kubernetes, GitOps, bulut altyapısı ve gözlemlenebilirlik projeleri." />
+  <meta name="theme-color" content="#f97316" />
+  <link rel="canonical" href="https://ugurberktas.com/" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:site_name" content="Uğur Berktaş" />
+  <meta property="og:title" content="Uğur Berktaş | Platform Engineering &amp; DevOps" />
+  <meta property="og:description" content="CI/CD, Kubernetes, GitOps, bulut altyapısı ve gözlemlenebilirlik odaklı proje ve deneyimler." />
+  <meta property="og:url" content="https://ugurberktas.com/" />
+  <meta property="og:image" content="https://ugurberktas.com/assets/images/social-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Uğur Berktaş — Platform Engineering ve DevOps" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Uğur Berktaş | Platform Engineering &amp; DevOps" />
+  <meta name="twitter:description" content="CI/CD, Kubernetes, GitOps, bulut altyapısı ve gözlemlenebilirlik odaklı proje ve deneyimler." />
+  <meta name="twitter:image" content="https://ugurberktas.com/assets/images/social-preview.jpg" />
+  <meta name="twitter:image:alt" content="Uğur Berktaş — Platform Engineering ve DevOps" />
+
+  <title>Uğur Berktaş | Platform Engineering &amp; DevOps</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="preload" href="assets/images/profile.webp" as="image" type="image/webp" fetchpriority="high" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Uğur Berktaş",
+      "url": "https://ugurberktas.com/",
+      "image": "https://ugurberktas.com/assets/images/profile.webp",
+      "jobTitle": "Platform Engineering ve DevOps odaklı Yazılım Mühendisliği öğrencisi",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Fırat Üniversitesi"
+      },
+      "knowsAbout": [
+        "Platform Engineering",
+        "DevOps",
+        "CI/CD",
+        "Kubernetes",
+        "GitOps",
+        "Cloud Infrastructure",
+        "Observability"
+      ],
+      "sameAs": [
+        "https://github.com/ugurberktas",
+        "https://linkedin.com/in/ugurberktas"
+      ]
+    }
+  </script>
 
   <!-- ── Google Fonts ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,10 +75,10 @@
 
   <!-- ── Stylesheets ── -->
   <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="stylesheet" href="assets/css/navbar.css" />
+  <link rel="stylesheet" href="assets/css/navbar.css?v=20261108-1" />
   <link rel="stylesheet" href="assets/css/terminal-overlay.css" />
-  <link rel="stylesheet" href="assets/css/hero.css" />
-  <link rel="stylesheet" href="assets/css/about.css?v=20261108-2" />
+  <link rel="stylesheet" href="assets/css/hero.css?v=20261108-1" />
+  <link rel="stylesheet" href="assets/css/about.css?v=20261108-3" />
   <link rel="stylesheet" href="assets/css/experience.css?v=20261108-2" />
   <link rel="stylesheet" href="assets/css/projects.css?v=20261108-3" />
   <link rel="stylesheet" href="assets/css/certificates.css?v=20261108-2" />
@@ -47,7 +96,7 @@
 
       <!-- Desktop links -->
       <ul class="nav-links" id="nav-links-desktop" role="list">
-        <li><a href="#" class="active" id="nav-link-home" data-lang-key="nav-home">Ana Sayfa</a></li>
+        <li><a href="#yetenekler" id="nav-link-skills" data-lang-key="nav-skills">Yetenekler</a></li>
         <li><a href="#deneyim" id="nav-link-experience" data-lang-key="nav-experience">Deneyim</a></li>
         <li><a href="#projeler" id="nav-link-projects" data-lang-key="nav-projects">Projeler</a></li>
         <li><a href="#sertifikalar" id="nav-link-certificates" data-lang-key="nav-certificates">Sertifikalar</a></li>
@@ -95,8 +144,8 @@
     </nav>
 
     <!-- Mobile drawer -->
-    <div class="nav-mobile" id="nav-mobile" role="navigation" aria-label="Mobil navigasyon">
-      <a href="#" class="active" id="nav-mobile-home" data-lang-key="nav-home">Ana Sayfa</a>
+    <div class="nav-mobile" id="nav-mobile" role="navigation" aria-label="Mobil navigasyon" aria-hidden="true" inert>
+      <a href="#yetenekler" id="nav-mobile-skills" data-lang-key="nav-skills">Yetenekler</a>
       <a href="#deneyim" id="nav-mobile-experience" data-lang-key="nav-experience">Deneyim</a>
       <a href="#projeler" id="nav-mobile-projects" data-lang-key="nav-projects">Projeler</a>
       <a href="#sertifikalar" id="nav-mobile-certificates" data-lang-key="nav-certificates">Sertifikalar</a>
@@ -188,13 +237,20 @@
         <!-- LEFT — Photo -->
         <div class="hero-photo-wrapper">
           <div class="hero-photo-card" id="hero-photo-card">
-            <img
-              src="assets/images/profile.jpg"
-              alt="Uğur Berktaş profil fotoğrafı"
-              class="hero-photo-img"
-              id="hero-profile-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
+            <picture>
+              <source srcset="assets/images/profile.webp" type="image/webp" />
+              <img
+                src="assets/images/profile.jpg"
+                alt="Uğur Berktaş profil fotoğrafı"
+                class="hero-photo-img"
+                id="hero-profile-img"
+                width="620"
+                height="624"
+                fetchpriority="high"
+                decoding="async"
+                onerror="this.closest('picture').style.display='none'; this.closest('picture').nextElementSibling.style.display='flex';"
+              />
+            </picture>
             <div class="hero-photo-placeholder" aria-label="Uğur Berktaş profil fotoğrafı" style="display:none;">
               <span class="hero-photo-initials">UB</span>
               <span class="hero-photo-label">DevOps Engineer</span>
@@ -209,9 +265,9 @@
           </h1>
 
           <p class="hero-desc" id="hero-desc" data-lang-key="hero-desc">
-            Fırat Üniversitesi Yazılım Mühendisliği öğrencisi ve Junior DevOps Engineer adayıyım.
-            GetirFinans, Intertech, DenizBank ve N11 gibi sektör liderlerinde edindiğim deneyimlerle fintech
-            ekosisteminin altyapısını şekillendirmek için yolculuktayım.
+            Fırat Üniversitesi Yazılım Mühendisliği öğrencisiyim; Platform Engineering ve DevOps alanlarına
+            odaklanıyorum. CI/CD, Kubernetes, GitOps ve gözlemlenebilirlik deneyimimi production SaaS ve
+            home-lab projeleriyle geliştiriyorum.
           </p>
 
           <div class="hero-buttons" id="hero-buttons">
@@ -230,25 +286,28 @@
           <div class="hero-skills-card" id="hero-skills-card">
             <h2 class="skills-card-title" data-lang-key="skills-card-title">Öne Çıkan Uzmanlıklar</h2>
 
-            <div class="skill-row" id="skill-devops">
-              <span class="skill-row-label" data-lang-key="skill-row-devops">DEVOPS &amp; ALTYAPI</span>
+            <div class="skill-row" id="skill-platform">
+              <span class="skill-row-label" data-lang-key="skill-row-platform">PLATFORM &amp; CONTAINERS</span>
               <div class="skill-row-tags">
                 <span class="skill-tag">OpenShift</span>
                 <span class="skill-tag">Kubernetes</span>
                 <span class="skill-tag">Docker</span>
+              </div>
+            </div>
+
+            <div class="skill-row" id="skill-cicd">
+              <span class="skill-row-label" data-lang-key="skill-row-cicd">CI/CD &amp; GITOPS</span>
+              <div class="skill-row-tags">
                 <span class="skill-tag">ArgoCD</span>
                 <span class="skill-tag">Jenkins</span>
-                <span class="skill-tag">CI/CD</span>
-                <span class="skill-tag">Proxmox</span>
-                <span class="skill-tag">Nginx</span>
+                <span class="skill-tag">JFrog</span>
               </div>
             </div>
 
             <div class="skill-row" id="skill-cloud">
-              <span class="skill-row-label" data-lang-key="skill-row-cloud">CLOUD &amp; NETWORK</span>
+              <span class="skill-row-label" data-lang-key="skill-row-cloud">CLOUD &amp; OBSERVABILITY</span>
               <div class="skill-row-tags">
                 <span class="skill-tag">AWS</span>
-                <span class="skill-tag">Cloudflare</span>
                 <span class="skill-tag">Prometheus</span>
                 <span class="skill-tag">Grafana</span>
               </div>
@@ -391,7 +450,7 @@
 
         <!-- Card 1: Platform & Containers -->
         <div class="skill-card reveal reveal-delay-1" id="skill-card-platform">
-          <div class="skill-card-icon" aria-hidden="true">🐳</div>
+          <div class="skill-card-icon" aria-hidden="true"><i class="fa-solid fa-cubes-stacked"></i></div>
           <span class="skill-card-title" lang="en" data-lang-key="skill-card-title-platform">Platform &amp; Containers</span>
           <div class="skill-card-tags">
             <span class="skill-pill"><img class="skill-logo" src="assets/images/skills/linux.svg" alt="" width="15" height="15" loading="lazy" decoding="async" aria-hidden="true" />Linux</span>
@@ -405,7 +464,7 @@
 
         <!-- Card 2: CI/CD, GitOps & Source Control -->
         <div class="skill-card reveal reveal-delay-2" id="skill-card-cicd">
-          <div class="skill-card-icon" aria-hidden="true">🔁</div>
+          <div class="skill-card-icon" aria-hidden="true"><i class="fa-solid fa-code-branch"></i></div>
           <span class="skill-card-title" lang="en" data-lang-key="skill-card-title-cicd">CI/CD, GitOps &amp; Source Control</span>
           <div class="skill-card-tags">
             <span class="skill-pill"><i class="skill-logo-symbol fa-solid fa-code-branch" aria-hidden="true"></i>CI/CD</span>
@@ -421,7 +480,7 @@
 
         <!-- Card 3: Cloud, Infrastructure & Monitoring -->
         <div class="skill-card reveal reveal-delay-1" id="skill-card-cloud">
-          <div class="skill-card-icon" aria-hidden="true">☁️</div>
+          <div class="skill-card-icon" aria-hidden="true"><i class="fa-solid fa-cloud-arrow-up"></i></div>
           <span class="skill-card-title" lang="en" data-lang-key="skill-card-title-cloud">Cloud, Infrastructure &amp; Monitoring</span>
           <div class="skill-card-tags">
             <span class="skill-pill"><i class="skill-logo-symbol fa-brands fa-aws" aria-hidden="true"></i>AWS · EC2 &amp; S3</span>
@@ -437,7 +496,7 @@
 
         <!-- Card 4: Backend, Data & Application Development -->
         <div class="skill-card reveal reveal-delay-2" id="skill-card-backend">
-          <div class="skill-card-icon" aria-hidden="true">🐍</div>
+          <div class="skill-card-icon" aria-hidden="true"><i class="fa-solid fa-terminal"></i></div>
           <span class="skill-card-title" lang="en" data-lang-key="skill-card-title-backend">Backend, Data &amp; Application Development</span>
           <div class="skill-card-tags">
             <span class="skill-pill"><img class="skill-logo" src="assets/images/skills/python.svg" alt="" width="15" height="15" loading="lazy" decoding="async" aria-hidden="true" />Python</span>
@@ -1276,7 +1335,7 @@
   <footer id="footer" role="contentinfo">
     <div class="footer-inner">
       <span class="footer-copy" id="footer-copy" data-lang-key="footer-copy">
-        © 2025 Uğur Berktaş. Tüm hakları saklıdır.
+        © 2026 Uğur Berktaş. Tüm hakları saklıdır.
       </span>
       <div class="footer-socials" aria-label="Sosyal bağlantılar">
         <a
@@ -1304,14 +1363,14 @@
   </footer>
 
   <!-- ── Scripts ── -->
-  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/navbar.js?v=20261108-1"></script>
   <script src="assets/js/animations.js"></script>
-  <script src="assets/js/lang.js"></script>
-  <script src="assets/js/nav-terminal.js"></script>
+  <script src="assets/js/lang.js?v=20261108-1"></script>
+  <script src="assets/js/nav-terminal.js?v=20261108-1"></script>
   <script src="assets/js/terminal-sequence.js"></script>
   <script src="assets/js/projects.js?v=20261108-1"></script>
   <script src="assets/js/certificates.js?v=20261108-1"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=20261108-1"></script>
 
 </body>
 </html>

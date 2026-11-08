@@ -213,8 +213,8 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-md);
   background: transparent;
   border: none;

@@ -71,28 +71,65 @@
   /* ════════════════════════════════════════════
      HAMBURGER — mobile drawer
   ════════════════════════════════════════════ */
+  function getMenuLabel(open) {
+    var lang = localStorage.getItem('ub-lang') === 'en' ? 'en' : 'tr';
+    if (lang === 'en') return open ? 'Close menu' : 'Open menu';
+    return open ? 'Menüyü kapat' : 'Menüyü aç';
+  }
+
+  function setMobileMenuOpen(open, restoreFocus) {
+    if (!hamburger || !mobileMenu) return;
+
+    mobileMenu.classList.toggle('open', open);
+    mobileMenu.inert = !open;
+    mobileMenu.setAttribute('aria-hidden', String(!open));
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    hamburger.setAttribute('aria-label', getMenuLabel(open));
+
+    if (restoreFocus) {
+      try {
+        hamburger.focus({ preventScroll: true });
+      } catch (error) {
+        hamburger.focus();
+      }
+    }
+  }
+
   if (hamburger && mobileMenu) {
+    setMobileMenuOpen(false, false);
+
     hamburger.addEventListener('click', function () {
-      var isOpen = mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', String(isOpen));
+      setMobileMenuOpen(!mobileMenu.classList.contains('open'), false);
     });
 
     mobileLinks.forEach(function (link) {
       link.addEventListener('click', function () {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
+        setMobileMenuOpen(false, true);
       });
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape' || !mobileMenu.classList.contains('open')) return;
+      event.preventDefault();
+      setMobileMenuOpen(false, true);
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 960 && mobileMenu.classList.contains('open')) {
+        setMobileMenuOpen(false, false);
+      }
+    });
+
+    document.addEventListener('ub:langchange', function () {
+      hamburger.setAttribute('aria-label', getMenuLabel(mobileMenu.classList.contains('open')));
     });
   }
 
   /* Close drawer on outside click */
   document.addEventListener('click', function (e) {
     if (!navbar.contains(e.target) && mobileMenu && mobileMenu.classList.contains('open')) {
-      mobileMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
+      setMobileMenuOpen(false, false);
     }
   });
 
@@ -134,8 +171,10 @@
       var href = link.getAttribute('href');
       if (href === '#' + id || (id === 'hero' && (href === '#' || href === '#hero'))) {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       } else {
         link.classList.remove('active');
+        link.removeAttribute('aria-current');
       }
     });
   }

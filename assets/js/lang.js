@@ -6,6 +6,7 @@
     tr: {
       /* Navbar */
       'nav-home':               'Ana Sayfa',
+      'nav-skills':             'Yetenekler',
       'nav-experience':         'Deneyim',
       'nav-projects':           'Projeler',
       'nav-certificates':       'Sertifikalar',
@@ -19,7 +20,7 @@
       'hero-terminal-action':   'Tam ekran terminali aç',
 
       /* Hero */
-      'hero-desc':              'Fırat Üniversitesi Yazılım Mühendisliği öğrencisi ve Junior DevOps Engineer adayıyım. GetirFinans, Intertech, DenizBank ve N11 gibi sektör liderlerinde edindiğim deneyimlerle fintech ekosisteminin altyapısını şekillendirmek için yolculuktayım.',
+      'hero-desc':              'Fırat Üniversitesi Yazılım Mühendisliği öğrencisiyim; Platform Engineering ve DevOps alanlarına odaklanıyorum. CI/CD, Kubernetes, GitOps ve gözlemlenebilirlik deneyimimi production SaaS ve home-lab projeleriyle geliştiriyorum.',
       'btn-projects':           'Projeleri Keşfet →',
       'btn-contact':            'Benimle İletişime Geç ↓',
       'social-cv-tr':           '📄 CV (TR)',
@@ -31,16 +32,17 @@
 
       /* Hero skills card */
       'skills-card-title':      'Öne Çıkan Uzmanlıklar',
-      'skill-row-devops':       'DEVOPS & ALTYAPI',
-      'skill-row-cloud':        'CLOUD & NETWORK',
+      'skill-row-platform':     'PLATFORM & CONTAINERS',
+      'skill-row-cicd':         'CI/CD & GITOPS',
+      'skill-row-cloud':        'CLOUD & OBSERVABILITY',
       'skill-row-backend':      'BACKEND & DATA',
 
       /* About */
       'about-label':            'Hakkımda',
       'about-heading':          'Ben <span class="hl">Kimim?</span>',
-      'about-p1':               '<strong>Fırat Üniversitesi Yazılım Mühendisliği</strong> öğrencisi ve Junior DevOps Engineer adayıyım. Kariyerimi; modern bulut mimarileri, CI/CD otomasyonu ve yüksek ölçekli sistem yönetimi üzerine inşa ediyorum.',
-      'about-p2':               '<strong>GetirFinans</strong> bünyesinde Platform Intern olarak <strong>OpenShift, ArgoCD, Bitbucket, Jenkins ve JFrog</strong> altyapıları ile CI/CD süreçleri ve sistem izleme (Prometheus & Grafana) konuları üzerine çalışmaktayım. Daha önce <strong>Intertech</strong> ve <strong>DenizBank</strong> bünyesinde kritik altyapıların yönetimi, sistem izleme (Monitoring) ve veri güvenliği konularında pratik deneyim kazandım. <strong>N11</strong>\'de ise Postman ve Jenkins ile API test otomasyonu ve CI/CD pipeline entegrasyonu üzerine çalıştım.',
-      'about-p3':               'Kendi <strong>Home-Lab</strong> ortamımda Docker Swarm, Kubernetes ve Cloudflare teknolojileriyle hibrit bulut senaryoları üzerinde çalışıyorum. Karmaşık altyapı problemlerini çözmekten keyif alan, sürekli öğrenen ve takım çalışmasının gücüne inanan bir mühendis olarak teknolojinin finansla buluştuğu noktada değer üretmek istiyorum.',
+      'about-p1':               '<strong>Fırat Üniversitesi Yazılım Mühendisliği</strong> öğrencisiyim; Platform Engineering ve DevOps alanlarında uzmanlaşmaya odaklanıyorum. CI/CD, konteyner platformları ve gözlemlenebilir sistemler üzerine çalışıyorum.',
+      'about-p2':               '<strong>GetirFinans, Intertech, DenizBank ve N11</strong> deneyimlerimde OpenShift, ArgoCD, Jenkins, JFrog, Prometheus, Grafana ve API test otomasyonu gibi kurumsal altyapı süreçlerine katkı sağladım.',
+      'about-p3':               '<strong>Production SaaS</strong> projeleri ve kendi <strong>Home-Lab</strong> ortamımda multi-tenant mimariler, Kubernetes, Docker ve Cloudflare senaryoları geliştirerek güvenli ve sürdürülebilir sistemler kuruyorum.',
       'fact-key-university':    'Üniversite',
       'fact-key-location':      'Konum',
       'fact-key-role':          'Rol',
@@ -135,12 +137,13 @@
       'section-contact':        'İletişim<span class="hl"> & Bağlantı</span>',
       'contact-headline':       'Hadi Birlikte Harika Şeyler Yapalım',
       'contact-subtext':        'DevOps, Cloud veya sistem altyapısı projelerinizde işbirliği için benimle iletişime geçin.',
-      'footer-copy':            '\u00a9 2025 Uğur Berktaş. Tüm hakları saklıdır.'
+      'footer-copy':            '\u00a9 {year} Uğur Berktaş. Tüm hakları saklıdır.'
     },
 
     en: {
       /* Navbar */
       'nav-home':               'Home',
+      'nav-skills':             'Skills',
       'nav-experience':         'Experience',
       'nav-projects':           'Projects',
       'nav-certificates':       'Certificates',
@@ -154,7 +157,7 @@
       'hero-terminal-action':   'Open fullscreen terminal',
 
       /* Hero */
-      'hero-desc':              'Software Engineering student at Fırat University and Junior DevOps Engineer candidate. On a journey to shape the fintech infrastructure through hands-on experience at GetirFinans, Intertech, DenizBank and N11.',
+      'hero-desc':              'Software Engineering student at Fırat University, focused on Platform Engineering and DevOps. I strengthen my CI/CD, Kubernetes, GitOps and observability experience through production SaaS and home-lab projects.',
       'btn-projects':           'Explore Projects →',
       'btn-contact':            'Get In Touch ↓',
       'social-cv-tr':           '📄 CV (TR)',
@@ -166,16 +169,17 @@
 
       /* Hero skills card */
       'skills-card-title':      'Featured Skills',
-      'skill-row-devops':       'DEVOPS & INFRASTRUCTURE',
-      'skill-row-cloud':        'CLOUD & NETWORK',
+      'skill-row-platform':     'PLATFORM & CONTAINERS',
+      'skill-row-cicd':         'CI/CD & GITOPS',
+      'skill-row-cloud':        'CLOUD & OBSERVABILITY',
       'skill-row-backend':      'BACKEND & DATA',
 
       /* About */
       'about-label':            'About Me',
       'about-heading':          'Who <span class="hl">Am I?</span>',
-      'about-p1':               '<strong>Software Engineering</strong> student at Fırat University and Junior DevOps Engineer candidate. I am building my career on modern cloud architectures, CI/CD automation and large-scale system management.',
-      'about-p2':               'I am currently working as a Platform Intern at <strong>GetirFinans</strong>, focusing on <strong>OpenShift, ArgoCD, Bitbucket, Jenkins, and JFrog</strong> infrastructures, CI/CD pipelines, and system monitoring (Prometheus & Grafana). Previously, I gained hands-on experience in managing critical infrastructure, system monitoring and data security at <strong>Intertech</strong> and <strong>DenizBank</strong>. At <strong>N11</strong>, I worked on API test automation with Postman & Jenkins and CI/CD pipeline integration.',
-      'about-p3':               'In my own <strong>Home-Lab</strong> environment I work on hybrid cloud scenarios using Docker Swarm, Kubernetes and Cloudflare. As an engineer who loves solving complex infrastructure problems, keeps learning and believes in the power of teamwork, I aim to create value where technology meets finance.',
+      'about-p1':               'I am a <strong>Software Engineering student at Fırat University</strong>, focused on specialising in Platform Engineering and DevOps. I work on CI/CD, container platforms and observable systems.',
+      'about-p2':               'Across my experience at <strong>GetirFinans, Intertech, DenizBank and N11</strong>, I contributed to enterprise infrastructure processes involving OpenShift, ArgoCD, Jenkins, JFrog, Prometheus, Grafana and API test automation.',
+      'about-p3':               'Through <strong>production SaaS</strong> projects and my own <strong>Home-Lab</strong>, I build secure and sustainable systems using multi-tenant architectures, Kubernetes, Docker and Cloudflare scenarios.',
       'fact-key-university':    'University',
       'fact-key-location':      'Location',
       'fact-key-role':          'Role',
@@ -270,7 +274,7 @@
       'section-contact':        'Contact<span class="hl"> & Connect</span>',
       'contact-headline':       'Let\'s Build Great Things Together',
       'contact-subtext':        'Feel free to reach out for DevOps, Cloud or infrastructure collaboration.',
-      'footer-copy':            '\u00a9 2025 Uğur Berktaş. All rights reserved.'
+      'footer-copy':            '\u00a9 {year} Uğur Berktaş. All rights reserved.'
     }
   };
 
@@ -287,6 +291,10 @@
       if (map[key] === undefined) return;
 
       var val = map[key];
+
+      if (key === 'footer-copy') {
+        val = val.replace('{year}', String(new Date().getFullYear()));
+      }
 
       /* Elements that allow inner HTML (headings, spans with nested tags, paragraphs with <strong>) */
       var allowHtml = el.tagName === 'H2'
@@ -306,8 +314,13 @@
     /* Update lang button labels */
     document.querySelectorAll('.nav-lang-btn').forEach(function (btn) {
       btn.textContent = lang === 'tr' ? 'EN' : 'TR';
-      btn.setAttribute('aria-label', lang === 'tr' ? 'Switch to English' : 'Dili Türkçeye geç');
+      btn.setAttribute('aria-label', lang === 'tr' ? 'İngilizceye geç' : 'Switch to Turkish');
     });
+
+    var desktopNav = document.querySelector('.nav-inner');
+    var mobileNav = document.getElementById('nav-mobile');
+    if (desktopNav) desktopNav.setAttribute('aria-label', lang === 'tr' ? 'Ana navigasyon' : 'Main navigation');
+    if (mobileNav) mobileNav.setAttribute('aria-label', lang === 'tr' ? 'Mobil navigasyon' : 'Mobile navigation');
 
     /* Update html lang attribute */
     document.documentElement.setAttribute('lang', lang === 'tr' ? 'tr' : 'en');

@@ -255,6 +255,9 @@
 }
 
 .skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 500;
@@ -268,6 +271,31 @@
     color var(--transition-fast),
     border-color var(--transition-fast),
     transform var(--transition-fast);
+}
+
+.skill-logo,
+.skill-logo-symbol {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+}
+
+.skill-logo {
+  display: block;
+  object-fit: contain;
+}
+
+.skill-logo-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orange);
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.skill-logo-rootly {
+  filter: invert(48%) sepia(96%) saturate(2787%) hue-rotate(351deg) brightness(103%) contrast(95%);
 }
 
 .skill-pill:hover {

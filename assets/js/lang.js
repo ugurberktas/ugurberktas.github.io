@@ -85,10 +85,6 @@
       'denizbank-role':         'Veri Bilimi ve Yapay Zeka (Trainee)',
       'denizbank-li1':          'Finans sektörü için uçtan uca AI ve ML pipeline yönetimi üzerine yoğun eğitim aldım.',
       'denizbank-li2':          'Python (Pandas, Scikit-learn) kullanarak finansal veri analizi ve risk modelleme projeleri geliştirdim.',
-      'elmar-date':             'Eylül 2024 – Ocak 2025',
-      'elmar-role':             'Yazılım Geliştirici (Part-Time)',
-      'elmar-li1':              'Şirket içi manuel süreçleri analiz ederek C# ile geliştirdiğim otomasyon araçlarıyla finansal iş akışlarında operasyonel yükü minimize ettim.',
-      'elmar-li2':              'SQL veritabanında bakım prosedürleri yazarak Data Consistency ve sistem performansını optimize ettim.',
 
       /* Volunteering */
       'vol-label':              'Topluluk',
@@ -224,10 +220,6 @@
       'denizbank-role':         'Data Science & AI (Trainee)',
       'denizbank-li1':          'Received intensive training on end-to-end AI and ML pipeline management for the finance sector.',
       'denizbank-li2':          'Developed financial data analysis and risk modelling projects using Python (Pandas, Scikit-learn).',
-      'elmar-date':             'September 2024 – January 2025',
-      'elmar-role':             'Software Developer (Part-Time)',
-      'elmar-li1':              'Analysed internal manual processes and minimised operational load in financial workflows by developing automation tools in C#.',
-      'elmar-li2':              'Wrote database maintenance procedures in SQL to optimise Data Consistency and system performance.',
 
       /* Volunteering */
       'vol-label':              'Community',

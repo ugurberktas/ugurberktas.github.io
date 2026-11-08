@@ -19,7 +19,6 @@
       'hero-terminal-action':   'Tam ekran terminali aç',
 
       /* Hero */
-      'hero-badge':             'Platform Intern @ GetirFinans',
       'hero-desc':              'Fırat Üniversitesi Yazılım Mühendisliği öğrencisi ve Junior DevOps Engineer adayıyım. GetirFinans, Intertech, DenizBank ve N11 gibi sektör liderlerinde edindiğim deneyimlerle fintech ekosisteminin altyapısını şekillendirmek için yolculuktayım.',
       'btn-projects':           'Projeleri Keşfet →',
       'btn-contact':            'Benimle İletişime Geç ↓',
@@ -58,9 +57,10 @@
       /* Technical Skills */
       'skills-label':           'Uzmanlıklar',
       'skills-heading':         'Teknik <span class="hl">Yetenekler</span>',
-      'skill-card-title-devops':'DevOps & Altyapı',
-      'skill-card-title-cloud': 'Cloud & Monitoring',
-      'skill-card-title-backend':'Backend & Scripting',
+      'skill-card-title-platform':'Platform & Containers',
+      'skill-card-title-cicd':   'CI/CD, GitOps & Source Control',
+      'skill-card-title-cloud':  'Cloud, Infrastructure & Monitoring',
+      'skill-card-title-backend':'Backend, Data & Application Development',
 
       /* Experience */
       'exp-label':              'İş Deneyimi',
@@ -154,7 +154,6 @@
       'hero-terminal-action':   'Open fullscreen terminal',
 
       /* Hero */
-      'hero-badge':             'Platform Intern @ GetirFinans',
       'hero-desc':              'Software Engineering student at Fırat University and Junior DevOps Engineer candidate. On a journey to shape the fintech infrastructure through hands-on experience at GetirFinans, Intertech, DenizBank and N11.',
       'btn-projects':           'Explore Projects →',
       'btn-contact':            'Get In Touch ↓',
@@ -193,9 +192,10 @@
       /* Technical Skills */
       'skills-label':           'Expertise',
       'skills-heading':         'Technical <span class="hl">Skills</span>',
-      'skill-card-title-devops':'DevOps & Infrastructure',
-      'skill-card-title-cloud': 'Cloud & Monitoring',
-      'skill-card-title-backend':'Backend & Scripting',
+      'skill-card-title-platform':'Platform & Containers',
+      'skill-card-title-cicd':   'CI/CD, GitOps & Source Control',
+      'skill-card-title-cloud':  'Cloud, Infrastructure & Monitoring',
+      'skill-card-title-backend':'Backend, Data & Application Development',
 
       /* Experience */
       'exp-label':              'Work Experience',

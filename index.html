@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="assets/css/navbar.css" />
   <link rel="stylesheet" href="assets/css/terminal-overlay.css" />
   <link rel="stylesheet" href="assets/css/hero.css" />
-  <link rel="stylesheet" href="assets/css/about.css" />
+  <link rel="stylesheet" href="assets/css/about.css?v=20261108-1" />
   <link rel="stylesheet" href="assets/css/experience.css?v=20261108-2" />
   <link rel="stylesheet" href="assets/css/projects.css?v=20261108-3" />
   <link rel="stylesheet" href="assets/css/certificates.css?v=20261108-2" />
@@ -204,8 +204,6 @@
 
         <!-- CENTER — Content -->
         <div class="hero-content">
-          <span class="hero-badge" id="hero-badge" data-lang-key="hero-badge" style="border:1px solid rgba(249,115,22,0.3);background:rgba(249,115,22,0.08);border-radius:20px;padding:6px 14px;font-size:0.85rem;font-weight:500;">Platform Intern @ GetirFinans</span>
-
           <h1 class="hero-name" id="hero-name">
             Uğur <span class="name-highlight">Berktaş</span>
           </h1>
@@ -391,47 +389,66 @@
 
       <div class="skills-grid">
 
-        <!-- Card 1: DevOps & Altyapı -->
-        <div class="skill-card reveal reveal-delay-1" id="skill-card-devops">
+        <!-- Card 1: Platform & Containers -->
+        <div class="skill-card reveal reveal-delay-1" id="skill-card-platform">
           <div class="skill-card-icon" aria-hidden="true">🐳</div>
-          <span class="skill-card-title" data-lang-key="skill-card-title-devops">DevOps &amp; Altyapı</span>
+          <span class="skill-card-title" lang="en" data-lang-key="skill-card-title-platform">Platform &amp; Containers</span>
           <div class="skill-card-tags">
+            <span class="skill-pill">Linux</span>
             <span class="skill-pill">OpenShift</span>
             <span class="skill-pill">Kubernetes</span>
             <span class="skill-pill">Docker</span>
-            <span class="skill-pill">ArgoCD</span>
-            <span class="skill-pill">Jenkins</span>
-            <span class="skill-pill">JFrog</span>
+            <span class="skill-pill">Docker Compose</span>
             <span class="skill-pill">Docker Swarm</span>
-            <span class="skill-pill">Proxmox</span>
-            <span class="skill-pill">Nginx</span>
           </div>
         </div>
 
-        <!-- Card 2: Cloud & Monitoring -->
-        <div class="skill-card reveal reveal-delay-2" id="skill-card-cloud">
-          <div class="skill-card-icon" aria-hidden="true">☁️</div>
-          <span class="skill-card-title" data-lang-key="skill-card-title-cloud">Cloud &amp; Monitoring</span>
+        <!-- Card 2: CI/CD, GitOps & Source Control -->
+        <div class="skill-card reveal reveal-delay-2" id="skill-card-cicd">
+          <div class="skill-card-icon" aria-hidden="true">🔁</div>
+          <span class="skill-card-title" lang="en" data-lang-key="skill-card-title-cicd">CI/CD, GitOps &amp; Source Control</span>
           <div class="skill-card-tags">
-            <span class="skill-pill">AWS (EC2, S3)</span>
+            <span class="skill-pill">CI/CD</span>
+            <span class="skill-pill">ArgoCD</span>
+            <span class="skill-pill">Jenkins</span>
+            <span class="skill-pill">JFrog Artifactory</span>
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">GitHub</span>
+            <span class="skill-pill">GitLab</span>
+            <span class="skill-pill">Bitbucket</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Cloud, Infrastructure & Monitoring -->
+        <div class="skill-card reveal reveal-delay-1" id="skill-card-cloud">
+          <div class="skill-card-icon" aria-hidden="true">☁️</div>
+          <span class="skill-card-title" lang="en" data-lang-key="skill-card-title-cloud">Cloud, Infrastructure &amp; Monitoring</span>
+          <div class="skill-card-tags">
+            <span class="skill-pill">AWS · EC2 &amp; S3</span>
+            <span class="skill-pill">Proxmox</span>
+            <span class="skill-pill">Nginx</span>
             <span class="skill-pill">Cloudflare Zero Trust</span>
             <span class="skill-pill">Prometheus</span>
             <span class="skill-pill">Grafana</span>
-            <span class="skill-pill">CI/CD</span>
+            <span class="skill-pill">Sentry</span>
+            <span class="skill-pill">Rootly</span>
           </div>
         </div>
 
-        <!-- Card 3: Backend & Scripting -->
-        <div class="skill-card reveal reveal-delay-3" id="skill-card-backend">
+        <!-- Card 4: Backend, Data & Application Development -->
+        <div class="skill-card reveal reveal-delay-2" id="skill-card-backend">
           <div class="skill-card-icon" aria-hidden="true">🐍</div>
-          <span class="skill-card-title" data-lang-key="skill-card-title-backend">Backend &amp; Scripting</span>
+          <span class="skill-card-title" lang="en" data-lang-key="skill-card-title-backend">Backend, Data &amp; Application Development</span>
           <div class="skill-card-tags">
             <span class="skill-pill">Python</span>
-            <span class="skill-pill">C#</span>
-            <span class="skill-pill">.NET</span>
+            <span class="skill-pill">FastAPI</span>
+            <span class="skill-pill">Expo</span>
+            <span class="skill-pill">Supabase</span>
+            <span class="skill-pill">PostgreSQL &amp; RLS</span>
             <span class="skill-pill">SQL Server</span>
             <span class="skill-pill">RabbitMQ</span>
-            <span class="skill-pill">PostgreSQL</span>
+            <span class="skill-pill">Postman</span>
+            <span class="skill-pill">REST APIs</span>
           </div>
         </div>
 

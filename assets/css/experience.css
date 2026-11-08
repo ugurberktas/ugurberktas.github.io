@@ -119,6 +119,49 @@ html.dark #gonullu {
   gap: 4px;
 }
 
+/* ── Volunteering brand marks ── */
+.volunteer-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  flex: 1 1 520px;
+}
+
+.volunteer-logo-box {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow:
+    0 7px 20px rgba(15, 23, 42, 0.08),
+    0 3px 10px rgba(249, 115, 22, 0.08);
+}
+
+.volunteer-logo-box-wide {
+  width: 112px;
+  padding-inline: 8px;
+}
+
+.volunteer-logo-box-teknofest {
+  width: 80px;
+  padding: 5px;
+}
+
+.volunteer-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .timeline-company {
   font-family: var(--font-heading);
   font-size: var(--text-lg);
@@ -234,6 +277,14 @@ html.dark .timeline-role {
   color: #a8a29e;
 }
 
+html.dark .volunteer-logo-box {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.26),
+    0 3px 10px rgba(249, 115, 22, 0.08);
+}
+
 html.dark .timeline-location {
   color: #78716c;
 }
@@ -276,5 +327,25 @@ html.dark .timeline-tag {
 
   .timeline-card {
     padding: 18px 20px;
+  }
+
+  .volunteer-brand {
+    width: 100%;
+    flex-basis: auto;
+    gap: 12px;
+  }
+
+  .volunteer-logo-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+  }
+
+  .volunteer-logo-box-wide {
+    width: 92px;
+  }
+
+  .volunteer-logo-box-teknofest {
+    width: 68px;
   }
 }

@@ -728,7 +728,9 @@
   });
 
   document.addEventListener('ub:terminalopened', startSequence);
-  document.addEventListener('ub:terminalclosing', stopSequence);
+  document.addEventListener('ub:terminalclosing', function () {
+    stopSequence();
+  });
 
   document.addEventListener('ub:langchange', function (event) {
     currentLang = event.detail && event.detail.lang === 'en' ? 'en' : 'tr';

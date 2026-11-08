@@ -11,6 +11,12 @@
       'nav-certificates':       'Sertifikalar',
       'nav-education':          'Eğitim',
       'nav-contact':            'İletişim',
+      'nav-terminal':           'Terminal',
+      'nav-terminal-action':    'Tam ekran terminali aç',
+      'terminal-overlay-title': 'Tam ekran terminal',
+      'terminal-overlay-close': '[ESC / Kapat]',
+      'terminal-overlay-output':'Ben kimim...?',
+      'hero-terminal-action':   'Tam ekran terminali aç',
 
       /* Hero */
       'hero-badge':             'Platform Intern @ GetirFinans',
@@ -21,6 +27,8 @@
       'social-cv-en':           '📄 CV (EN)',
       'social-linkedin':        '💼 LinkedIn',
       'social-github':          '🐙 GitHub',
+      'terminal-whoami-output': 'Ben kimim...?',
+      'hero-scroll-cue':        'Daha Fazlasını Keşfet',
 
       /* Hero skills card */
       'skills-card-title':      'Öne Çıkan Uzmanlıklar',
@@ -98,18 +106,18 @@
       /* Projects */
       'proj-label':             'Projeler',
       'section-projects':       'Projeler',
+      'proj-desc-ustasanayicim':   'Oto sanayi işletmelerinin servis, iş emri, araç, müşteri, parça ve finans süreçlerini dijitalleştiren çok kiracılı SaaS platformu. Rol tabanlı paneller, güvenli API yetkilendirmesi ve PostgreSQL RLS politikalarıyla işletmeler arası veri izolasyonu sağlar.',
+      'proj-desc-opsradar':         'JSONL uygulama loglarını yerel olarak işleyen, hassas verileri kayıt öncesinde maskeleyen ve kural tabanlı analizle ilişkili olayları incident\'lara dönüştüren SRE gözlemleme paneli. Olay korelasyonu, servis sağlığı takibi ve incident yönetimi sunar.',
       'proj-desc-orbit-scheduler': 'Uydu ve yer istasyonları arasındaki veri trafiğini otonom yöneten, çakışmaları önleyen ve görev önceliklendirmesine dayalı dinamik planlama mimarisi. IAC 2026 İnteraktif Sunum Kabulü.',
-      'proj-desc-orbital-sense':   'Uzay havası olaylarını anlık izleyen ve kritik altyapılar için NASA telemetri verileriyle potansiyel tehditleri öngören erken uyarı sistemi.',
-      'proj-desc-optikoku':        'OpenCV ile mutlak koordinat analizi yaparak %0 hata payıyla optik form okuyan, anında Excel raporlaması sunan uçtan uca OMR sistemi.',
       'proj-desc-homelab':         'Proxmox üzerinde sanallaştırılmış Linux sunucuları ile kurulan, Cloudflare Tunnel ile güvenli hale getirilen ve Prometheus & Grafana ile anlık izlenen On-Prem laboratuvar ortamı.',
-      'proj-desc-sks':             'Üniversite bünyesindeki tüm öğrenci topluluklarını tek dijital merkezde toplayan, .edu.tr mail doğrulamasıyla güvenli giriş sağlayan etkinlik ve üye yönetim platformu.',
-      'proj-desc-hata-tespit':     'Üretim bandındaki ürünlerde oluşan fiziksel kusurları görüntü işleme algoritmaları ile erkenden tespit ederek fire oranını düşüren Computer Vision otomasyon projesi.',
-      'proj-desc-odeme':           'Bankacılık standartlarına uygun, ACID prensiplerini koruyan, RabbitMQ ile asenkron çalışan mikroservis mimarisinde veri tutarlılığını garanti eden ödeme ağ geçidi simülasyonu.',
+      'proj-desc-fraudcell':        'Finansal işlemleri gerçek bir scikit-learn modeliyle skorlayan ve yüksek riskli vakaları uzman analistlere yönlendiren dört servisli fraud inceleme MVP\'si. Vaka kararlarını transactional outbox ve RabbitMQ üzerinden işleyerek puan, rozet ve leaderboard akışını üretir.',
+      'proj-desc-santiye-mobile':   'İnşaat işletmelerinin şantiye, personel, günlük çalışma, ödeme ve gider süreçlerini tek mobil platformda yöneten, iOS ve Android hedefli çok kiracılı SaaS uygulaması. Rol tabanlı erişim, PostgreSQL RLS ile işletme izolasyonu, başvuru yönetimi ve abonelik kontrol altyapısı sunar.',
       'proj-desc-reklagram':       'İlişkisel ve belge tabanlı veritabanlarının hibrit kullanıldığı Polyglot Persistence mimarisiyle AWS üzerinde çalışan yüksek ölçekli veri yönetim platformu.',
-      'proj-desc-docuchat':        'Kurumsal dokümanları dışarı sızdırmadan analiz eden, RAG (Retrieval-Augmented Generation) mimarisi üzerine kurulu güvenli yapay zeka asistanı.',
       'proj-desc-peak-games':      'Python tabanlı mikroservisin Dockerize edilmesi, Nginx ile Load Balancing sağlanması ve multi-stage build ile optimize edilmesi çalışması.',
-      'proj-desc-elmar-muhasebe':  'Şirket içi finansal süreçleri hızlandıran, manuel iş yükünü minimize eden ve SQL tabanlı dinamik raporlama yapan masaüstü otomasyon yazılımı.',
-      'proj-desc-railguard':       'Demiryolu makas sensörlerinden gelen SCADA verilerini anlık işleyerek YHT hatlarındaki aşınma ve arıza risklerini önceden tespit eden simülasyon ve merkezi izleme paneli. Ulaştırma Bakanlığı fikir yarışması projesi.',
+      'proj-desc-speedgps':        'GPS verisini hibrit ölçüm yaklaşımıyla işleyerek anlık, ortalama ve maksimum hızı gösteren reklamsız PWA hız göstergesi. Sinyal dalgalanmalarını filtreler, bağlantı kesintilerinden sonra güvenli biçimde toparlanır ve mobil kullanımda ekranın açık kalmasını destekler.',
+      'proj-link-live':            'Canlı',
+      'proj-status-private-production': 'Private · Production',
+      'proj-status-private-development': 'Private · Aktif Geliştirme',
 
       /* Certificates */
       'cert-label':             'Başarılar',
@@ -142,6 +150,12 @@
       'nav-certificates':       'Certificates',
       'nav-education':          'Education',
       'nav-contact':            'Contact',
+      'nav-terminal':           'Terminal',
+      'nav-terminal-action':    'Open fullscreen terminal',
+      'terminal-overlay-title': 'Fullscreen terminal',
+      'terminal-overlay-close': '[ESC / Close]',
+      'terminal-overlay-output':'Who am I...?',
+      'hero-terminal-action':   'Open fullscreen terminal',
 
       /* Hero */
       'hero-badge':             'Platform Intern @ GetirFinans',
@@ -152,6 +166,8 @@
       'social-cv-en':           '📄 CV (EN)',
       'social-linkedin':        '💼 LinkedIn',
       'social-github':          '🐙 GitHub',
+      'terminal-whoami-output': 'Who am I...?',
+      'hero-scroll-cue':        'Discover More',
 
       /* Hero skills card */
       'skills-card-title':      'Featured Skills',
@@ -229,18 +245,18 @@
       /* Projects */
       'proj-label':             'Projects',
       'section-projects':       'Projects',
+      'proj-desc-ustasanayicim':   'A multi-tenant SaaS platform that digitalises service orders, vehicles, customers, parts and financial operations for automotive service businesses. It provides tenant-level data isolation through role-based dashboards, secure API authorisation and PostgreSQL RLS policies.',
+      'proj-desc-opsradar':         'A local-first SRE observability dashboard that processes JSONL application logs, redacts sensitive values before persistence and correlates related events into incidents through deterministic rule-based analysis. It provides service health tracking and incident lifecycle management.',
       'proj-desc-orbit-scheduler': 'Autonomous data-traffic management architecture between satellites and ground stations that prevents collisions and enables dynamic mission-priority scheduling. Accepted for IAC 2026 Interactive Presentation.',
-      'proj-desc-orbital-sense':   'Real-time space-weather monitoring system that uses NASA telemetry data to anticipate potential threats to critical infrastructure.',
-      'proj-desc-optikoku':        'End-to-end OMR system that reads optical forms with 0% error margin using absolute-coordinate analysis with OpenCV and delivers instant Excel reports.',
       'proj-desc-homelab':         'On-premises lab environment built with virtualised Linux servers on Proxmox, secured via Cloudflare Tunnel and monitored in real time with Prometheus & Grafana.',
-      'proj-desc-sks':             'Event and membership management platform that consolidates all university student communities in a single digital hub with secure .edu.tr e-mail authentication.',
-      'proj-desc-hata-tespit':     'Computer Vision automation project that detects physical defects on production-line products early using image-processing algorithms, reducing the scrap rate.',
-      'proj-desc-odeme':           'Payment gateway simulation built on a microservice architecture that complies with banking standards, preserves ACID principles and uses RabbitMQ for asynchronous processing.',
+      'proj-desc-fraudcell':        'A four-service fraud investigation MVP that scores financial transactions using a real scikit-learn model and assigns high-risk cases to specialised analysts. Case decisions are processed through a transactional outbox and RabbitMQ to generate points, badges and leaderboard data.',
+      'proj-desc-santiye-mobile':   'A multi-tenant mobile SaaS application for managing construction sites, personnel, daily work, payments and expenses from a unified iOS and Android platform. It provides role-based access, tenant isolation through PostgreSQL RLS, business onboarding and subscription controls.',
       'proj-desc-reklagram':       'High-scale data-management platform running on AWS with a Polyglot Persistence architecture that combines relational and document-based databases.',
-      'proj-desc-docuchat':        'Secure AI assistant built on RAG (Retrieval-Augmented Generation) architecture that analyses corporate documents without leaking them externally.',
       'proj-desc-peak-games':      'Case study covering Dockerisation of a Python-based microservice, Load Balancing with Nginx and optimisation via multi-stage builds.',
-      'proj-desc-elmar-muhasebe':  'Desktop automation software that speeds up internal financial processes, minimises manual workload and generates dynamic SQL-based reports.',
-      'proj-desc-railguard':       'Simulation and centralised monitoring dashboard that processes real-time SCADA data from railway switch sensors to predict wear and failure risks on high-speed rail lines. Ministry of Transport idea competition project.',
+      'proj-desc-speedgps':        'An ad-free PWA speedometer that processes GPS data through a hybrid measurement approach to display current, average and maximum speed. It filters signal fluctuations, recovers safely after connection loss and supports screen wake lock for mobile use.',
+      'proj-link-live':            'Live',
+      'proj-status-private-production': 'Private · Production',
+      'proj-status-private-development': 'Private · Active Development',
 
       /* Certificates */
       'cert-label':             'Achievements',

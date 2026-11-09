@@ -18,55 +18,62 @@
 
   var CONTENT = {
     tr: {
-      declaration: 'const identity = {\n',
-      name: '  name: "Uğur Berktaş",\n',
-      role: '  role: "Platform Mühendisi",\n',
-      focusPrefix: '  focus: "',
-      focusDraft: 'Uygulamalar',
-      focusFinal: 'Altyapı',
-      focusSuffix: '",\n',
-      status: '  status: "İnşa ediliyor..."\n',
-      ending: '};\n',
-      echo: '\nidentity.status;'
+      command: 'whoami\n\n',
+      identity: 'Uğur Berktaş\nDevOps • Cloud • Infrastructure\n\n',
+      declaration: 'const mindset = {\n',
+      focus: '  focus: ["Linux", "Cloud", "Kubernetes", "CI/CD", "Observability"],\n',
+      status: '  status: "Öğreniyor. Üretiyor. İyileştiriyor."\n',
+      ending: '};\n\n',
+      persistence: '// Ayakkabıma taş girse de koşmaya devam ederim.\n\n',
+      reliability: 'while (!system.isReliable()) {\n  observe();\n  debug();\n  automate();\n  improve();\n}\n\n',
+      goalPrefix: 'goal = "',
+      goalDraft: 'Çalışan sistemler',
+      goalFinal: 'Dayanıklı sistemler',
+      goalSuffix: '";\n\n',
+      closing: '> Çalışması başlangıçtır. Güvenilir olması hedeftir.'
     },
     en: {
-      declaration: 'const identity = {\n',
-      name: '  name: "Uğur Berktaş",\n',
-      role: '  role: "Platform Engineer",\n',
-      focusPrefix: '  focus: "',
-      focusDraft: 'Applications',
-      focusFinal: 'Infrastructure',
-      focusSuffix: '",\n',
-      status: '  status: "Building..."\n',
-      ending: '};\n',
-      echo: '\nidentity.status;'
+      command: 'whoami\n\n',
+      identity: 'Uğur Berktaş\nDevOps • Cloud • Infrastructure\n\n',
+      declaration: 'const mindset = {\n',
+      focus: '  focus: ["Linux", "Cloud", "Kubernetes", "CI/CD", "Observability"],\n',
+      status: '  status: "Learning. Building. Improving."\n',
+      ending: '};\n\n',
+      persistence: '// I keep running, even with a stone in my shoe.\n\n',
+      reliability: 'while (!system.isReliable()) {\n  observe();\n  debug();\n  automate();\n  improve();\n}\n\n',
+      goalPrefix: 'goal = "',
+      goalDraft: 'Systems that work',
+      goalFinal: 'Resilient systems',
+      goalSuffix: '";\n\n',
+      closing: '> Making it work is the start. Making it reliable is the goal.'
     }
   };
 
   /* The complete cinematic flow lives here so timing/content can be revised in one place. */
   var TIMELINE = [
     { action: 'wait', duration: 400 },
-    { action: 'wait', duration: 350 },
-    { action: 'type', field: 'declaration', speed: 48 },
-    { action: 'type', field: 'name', speed: 38 },
-    { action: 'wait', duration: 180 },
-    { action: 'type', field: 'role', speed: 38 },
-    { action: 'wait', duration: 220 },
-    { action: 'type', field: 'focusPrefix', speed: 42 },
-    { action: 'type', field: 'focusDraft', speed: 62 },
-    { action: 'wait', duration: 1350 },
-    { action: 'wait', duration: 380 },
-    { action: 'delete', field: 'focusDraft', speed: 62 },
-    { action: 'type', field: 'focusFinal', speed: 44, decisive: true },
-    { action: 'type', field: 'focusSuffix', speed: 36, decisive: true },
-    { action: 'wait', duration: 180 },
-    { action: 'type', field: 'status', speed: 38 },
-    { action: 'type', field: 'ending', speed: 48 },
-    { action: 'wait', duration: 450 },
-    { action: 'type', field: 'echo', speed: 42 },
-    { action: 'wait', duration: 350 },
+    { action: 'type', field: 'command', speed: 38 },
+    { action: 'wait', duration: 260 },
+    { action: 'type', field: 'identity', speed: 24 },
+    { action: 'wait', duration: 240 },
+    { action: 'type', field: 'declaration', speed: 32 },
+    { action: 'type', field: 'focus', speed: 24 },
+    { action: 'type', field: 'status', speed: 22 },
+    { action: 'type', field: 'ending', speed: 28 },
+    { action: 'wait', duration: 260 },
+    { action: 'type', field: 'persistence', speed: 24 },
+    { action: 'type', field: 'reliability', speed: 18 },
+    { action: 'type', field: 'goalPrefix', speed: 30 },
+    { action: 'type', field: 'goalDraft', speed: 34 },
+    { action: 'wait', duration: 850 },
+    { action: 'delete', field: 'goalDraft', speed: 42 },
+    { action: 'type', field: 'goalFinal', speed: 27, decisive: true },
+    { action: 'type', field: 'goalSuffix', speed: 28, decisive: true },
+    { action: 'wait', duration: 320 },
+    { action: 'type', field: 'closing', speed: 22 },
+    { action: 'wait', duration: 600 },
     { action: 'complete' },
-    { action: 'wait', duration: 2600 },
+    { action: 'wait', duration: 2800 },
     { action: 'close' }
   ];
 
@@ -455,15 +462,18 @@
   var audio = createAudioEngine();
 
   function getFinalText(content) {
-    return content.declaration
-      + content.name
-      + content.role
-      + content.focusPrefix
-      + content.focusFinal
-      + content.focusSuffix
+    return content.command
+      + content.identity
+      + content.declaration
+      + content.focus
       + content.status
       + content.ending
-      + content.echo;
+      + content.persistence
+      + content.reliability
+      + content.goalPrefix
+      + content.goalFinal
+      + content.goalSuffix
+      + content.closing;
   }
 
   function appendToken(parent, className, value) {

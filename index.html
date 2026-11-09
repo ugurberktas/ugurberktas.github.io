@@ -76,7 +76,7 @@
   <!-- ── Stylesheets ── -->
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/navbar.css?v=20261108-1" />
-  <link rel="stylesheet" href="assets/css/terminal-overlay.css" />
+  <link rel="stylesheet" href="assets/css/terminal-overlay.css?v=20261109-1" />
   <link rel="stylesheet" href="assets/css/hero.css?v=20261108-1" />
   <link rel="stylesheet" href="assets/css/about.css?v=20261108-3" />
   <link rel="stylesheet" href="assets/css/experience.css?v=20261108-2" />
@@ -187,41 +187,31 @@
 
     <div class="terminal-overlay-shell">
       <div class="terminal-overlay-header">
-        <div class="terminal-overlay-identity" aria-hidden="true">
-          <svg class="terminal-overlay-icon" viewBox="0 0 24 24">
-            <rect x="2.5" y="4" width="19" height="16" rx="2.5"></rect>
-            <path d="m7 9 3 3-3 3"></path>
-            <path d="M13 15h4"></path>
-          </svg>
-          <span>ugur@portfolio:~</span>
-        </div>
-
-        <div class="terminal-overlay-controls">
+        <div class="terminal-window-controls">
           <button
             type="button"
-            class="terminal-sound-toggle"
-            id="terminal-sound-toggle"
-            aria-pressed="true"
-          >
-            <svg class="terminal-sound-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M11 5 6.5 9H3v6h3.5l4.5 4z"></path>
-              <path d="M15 9.5a4 4 0 0 1 0 5"></path>
-              <path d="M17.5 7a7.5 7.5 0 0 1 0 10"></path>
-            </svg>
-            <span id="terminal-sound-label">Ses: Açık</span>
-          </button>
-
-          <button
-            type="button"
-            class="terminal-overlay-close"
+            class="terminal-window-control terminal-window-close"
             id="terminal-overlay-close"
-            data-lang-key="terminal-overlay-close"
-          >[ESC / Kapat]</button>
+          >
+            <span class="sr-only" data-lang-key="terminal-overlay-close">Terminali kapat</span>
+          </button>
+          <span class="terminal-window-control terminal-window-minimize" aria-hidden="true"></span>
+          <span class="terminal-window-control terminal-window-expand" aria-hidden="true"></span>
         </div>
+
+        <div class="terminal-overlay-identity" aria-hidden="true">
+          <span>ugur — zsh — 80×24</span>
+        </div>
+
+        <div class="terminal-overlay-header-spacer" aria-hidden="true"></div>
       </div>
 
       <div class="terminal-overlay-body" aria-live="off">
         <div class="terminal-sequence-stage" aria-hidden="true">
+          <div class="terminal-session-intro">
+            <span class="terminal-session-login">Last login: today on ttys001</span>
+            <span class="terminal-session-prompt"><strong>ugur@portfolio</strong> ~ %</span>
+          </div>
           <div class="terminal-sequence-editor" id="terminal-sequence-editor"></div>
         </div>
         <p class="sr-only" id="terminal-sequence-accessible">const identity = { name: "Uğur Berktaş", role: "Platform Mühendisi", focus: "Altyapı", status: "İnşa ediliyor..." };</p>
@@ -1365,9 +1355,9 @@
   <!-- ── Scripts ── -->
   <script src="assets/js/navbar.js?v=20261108-1"></script>
   <script src="assets/js/animations.js"></script>
-  <script src="assets/js/lang.js?v=20261108-1"></script>
+  <script src="assets/js/lang.js?v=20261109-1"></script>
   <script src="assets/js/nav-terminal.js?v=20261108-1"></script>
-  <script src="assets/js/terminal-sequence.js"></script>
+  <script src="assets/js/terminal-sequence.js?v=20261109-1"></script>
   <script src="assets/js/projects.js?v=20261108-1"></script>
   <script src="assets/js/certificates.js?v=20261108-1"></script>
   <script src="assets/js/main.js?v=20261108-1"></script>

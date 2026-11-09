@@ -15,7 +15,7 @@
       'nav-terminal':           'Terminal',
       'nav-terminal-action':    'Tam ekran terminali aç',
       'terminal-overlay-title': 'Tam ekran terminal',
-      'terminal-overlay-close': '[ESC / Kapat]',
+      'terminal-overlay-close': 'Terminali kapat',
       'terminal-overlay-output':'Ben kimim...?',
       'hero-terminal-action':   'Tam ekran terminali aç',
 
@@ -152,7 +152,7 @@
       'nav-terminal':           'Terminal',
       'nav-terminal-action':    'Open fullscreen terminal',
       'terminal-overlay-title': 'Fullscreen terminal',
-      'terminal-overlay-close': '[ESC / Close]',
+      'terminal-overlay-close': 'Close terminal',
       'terminal-overlay-output':'Who am I...?',
       'hero-terminal-action':   'Open fullscreen terminal',
 
